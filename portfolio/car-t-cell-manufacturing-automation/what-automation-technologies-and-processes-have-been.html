@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="report-tone" content="executive">
+  <title>What automation technologies and processes have been developed and validated for CAR-T cell manufacturing, and what are their effects on production efficiency, cell quality, and manufacturing cost?</title>
+<style>
+  /* === Base typography === */
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    max-width: 920px; margin: 40px auto; padding: 0 28px;
+    color: #1a1a1a; line-height: 1.75; font-size: 15px;
+    background: #fff;
+  }
+  h1 {
+    font-size: 1.65em; border-bottom: 2px solid #2c3e50;
+    padding-bottom: 0.3em; margin-top: 1.5em; color: #1a1a1a;
+  }
+  h2 {
+    font-size: 1.32em; border-bottom: 1px solid #ddd;
+    padding-bottom: 0.2em; margin-top: 1.6em; color: #2c3e50;
+  }
+  h3 { font-size: 1.08em; margin-top: 1.3em; color: #34495e; }
+  h4 { font-size: 1.0em; margin-top: 1em; color: #555; }
+  p  { margin: 0.65em 0; }
+  ul, ol { margin: 0.6em 0 0.6em 1.4em; }
+  li { margin: 0.2em 0; }
+
+  /* === Tables === */
+  table {
+    border-collapse: collapse; width: 100%; margin: 1.2em 0;
+    font-size: 0.91em;
+  }
+  th, td {
+    border: 1px solid #d5d8dc; padding: 7px 12px; text-align: left;
+  }
+  th { background: #f2f4f6; font-weight: 600; color: #2c3e50; }
+  tr:nth-child(even) { background: #fafbfc; }
+
+  /* === Blockquotes (default) === */
+  blockquote {
+    border-left: 4px solid #bdc3c7; margin: 1.2em 0;
+    padding: 0.6em 1em; color: #555; background: #fafafa;
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* === Insight callouts === */
+  blockquote.callout-insight {
+    border-left-color: #2980b9; background: #eaf2f8; color: #1a1a1a;
+  }
+  blockquote.callout-insight strong:first-child {
+    color: #2471a3;
+  }
+
+  /* === Finding callouts === */
+  blockquote.callout-finding {
+    border-left-color: #27ae60; background: #eafaf1; color: #1a1a1a;
+  }
+  blockquote.callout-finding strong:first-child {
+    color: #1e8449;
+  }
+
+  /* === APA citation tooltips === */
+  .cite {
+    color: #2c3e50; cursor: help; position: relative;
+    border-bottom: 1px dotted #7f8c8d;
+  }
+  .cite:hover { color: #2980b9; border-bottom-color: #2980b9; }
+
+  .cite-tooltip {
+    display: none; position: absolute; bottom: calc(100% + 6px);
+    left: 50%; transform: translateX(-50%);
+    background: #2c3e50; color: #ecf0f1;
+    padding: 8px 14px; border-radius: 6px;
+    font-size: 0.82em; line-height: 1.5;
+    white-space: normal; width: max-content; max-width: 420px;
+    z-index: 100; box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+    pointer-events: none;
+  }
+  .cite-tooltip::after {
+    content: ''; position: absolute; top: 100%; left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent; border-top-color: #2c3e50;
+  }
+  .cite:hover .cite-tooltip { display: block; }
+
+  /* === Metadata banner === */
+  .meta {
+    color: #666; font-size: 0.86em; margin-bottom: 2em;
+    padding-bottom: 1em; border-bottom: 1px solid #eee;
+  }
+
+  /* === Code === */
+  code {
+    background: #f4f4f4; padding: 1px 5px; border-radius: 3px;
+    font-size: 0.9em;
+  }
+  pre {
+    background: #f4f4f4; padding: 12px; border-radius: 4px;
+    overflow-x: auto;
+  }
+</style>
+</head>
+<body>
+<div id="ev-nav" style="
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  max-width: 960px; margin: 0 auto; padding: 12px 24px;
+  display: flex; gap: 20px; align-items: center;
+  font-size: 0.85rem; border-bottom: 1px solid #e2e8f0;
+  background: #fff; position: sticky; top: 0; z-index: 9999;
+">
+  <span style="font-weight: 700; font-size: 0.95rem; color: #2c3e50; margin-right: auto;">Evidensity Research</span>
+  <a href="/evidensity-reports/" style="color: #64748b; text-decoration: none;">Home</a>
+  <a href="/evidensity-reports/portfolio/" style="color: #64748b; text-decoration: none;">Portfolio</a>
+  <a href="/evidensity-reports/services/" style="color: #64748b; text-decoration: none;">Services</a>
+  <a href="/evidensity-reports/contact.html" style="color: #64748b; text-decoration: none;">Contact</a>
+</div>
+
+<p class="meta">Domain: <strong>car_t_cell_manufacturing_automation</strong> &nbsp;|&nbsp; Generated: 20260415_225548</p>
+<h1>Automation in CAR-T Cell Manufacturing: Evidence Review and Strategic Implications</h1>
+<h2>Bottom Line</h2>
+<p>The evidence directly demonstrates that automation in CAR-T cell manufacturing—spanning closed-system platforms, stirred-tank bioreactors, and emerging microfluidic technologies—delivers clinically relevant improvements in cell yield, batch consistency, and manufacturing cost. The CliniMACS Prodigy platform, validated across <strong>seven or more independent studies</strong> and <strong>more than 100 manufacturing cycles</strong>, has become the reference standard for semi-automated GMP-compliant production. Microfluidic and digital platforms are emerging as credible alternatives, particularly for point-of-care and decentralised settings, but require further multi-site validation before broad adoption.</p>
+<hr />
+<h2>Key Findings</h2>
+<ol>
+<li>
+<p><strong>Automated closed-system platforms are the proven standard for GMP-compliant CAR-T production.</strong> Strong evidence from <strong>seven or more studies</strong> confirms that the CliniMACS Prodigy consistently produces therapeutic doses of <strong>10⁹-level CAR+ T cells</strong> with &gt;90% purity and batch success rates of <strong>96.4%</strong> (27/28 products) across diverse clinical settings. <span class="cite" data-info="Automated Manufacturing of Potent CD20-Directed Chimeric Antigen Receptor T Cells for Clinical Use. | Dominik Lock; Nadine Mockel-Tenbrinck; Katharina Drechsel; Carola Barth; Daniela Mauer; Thomas Schaser | 2017 | Human gene therapy | DOI: 10.1089/hum.2017.111">Lock et al. (2017)</span> demonstrated that "independent of the starting material, operator, or device, the process consistently yielded a therapeutic dose of highly viable CAR T cells." Critically, automated closed systems also reduce batch failures <strong>threefold</strong> compared to open manual processing (Woods et al., 2025), directly reducing patient risk and programme cost.</p>
+</li>
+<li>
+<p><strong>Stirred-tank bioreactors with controlled agitation outperform static culture for T-cell expansion.</strong> The evidence from <strong>four or more studies</strong> indicates automated stirred-tank bioreactors achieve <strong>5–15-fold higher viable cell densities</strong> versus static flask or bag culture, with viable cell densities exceeding <strong>5 × 10⁶ cells/mL</strong> over seven days (Costariol et al., 2020). Optimised agitation protocols matter: constant <strong>75 RPM</strong> yielded 15-fold T-cell expansion versus 10-fold with variable speed protocols (Gatla et al., 2022). Perfusion bioreactor systems extend this further, with hollow-fiber platforms achieving <strong>150–200-fold expansion</strong> in seven days (Marshall et al., 2025), enabling reduced seed inocula and shorter culture cycles.</p>
+</li>
+<li>
+<p><strong>Hydroporation outperforms electroporation for non-viral intracellular delivery.</strong> Emerging evidence from <strong>four independent studies</strong> using microfluidic vortex shedding (hydroporation) consistently shows <strong>1.7–2.0-fold higher CAR-T cell yields</strong> compared to electroporation and nucleofection, with superior post-transfection viability (~70%), lower cell death rates (~40% vs. ~80% killing index), and a <strong>3.2–3.6-fold faster</strong> proliferation rate (Sytsma et al., 2025).</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>Evidence:</strong> "hydroporation yielded 1.7x and 2.0x more CAR-Ts, on average, than electroporation and nucleofection" — <span class="cite" data-info="Scalable intracellular delivery via microfluidic vortex shedding enhances the function of chimeric antigen receptor T-cells. | Brandon J Sytsma; Vincent Allain; Struan Bourke; Fairuz Faizee; Mohsen Fathi; Leonardo M R Ferreira | 2025 | Scientific reports | DOI: 10.1038/s41598-025-89070-5">Sytsma et al. (2025)</span></p>
+</blockquote>
+<ol>
+<li>
+<p><strong>Microfluidic enrichment offers a label-free, scalable alternative to magnetic bead selection for starting material preparation.</strong> The evidence from <strong>three studies</strong> shows that inertial microfluidic platforms can enrich T-lymphocyte purity from <strong>65% to 91%</strong> with <strong>80–87% recovery</strong> from apheresis-like material (Elsemary et al., 2026; Elsemary et al., 2024), and deterministic lateral displacement (DLD) microfluidics achieves <strong>88% leukocyte recovery</strong> versus <strong>58%</strong> with Ficoll density gradient (Skelley et al., 2025). Elimination of magnetic beads simplifies the manufacturing process and reduces consumable cost, but multi-site clinical validation is not yet established.</p>
+</li>
+<li>
+<p><strong>Automation reduces manufacturing cost and time, but quantitative evidence is limited.</strong> The evidence base for cost reduction is narrower (<strong>3–5 sources</strong>). Automation has been shown to reduce manufacturing time from <strong>10 days to 6 days</strong> (Lu et al., 2016), reduce facility costs by lowering personnel requirements and cleanroom grade demands (Weltin et al., 2025), and digital microfluidic platforms (triDrop) claim up to a <strong>20-fold cost reduction</strong> through miniaturisation (Little et al., 2025). The largest cost savings are confirmed for semi-automated closed systems at the facility level; microfluidic platform cost claims are based on theoretical models and require real-world validation.</p>
+</li>
+</ol>
+<blockquote class="callout-insight">
+<p><strong>Key Insight:</strong> The disagreement between bag-culture and Prodigy manufacturing in clinical outcome data (Dreyzin et al., 2026; n=57) reflects equivalent patient response rates—but this does not negate manufacturing advantages. Batch consistency, contamination reduction, and cost efficiency favour automation regardless of short-term clinical equivalence.</p>
+</blockquote>
+<hr />
+<h2>Evidence Landscape</h2>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Papers analysed</td>
+<td><strong>74</strong> with quantitative results; <strong>72</strong> (97%) provided usable outcome data</td>
+</tr>
+<tr>
+<td>Credibility tiers</td>
+<td>0 high, <strong>44 medium</strong>, 24 low, 6 uncertain</td>
+</tr>
+<tr>
+<td>Most common outcome metrics</td>
+<td>Cell yield/expansion (58 papers), transduction efficiency (51), cell viability/phenotype (47)</td>
+</tr>
+<tr>
+<td>Key gap</td>
+<td>Cost-per-dose data available in only <strong>5 papers</strong>; multi-centre platform comparisons are rare</td>
+</tr>
+</tbody>
+</table>
+<p>The primary limitation is that credibility is predominantly at the medium tier: process parameters are inconsistently reported across studies, sample sizes for platform validation are often small (n=7–20 manufacturing runs), and few papers include independent multi-site replication. Clinical comparative studies are particularly underpowered (n=16–57 per cohort).</p>
+<hr />
+<h2>Where the Evidence Disagrees</h2>
+<p>The evidence is broadly consistent on the superiority of automation over manual processing. The main tension is methodological: bag-culture platforms achieve higher raw expansion (<strong>481-fold</strong> vs. <strong>84-fold</strong> for Prodigy; Song et al., 2024) but at the cost of open-system contamination risk and operator dependency. A second unresolved question concerns optimal phenotype targets: central memory (T_CM) phenotypes associated with longer persistence versus effector-activated phenotypes with superior acute cytotoxicity represent a genuine manufacturing trade-off, with the optimal choice dependent on clinical indication. Cost reduction magnitude also varies substantially by accounting methodology across studies, precluding a single definitive figure.</p>
+<hr />
+<h2>Scope and Limitations</h2>
+<ul>
+<li><strong>Publication bias towards positive results</strong>: Batch failure data and negative manufacturing outcomes are underreported; the 96.4% success rate from <span class="cite" data-info="Point-Of-Care CAR T-Cell Production (ARI-0001) Using a Closed Semi-automatic Bioreactor: Experience From an Academic Phase I Clinical Trial. | Maria Castella; Miguel Caballero-Baños; Valentín Ortiz-Maldonado; Europa Azucena González-Navarro; Guillermo Suñé; Asier Antoñana-Vidósola | 2020 | Frontiers in immunology | DOI: 10.3389/fimmu.2020.00482">Castella et al. (2020)</span> may not reflect real-world heterogeneity across all institutions.</li>
+<li><strong>Search scope limitations</strong>: Only English-language publications were included; manufacturing data from Japan, South Korea, and China may be underrepresented despite those countries' significant CAR-T production activity.</li>
+<li><strong>Technology maturity imbalance</strong>: CliniMACS Prodigy is validated across &gt;100 cycles across multiple sites; microfluidic and digital electroporation platforms are based on pilot-scale data (n=1–3 sites, small batch numbers) and cannot yet be treated as equivalent in evidence weight.</li>
+<li><strong>Cost modelling</strong>: Production cost-per-dose data derives from only 3–5 sources, with different accounting methods (facility, consumable, personnel, amortisation); figures are not directly comparable across studies.</li>
+<li><strong>No head-to-head randomised manufacturing platform comparisons</strong>: All platform comparisons are non-randomised, often retrospective, and subject to selection bias in starting material quality.</li>
+<li><strong>Year range limitation</strong>: Papers from 2012–2026 were searched; landmark early manual processes (pre-2012) were excluded, potentially understating the baseline improvement attributable to automation.</li>
+</ul>
+<hr />
+<h2>References</h2>
+<p>Aleksandrova, K., Leise, J., Priesner, C., Melk, A., Kubaink, F., &amp; Abken, H. (2019). Functionality and Cell Senescence of CD4/CD8-Selected CD20 CAR T Cells Manufactured Using the Automated CliniMACS Prodigy® Platform. <em>Transfusion Medicine and Hemotherapy</em>, 46. https://doi.org/10.1159/000495772</p>
+<p>Aleksandrova, K., Leise, J., Priesner, C., Aktas, M., Apel, M., &amp; Assenmacher, M. (2024). Automated manufacturing and characterization of clinical grade autologous CD20 CAR T cells for the treatment of patients with stage III/IV melanoma. <em>Frontiers in Immunology</em>. https://doi.org/10.3389/fimmu.2024.1328368</p>
+<p>Alzubi, J., Lock, D., Rhiel, M., Schmitz, S., Wild, S., &amp; Mussolino, C. (2021). Automated generation of gene-edited CAR T cells at clinical scale. <em>Molecular Therapy. Methods &amp; Clinical Development</em>, 20. https://doi.org/10.1016/j.omtm.2020.12.008</p>
+<p>Arcangeli, S., Falcone, L., Camisa, B., De Girardi, F., Biondi, M., &amp; Giglio, F. (2020). Next-Generation Manufacturing Protocols Enriching TSCM CAR T Cells Can Overcome Disease-Specific T Cell Defects in Cancer Patients. <em>Frontiers in Immunology</em>. https://doi.org/10.3389/fimmu.2020.01217</p>
+<p>Auw, N. von, Serfling, R., Kitte, R., Hilger, N., Zhang, C., &amp; Gebhardt, C. (2023). Comparison of two lab-scale protocols for enhanced mRNA-based CAR-T cell generation and functionality. <em>Scientific Reports</em>. https://doi.org/10.1038/s41598-023-45197-x</p>
+<p>Blaeschke, F., Stenger, D., Kaeuferle, T., Willier, S., Lotfi, R., &amp; Kaiser, A. D. (2018). Induction of a central memory and stem cell memory phenotype in functionally active CD4+ and CD8+ CAR T cells produced in an automated good manufacturing practice system for the treatment of CD19+ acute lymphoblastic leukemia. <em>Cancer Immunology, Immunotherapy</em>. https://doi.org/10.1007/s00262-018-2155-7</p>
+<p>Campos-González, R., Skelley, A. M., Gandhi, K., Inglis, D. W., Sturm, J. C., &amp; Civin, C. I. (2018). Deterministic Lateral Displacement: The Next-Generation CAR T-Cell Processing? <em>SLAS Technology</em>. https://doi.org/10.1177/2472630317751214</p>
+<p>Castella, M., Caballero-Baños, M., Ortiz-Maldonado, V., González-Navarro, E. A., Suñé, G., &amp; Antoñana-Vidósola, A. (2020). Point-Of-Care CAR T-Cell Production (ARI-0001) Using a Closed Semi-automatic Bioreactor: Experience From an Academic Phase I Clinical Trial. <em>Frontiers in Immunology</em>. https://doi.org/10.3389/fimmu.2020.00482</p>
+<p>Chan, Z. X., Chelvam, S. P., Sin, W.-X., Teo, D. B. L., Rahim, A. A. B. A., &amp; Wu, Y. Y. (2025). Automated, aseptic sampling with small-volume capacity from microbioreactors for cell therapy process analysis. <em>Frontiers in Bioengineering and Biotechnology</em>. https://doi.org/10.3389/fbioe.2025.1612648</p>
+<p>Chen, J., &amp; Xia, X. (2019). Abstract A026: Novel electroporation method for quick CAR-T-cell manufacture. <em>Cancer Immunology Research</em>. https://doi.org/10.1158/2326-6074.cricimteatiaacr18-a026</p>
+<p>Cheung, K.-W., Kairi, F., Teo, D. B. L., Sin, W.-X., Luah, Y. H., &amp; Chen, Y. (2025). Use of cellular FAD autofluorescence as a label-free cellular attribute for the production of chimeric antigen receptor T cells. <em>Cytotherapy</em>. https://doi.org/10.1016/j.jcyt.2025.05.002</p>
+<p>Costariol, E., Rotondi, M., Amini, A., Hewitt, C. J., Nienow, A. W., &amp; Heathman, T. R. J. (2019). Establishing the scalable manufacture of primary human T-cells in an automated stirred-tank bioreactor. <em>Biotechnology and Bioengineering</em>. https://doi.org/10.1002/bit.27088</p>
+<p>Costariol, E., Rotondi, M. C., Amini, A., Hewitt, C. J., Nienow, A. W., &amp; Heathman, T. R. J. (2020). Demonstrating the Manufacture of Human CAR-T Cells in an Automated Stirred-Tank Bioreactor. <em>Biotechnology Journal</em>. https://doi.org/10.1002/biot.202000177</p>
+<p>Dolinski, B., Chaturvedi, V., Humes, D., Proano, C., Ott, M., &amp; Moreno, J. (2023). Abstract 2734: Modulation of resting T cell status to enhance transduction and CAR T expansion following exposure to CD8-targeted fusosomes. <em>Cancer Research</em>. https://doi.org/10.1158/1538-7445.am2023-2734</p>
+<p>Dreyzin, A., Kramer, A. M., Yates, B., Wang, H.-W., Sahaf, B., &amp; Yuan, C. (2026). Outcomes following CD22 CAR T-cells in B-ALL: a tale of two manufacturing strategies. <em>Cytotherapy</em>. https://doi.org/10.1016/j.jcyt.2025.09.013</p>
+<p>Edwards, W., Sun, N., Wang, Y., Lu, Y., Wang, C., &amp; Mastronicola, D. (2026). Perfusion microbioreactor for CAR-Treg manufacturing. <em>iScience</em>. https://doi.org/10.1016/j.isci.2026.115246</p>
+<p>Elsemary, M. T., Maritz, M. F., Smith, L. E., Warkiani, M. E., &amp; Thierry, B. (2024). Enrichment of T-lymphocytes from leukemic blood using inertial microfluidics toward improved chimeric antigen receptor-T cell manufacturing. <em>Cytotherapy</em>. https://doi.org/10.1016/j.jcyt.2024.05.005</p>
+<p>Elsemary, M. T., Maritz, M. F., Smith, L. E., Warkiani, M. E., &amp; Thierry, B. (2026). Two-stage inertial microfluidics enrichment of activated T-cells towards a bead-less chimeric antigen receptor manufacturing protocol. <em>Medical Oncology</em>. https://doi.org/10.1007/s12032-026-03276-9</p>
+<p>Ferdous, S., Shihab, I. F., Chowdhury, R., &amp; Reuel, N. F. (2023). Reinforcement learning-guided control strategies for CAR T-cell activation and expansion. https://doi.org/10.1101/2023.07.14.548968</p>
+<p>Foscarini, A., Romano, F., Garzarelli, V., Turco, A., Bramanti, A. P., &amp; Tarantini, I. (2024). A Microfluidic-Based Sensing Platform for Rapid Quality Control on Target Cells from Bioreactors. <em>Sensors</em>. https://doi.org/10.3390/s24227329</p>
+<p>Gatla, H., Uth, N., Levinson, Y., Navaei, A., Sargent, A., &amp; Ramaswamy, S. (2022). Enabling Allogeneic T Cell-Based Therapies: Scalable Stirred-Tank Bioreactor Mediated Manufacturing. <em>Frontiers in Medical Technology</em>. https://doi.org/10.3389/fmedt.2022.850565</p>
+<p>Glienke, W., Dragon, A. C., Zimmermann, K., Martyniszyn-Eiben, A., Mertens, M., &amp; Abken, H. (2022). GMP-Compliant Manufacturing of TRUCKs: CAR T Cells targeting GD2 and Releasing Inducible IL-18. <em>Frontiers in Immunology</em>. https://doi.org/10.3389/fimmu.2022.839783</p>
+<p>Gupta, D., &amp; Shaz, B. (2025). Surveying local CAR T-cell manufacturing processes to facilitate standardization and expand accessibility. <em>Journal of Translational Medicine</em>. https://doi.org/10.1186/s12967-025-06400-x</p>
+<p>Hood, T., Slingsby, F., Sandner, V., Geis, W., Schmidberger, T., &amp; Bevan, N. (2024). A quality-by-design approach to improve process understanding and optimise the production and quality of CAR-T cells in automated stirred-tank bioreactors. <em>Frontiers in Immunology</em>. https://doi.org/10.3389/fimmu.2024.1335932</p>
+<p>Jackson, Z., Roe, A., Sharma, A. A., Lopes, F. B. T. P., Talla, A., &amp; Kleinsorge-Block, S. (2020). Automated Manufacture of Autologous CD19 CAR-T Cells for Treatment of Non-hodgkin Lymphoma. <em>Frontiers in Immunology</em>. https://doi.org/10.3389/fimmu.2020.01941</p>
+<p>Jeon, H., Perez, C. R., Kyung, T., Birnbaum, M. E., &amp; Han, J. (2024). Separation of Activated T Cells Using Multidimensional Double Spiral (MDDS) Inertial Microfluidics for High-Efficiency CAR T Cell Manufacturing. <em>Analytical Chemistry</em>. https://doi.org/10.1021/acs.analchem.4c01981</p>
+<p>Kekre, N., Hay, K. A., Webb, J. R., Mallick, R., Balasundaram, M., &amp; Sigrist, M. K. (2022). CLIC-01: Manufacture and distribution of non-cryopreserved CAR-T cells for patients with CD19 positive hematologic malignancies. <em>Frontiers in Immunology</em>. https://doi.org/10.3389/fimmu.2022.1074740</p>
+<p>Keyer, V., Kydyrbayeva, A., Kulatay, T., Zauatbayeva, G., Bazhenov, D., &amp; Ingirbay, B. (2025). Introducing CAR-T Therapy in Kazakhstan: Establishing Academic-Scale Lentiviral Vector and CAR-T Cell Production. <em>Biomolecules</em>. https://doi.org/10.3390/biom15081166</p>
+<p>Kim, H., Kim, S., Lim, H., &amp; Chung, A. J. (2024). Expanding CAR-T cell immunotherapy horizons through microfluidics. <em>Lab on a Chip</em>. https://doi.org/10.1039/d3lc00622k</p>
+<p>Lakshmi, K., von Jutrzenka-Trzebiatowski, A., Loureiro, L., González Soto, K. E., Peter, K., &amp; Marín Morales, J. M. (2025). Automated GMP-compatible production of universal CAR Tregs for organ-targeted tolerance induction. <em>Journal of Translational Medicine</em>. https://doi.org/10.1186/s12967-025-07431-0</p>
+<p>Lamas, R., Ulrey, R., Ahuja, S., &amp; Sargent, A. (2022). Changes to culture pH and dissolved oxygen can enhance chimeric antigen receptor T-cell generation and differentiation. <em>Biotechnology Progress</em>. https://doi.org/10.1002/btpr.3275</p>
+<p>Lim, J., Oh, D., Cheng, M., Chintapula, U., Liu, S., &amp; Reynolds, D. (2025). Enhancing Chimeric Antigen Receptor T-Cell Generation via Microfluidic Mechanoporation and Lipid Nanoparticles. <em>Small</em>. https://doi.org/10.1002/smll.202410975</p>
+<p>Little, S. R., Rahbari, N., Hajiaghayi, M., Gholizadeh, F., Cloarec-Ung, F.-M., &amp; Phillips, J. (2025). A Digital Microfluidic Platform for the Microscale Production of Functional Immune Cell Therapies. <em>Analytical Chemistry</em>. https://doi.org/10.1021/acs.analchem.4c06911</p>
+<p>Lock, D., Mockel-Tenbrinck, N., Drechsel, K., Barth, C., Mauer, D., &amp; Schaser, T. (2017). Automated Manufacturing of Potent CD20-Directed Chimeric Antigen Receptor T Cells for Clinical Use. <em>Human Gene Therapy</em>. https://doi.org/10.1089/hum.2017.111</p>
+<p>Lock, D., Monjezi, R., Brandes, C., Bates, S., Lennartz, S., &amp; Teppert, K. (2022). Automated, scaled, transposon-based production of CAR T cells. <em>Journal for Immunotherapy of Cancer</em>. https://doi.org/10.1136/jitc-2022-005189</p>
+<p>Lu, T. L., Pugach, O., Somerville, R., Rosenberg, S. A., Kochenderfer, J. N., &amp; Better, M. (2016). A Rapid Cell Expansion Process for Production of Engineered Autologous CAR-T Cell Therapies. <em>Human Gene Therapy Methods</em>. https://doi.org/10.1089/hgtb.2016.120</p>
+<p>Luanpitpong, S., Klaihmon, P., Janan, M., Kungwankiattichai, S., Owattanapanich, W., &amp; Kunacheewa, C. (2024). Point-of-care manufacturing of anti-CD19 CAR-T cells using a closed production platform: Experiences of an academic in Thailand. <em>Molecular Therapy. Oncology</em>. https://doi.org/10.1016/j.omton.2024.200889</p>
+<p>Luostarinen, A., Vuorela, A., Kerkelä, E., Patrikoski, M., Kotovuori, A., &amp; Koski, J. (2025). Establishing a GMP-compliant manufacturing process and phase-appropriate analytics for early development of a FiCAR T-cell product with a novel CAR spacer. <em>Scientific Reports</em>. https://doi.org/10.1038/s41598-025-92736-9</p>
+<p>Malakhova, E., Pershin, D., Kulakovskaya, E., Vedmedskaia, V., Fadeeva, M., &amp; Lodoeva, O. (2024). Extended characterization of anti-CD19 CAR T cell products manufactured at the point of care using the CliniMACS Prodigy system: comparison of donor sources and process duration. <em>Cytotherapy</em>. https://doi.org/10.1016/j.jcyt.2024.02.025</p>
+<p>Mão, C. V., &amp; Lê, C. (2025). Research on the production of mRNA encoding Sleeping Beauty transposase in CAR-T cell engineering. <em>Tạp chí Y học Quân sự</em>. https://doi.org/10.59459/1859-1655/jmm.606</p>
+<p>Marshall, K., Mastro, M., Nankervis, B., Shahid, S., Ciasullo, G., &amp; Smith, T. (2025). Rapid manufacture of low-seed CAR-T cells in a GMP-grade hollow-fiber bioreactor platform. <em>Cytotherapy</em>. https://doi.org/10.1016/j.jcyt.2024.11.003</p>
+<p>Morley, E. J., Brockett, C. L., &amp; Verbruggen, S. W. (2024). Analytical and computational studies predict negligible risk of cell death from eddy generation off flat surfaces in cell culture flow systems. <em>Frontiers in Bioengineering and Biotechnology</em>. https://doi.org/10.3389/fbioe.2024.1340653</p>
+<p>Mucha, M., Štach, M., Kaštánková, I., Rychlá, J., Vydra, J., &amp; Lesný, P. (2024). Good manufacturing practice-grade generation of CD19 and CD123-specific CAR-T cells using piggyBac transposon and allogeneic feeder cells in patients diagnosed with B-cell non-Hodgkin lymphoma and acute myeloid leukemia. <em>Frontiers in Immunology</em>. https://doi.org/10.3389/fimmu.2024.1415328</p>
+<p>Nicod, C., Neto da Rocha, M., Warda, W., Roussel, X., Haderbache, R., &amp; Seffar, E. (2023). CAR-T cells targeting IL-1RAP produced in a closed semiautomatic system are ready for the first phase I clinical investigation in humans. <em>Current Research in Translational Medicine</em>. https://doi.org/10.1016/j.retram.2023.103385</p>
+<p>Noaks, E., Peticone, C., Kotsopoulou, E., &amp; Bracewell, D. G. (2021). Enriching leukapheresis improves T cell activation and transduction efficiency during CAR T processing. <em>Molecular Therapy – Methods &amp; Clinical Development</em>. https://doi.org/10.1016/j.omtm.2021.02.002</p>
+<p>Palani, H. K., Arunachalam, A. K., Yasar, M., Venkatraman, A., Kulkarni, U., &amp; Lionel, S. A. (2023). Decentralized manufacturing of anti CD19 CAR-T cells using CliniMACS Prodigy®: real-world experience and cost analysis in India. <em>Bone Marrow Transplantation</em>. https://doi.org/10.1038/s41409-022-01866-5</p>
+<p>Pinot, L., Saßor, A., Möker, N., Zhang, C., Verhoeyen, E., &amp; Villacorta Hidalgo, J. (2025). Transduction of γδ T cells with Baboon envelope pseudotyped lentiviral vector encoding chimeric antigen receptors for translational and clinical applications. <em>Frontiers in Immunology</em>. https://doi.org/10.3389/fimmu.2025.1548630</p>
+<p>Pirrottina, A., Renzi, S., Digiacomo, L., Giulimondi, F., De Lorenzi, V., &amp; Ghignoli, S. (2025). Precondensed Plasmid DNA Enhances CAR-T Cell Generation via Lipid Nanoparticles. <em>ACS Omega</em>. https://doi.org/10.1021/acsomega.5c04308</p>
+<p>Pisani, I., Melita, G., Borges de Souza, P., Galimberti, S., Savino, A. M., &amp; Sarno, J. (2025). Optimized GMP-grade production of non-viral Sleeping Beauty-generated CARCIK cells for enhanced fitness and clinical scalability. <em>Journal of Translational Medicine</em>. https://doi.org/10.1186/s12967-025-06416-3</p>
+<p>Remley, V. A., Jin, J., Sarkar, S., Moses, L., Prochazkova, M., &amp; Cai, Y. (2021). High efficiency closed-system gene transfer using automated spinoculation. <em>Journal of Translational Medicine</em>. https://doi.org/10.1186/s12967-021-03126-4</p>
+<p>Ren, M., Wang, X., Chen, J., Xu, Y., Sun, Y., &amp; Liu, T. (2025). Cryopreserved leukapheresis enables scalable and distributed CAR-T manufacturing: a multi-platform comparative study. <em>Scientific Reports</em>. https://doi.org/10.1038/s41598-025-14865-5</p>
+<p>Sa, S., &amp; Yu, L. (2024). Automated Rapid CAR-T Cell Manufacturing Process, Starting from Whole Blood, on a Novel Closed Platform. <em>Blood</em>. https://doi.org/10.1182/blood-2024-205825</p>
+<p>Salazar-Riojas, R., Alvarado-Navarro, D. M., Chávez-Estrada, Y. O., Hernández-Navarro, A. K., Ake-Uc, M. B., &amp; Moncada-Saucedo, N. K. (2025). Decentralized Point-of-Care Manufacturing of CD19 Chimeric Antigen Receptor T Cells in Mexico. <em>JCO Global Oncology</em>. https://doi.org/10.1200/GO-24-00581</p>
+<p>Shah, N. N., Highfill, S. L., Shalabi, H., Yates, B., Kane, E., &amp; Fellowes, V. (2017). CD4/CD8 T-Cell Selection Enhances CD22 CAR-T Cell Transduction and in-Vivo CAR-T Expansion: Updated Results on Phase I Anti-CD22 CAR Dose Expansion Cohort. <em>Blood</em>. https://doi.org/10.1182/blood.v130.suppl_1.809.809</p>
+<p>Sin, W.-X., Jagannathan, N. S., Teo, D. B. L., Kairi, F., Fong, S. Y., &amp; Tan, J. H. L. (2024). A high-density microfluidic bioreactor for the automated manufacturing of CAR T cells. <em>Nature Biomedical Engineering</em>. https://doi.org/10.1038/s41551-024-01219-1</p>
+<p>Skelley, A. M., Behmardi, Y., Petersen, L., Shehada, M., Ouaguia, L., &amp; Gandhi, K. (2025). Improving Quality of CAR-T Cell Therapy Starting Material with Automated Microfluidic Cell Sorting. https://doi.org/10.64898/2025.12.16.25342401</p>
+<p>Song, H. W., Prochazkova, M., Shao, L., Traynor, R., Underwood, S., &amp; Black, M. (2024). CAR-T cell expansion platforms yield distinct T cell differentiation states. <em>Cytotherapy</em>. https://doi.org/10.1016/j.jcyt.2024.03.003</p>
+<p>Springuel, P., Silva Couto, P., Stibbs, D. J., Szelwicki, M., Frangleton, A., &amp; Schmidberger, T. (2025). Scalable CAR-T production in a 2-litre perfusion stirred-tank bioreactor with automated harvesting and scale-down model characterisation. <em>Frontiers in Bioengineering and Biotechnology</em>. https://doi.org/10.3389/fbioe.2025.1694134</p>
+<p>Stadler, D., Helbig, C., Wuchner, K., Frank, J., Richter, K., &amp; Hawe, A. (2024). Challenges in the analysis of pharmaceutical lentiviral vector products by orthogonal and complementary physical (nano)particle characterization techniques. <em>European Journal of Pharmaceutics and Biopharmaceutics</em>. https://doi.org/10.1016/j.ejpb.2024.114340</p>
+<p>Stroncek, D. F., Lee, D. W., Ren, J., Sabatino, M., Highfill, S., &amp; Khuu, H. (2017). Elutriated lymphocytes for manufacturing chimeric antigen receptor T cells. <em>Journal of Translational Medicine</em>. https://doi.org/10.1186/s12967-017-1160-5</p>
+<p>Sytsma, B. J., Allain, V., Bourke, S., Faizee, F., Fathi, M., &amp; Berdeaux, R. (2024a). Scalable intracellular delivery via microfluidic vortex shedding enhances the function of chimeric antigen receptor T-cells. <em>Research Square</em>. https://doi.org/10.21203/rs.3.rs-4870379/v1</p>
+<p>Sytsma, B. J., Allain, V., Bourke, S., Faizee, F., Fathi, M., &amp; Berdeaux, R. (2024b). Scalable intracellular delivery via microfluidic vortex shedding enhances the function of chimeric antigen receptor T-cells. <em>bioRxiv</em>. https://doi.org/10.1101/2024.06.25.600671</p>
+<p>Sytsma, B. J., Allain, V., Bourke, S., Faizee, F., Fathi, M., &amp; Ferreira, L. M. R. (2025). Scalable intracellular delivery via microfluidic vortex shedding enhances the function of chimeric antigen receptor T-cells. <em>Scientific Reports</em>. https://doi.org/10.1038/s41598-025-89070-5</p>
+<p>Tumaini, B., Lee, D. W., Lin, T., Castiello, L., Stroncek, D. F., &amp; Mackall, C. (2013). Simplified process for the production of anti-CD19-CAR-engineered T cells. <em>Cytotherapy</em>. https://doi.org/10.1016/j.jcyt.2013.06.003</p>
+<p>Vedvyas, Y., McCloskey, J. E., Yang, Y., Min, I. M., Fahey, T. J., &amp; Zarnegar, R. (2019). Manufacturing and preclinical validation of CAR T cells targeting ICAM-1 for advanced thyroid cancer therapy. <em>Scientific Reports</em>. https://doi.org/10.1038/s41598-019-46938-7</p>
+<p>Wang, B., Kanwar, B., Bowles-Welch, A. C., Byrnes, W., Casteleiro Costa, P., &amp; Filan, C. (2025). Automated vertical wheel bioreactor integrated with process analytics for T-cell manufacturing. <em>Cytotherapy</em>. https://doi.org/10.1016/j.jcyt.2025.08.007</p>
+<p>Weltin, A. L., De Graaf, Y., Goudarzi, A., Müller, M., Herbst, L., &amp; Nießing, B. (2025). Industrializing CAR-T cell therapy: impact of automation on cost and space efficiency of manufacturing facilities. <em>Frontiers in Bioengineering and Biotechnology</em>. https://doi.org/10.3389/fbioe.2025.1612248</p>
+<p>Woods, E., Pileggi, J., &amp; Werner, S. (2025). Closed-system process optimization for CGT manufacturing and storage. <em>Cell and Gene Therapy Insights</em>. https://doi.org/10.18609/cgti.2025.158</p>
+<p>Zeming, K. K., Quek, K. Y., Sin, W.-X., Teo, D. B. L., Cheung, K.-W., &amp; Goh, C. R. (2025). Cell trajectory modulation: rapid microfluidic biophysical profiling of CAR T cell functional phenotypes. <em>Nature Communications</em>. https://doi.org/10.1038/s41467-025-59789-w</p>
+<p>Zhang, W., Jordan, K. R., Schulte, B., &amp; Purev, E. (2018). Characterization of clinical grade CD19 chimeric antigen receptor T cells produced using automated CliniMACS Prodigy system. <em>Drug Design, Development and Therapy</em>. https://doi.org/10.2147/DDDT.S175113</p>
+<p>Zhao, J., Wang, Y., Wang, Y., Dong, G., Wu, H., &amp; Cui, Y. (2026). Upregulation of the TCA Cycle and Oxidative Phosphorylation Enhances the Fitness of CD99 CAR-T Cells Under Dynamic Cultivation. <em>International Journal of Molecular Sciences</em>. https://doi.org/10.3390/ijms27020607</p>
+<p>Zhu, F., Shah, N., Xu, H., Schneider, D., Orentas, R., &amp; Dropulic, B. (2018). Closed-system manufacturing of CD19 and dual-targeted CD20/19 chimeric antigen receptor T cells using the CliniMACS Prodigy device at an academic medical center. <em>Cytotherapy</em>. https://doi.org/10.1016/j.jcyt.2017.09.005</p>
+<p><em>Scalable and ultrafast CAR-T cell production using microfluidics</em>. (2025). https://doi.org/[not available]</p>
+<p>Abdo, L. de M., Barros, L. R. C., Viegas, M. S., Marques, L. V. C., Ferreira, P. de S., &amp; Chicaybam, L. (2019). Development of CAR-T Cell Therapy for B-ALL Using a Point-of-Care Approach. https://doi.org/10.1101/770297</p>
+<div style="margin-top: 48px; padding-top: 16px; border-top: 1px solid #e2e8f0; text-align: center; font-size: 0.75rem; color: #94a3b8;">Generated by <strong>Evidensity Research</strong> &mdash; source-verified evidence synthesis</div>
+<script>
+  // Create tooltip elements for citations on hover
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.cite[data-info]').forEach(function(el) {
+      var tip = document.createElement('span');
+      tip.className = 'cite-tooltip';
+      tip.textContent = el.getAttribute('data-info');
+      el.appendChild(tip);
+    });
+  });
+</script>
+</body>
+</html>
