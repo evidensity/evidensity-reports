@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evidensity Research — Research-Backed Content at Production Speed</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --bg-card: #ffffff;
+      --bg-muted: #f1f5f9;
+      --accent: #1e40af;
+      --accent-light: #3b82f6;
+      --accent-bg: rgba(30, 64, 175, 0.06);
+      --green: #047857;
+      --green-bg: rgba(4, 120, 87, 0.06);
+      --amber: #b45309;
+      --amber-bg: rgba(180, 83, 9, 0.06);
+      --text: #1e293b;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --border: #e2e8f0;
+      --radius: 10px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .slide {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 100px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .slide-number {
+      position: absolute;
+      bottom: 24px;
+      right: 40px;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      max-width: 680px;
+      line-height: 1.7;
+    }
+
+    .grid { display: grid; gap: 20px; margin-top: 28px; }
+    .grid-2 { grid-template-columns: 1fr 1fr; }
+    .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .grid-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .card p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .card-accent { border-left: 3px solid var(--accent); }
+    .card-green { border-left: 3px solid var(--green); }
+    .card-amber { border-left: 3px solid var(--amber); }
+
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .tag-accent { background: var(--accent-bg); color: var(--accent); }
+    .tag-green { background: var(--green-bg); color: var(--green); }
+    .tag-amber { background: var(--amber-bg); color: var(--amber); }
+
+    .stat { text-align: center; padding: 28px 16px; }
+    .stat-value { font-size: 2.6rem; font-weight: 800; letter-spacing: -0.03em; color: var(--accent); }
+    .stat-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 6px; }
+    .stat-detail { font-size: 0.7rem; color: var(--text-muted); margin-top: 4px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-size: 0.88rem;
+    }
+    th {
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 2px solid var(--border);
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    tr:last-child td { border-bottom: none; }
+    .highlight-row { background: var(--accent-bg); }
+    .check { color: var(--green); font-weight: 600; }
+    .cross { color: var(--text-muted); }
+
+    .flow {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      margin-top: 32px;
+    }
+    .flow-step {
+      flex: 1;
+      padding: 18px 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      text-align: center;
+      position: relative;
+    }
+    .flow-step:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+    .flow-step:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+    .flow-step .num {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .flow-step .title { font-size: 0.85rem; font-weight: 600; margin-bottom: 3px; }
+    .flow-step .detail { font-size: 0.7rem; color: var(--text-secondary); }
+    .flow-arrow { display: flex; align-items: center; color: var(--accent-light); font-size: 1.1rem; margin: 0 -5px; z-index: 1; }
+
+    .quote {
+      border-left: 3px solid var(--accent);
+      padding: 16px 24px;
+      background: var(--accent-bg);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin-top: 24px;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .list { list-style: none; margin-top: 14px; }
+    .list li {
+      padding: 9px 0;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .list li:last-child { border-bottom: none; }
+    .bullet { color: var(--accent); font-weight: 700; flex-shrink: 0; }
+
+    .slide-title {
+      background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+    }
+    .slide-cta {
+      text-align: center;
+      align-items: center;
+      background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 50%, #f0fdf4 100%);
+    }
+
+    @media (max-width: 900px) {
+      .slide { padding: 40px 28px; }
+      h1 { font-size: 2.2rem; }
+      h2 { font-size: 1.6rem; }
+      .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
+      .flow { flex-direction: column; }
+      .flow-arrow { transform: rotate(90deg); justify-content: center; }
+      .flow-step:first-child, .flow-step:last-child { border-radius: var(--radius); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Slide 1: Title -->
+<div class="slide slide-title">
+  <div>
+    <div style="margin-bottom: 16px;">
+      <span class="tag tag-accent">For Content Creators</span>
+    </div>
+    <h1>Evidensity Research</h1>
+    <p class="subtitle">
+      Research-backed content at production speed. I give journalists, YouTubers, newsletter writers,
+      and podcasters the evidence base they need to publish with authority &mdash;
+      without spending weeks lost in the literature.
+    </p>
+    <div style="margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap;">
+      <span class="tag tag-green" style="font-size: 0.8rem; padding: 6px 16px;">10 academic databases</span>
+      <span class="tag tag-accent" style="font-size: 0.8rem; padding: 6px 16px;">Research-backed content</span>
+      <span class="tag tag-amber" style="font-size: 0.8rem; padding: 6px 16px;">48-hour turnaround</span>
+    </div>
+  </div>
+  <span class="slide-number">01</span>
+</div>
+
+<!-- Slide 2: The Problem -->
+<div class="slide">
+  <h2>Your audience demands evidence. Getting it is a nightmare.</h2>
+  <p class="subtitle">
+    You want to be the creator people trust. But producing genuinely research-backed content
+    means navigating a world built for academics, not publishers.
+  </p>
+
+  <div class="grid grid-3">
+    <div class="card card-amber">
+      <h3>Google Scholar rabbit holes</h3>
+      <p>Hours of searching with no structure. You find 10 papers, skim 3, cite 1, and hope it's representative. There's no way to know what you missed or whether the paper you picked is the outlier.</p>
+    </div>
+    <div class="card card-amber">
+      <h3>Trust erosion</h3>
+      <p>Your audience fact-checks you. One wrong claim, one cherry-picked study, one retracted paper &mdash; and the credibility you spent years building is gone. The comments section doesn't forgive.</p>
+    </div>
+    <div class="card card-amber">
+      <h3>Citation theatre</h3>
+      <p>Linking to a paper you half-read isn't evidence synthesis. It's decoration. Your audience can tell the difference between someone who understands the research and someone who Googled a supporting quote.</p>
+    </div>
+  </div>
+
+  <div class="quote" style="font-style: normal;">
+    The creators who win long-term are the ones whose claims <strong>hold up under scrutiny</strong>.
+    That requires more than a quick search &mdash; it requires knowing what the full body of evidence actually says.
+  </div>
+  <span class="slide-number">02</span>
+</div>
+
+<!-- Slide 3: What I Do -->
+<div class="slide">
+  <h2>From question to content-ready research in 48 hours</h2>
+  <p class="subtitle">
+    I run a full evidence synthesis pipeline &mdash; the same methodology used in academic systematic reviews &mdash;
+    and deliver the results in a format you can immediately turn into content.
+  </p>
+
+  <div class="flow">
+    <div class="flow-step" style="border-top: 3px solid var(--accent);">
+      <div class="num">Day 1</div>
+      <div class="title">Discover</div>
+      <div class="detail">Search 10 databases. Build a corpus of 300&ndash;2,000 papers on your topic.</div>
+    </div>
+    <div class="flow-arrow">&rsaquo;</div>
+    <div class="flow-step" style="border-top: 3px solid var(--accent-light);">
+      <div class="num">Day 1</div>
+      <div class="title">Screen</div>
+      <div class="detail">AI-assisted relevance gating. Only on-topic papers make it through.</div>
+    </div>
+    <div class="flow-arrow">&rsaquo;</div>
+    <div class="flow-step" style="border-top: 3px solid var(--green);">
+      <div class="num">Day 1&ndash;2</div>
+      <div class="title">Extract</div>
+      <div class="detail">Pull out methods, findings, claims, and quotable passages.</div>
+    </div>
+    <div class="flow-arrow">&rsaquo;</div>
+    <div class="flow-step" style="border-top: 3px solid var(--green);">
+      <div class="num">Day 2</div>
+      <div class="title">Verify</div>
+      <div class="detail">Every claim checked against source text. Credibility scored per paper.</div>
+    </div>
+    <div class="flow-arrow">&rsaquo;</div>
+    <div class="flow-step" style="border-top: 3px solid var(--amber);">
+      <div class="num">Day 2</div>
+      <div class="title">Synthesise</div>
+      <div class="detail">What does the evidence actually say? Where do studies agree and disagree?</div>
+    </div>
+    <div class="flow-arrow">&rsaquo;</div>
+    <div class="flow-step" style="border-top: 3px solid var(--amber);">
+      <div class="num">Day 2</div>
+      <div class="title">Report</div>
+      <div class="detail">Research brief, source pack, evidence table, and reference library.</div>
+    </div>
+  </div>
+  <span class="slide-number">03</span>
+</div>
+
+<!-- Slide 4: What You Get -->
+<div class="slide">
+  <h2>What you receive</h2>
+  <p class="subtitle">Everything you need to turn research into content &mdash; without reading a single paper yourself.</p>
+
+  <div class="grid grid-2">
+    <div class="card card-accent">
+      <h3>Research Brief</h3>
+      <p>
+        Key findings, numbered and ranked by evidence strength. Written to be narrated, not decoded.
+        Use it as the backbone of a video script, article outline, or podcast segment.
+      </p>
+      <div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">
+        <span class="tag tag-accent">Key Findings</span>
+        <span class="tag tag-accent">Evidence Strength</span>
+        <span class="tag tag-accent">Ready to Narrate</span>
+      </div>
+    </div>
+    <div class="card card-green">
+      <h3>Source Pack</h3>
+      <p>
+        Verified quotes you can use verbatim. Every quote is programmatically checked
+        against the original paper &mdash; no paraphrasing, no hallucination risk.
+        Attribute with confidence.
+      </p>
+      <div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">
+        <span class="tag tag-green">Verified Quotes</span>
+        <span class="tag tag-green">Direct Attribution</span>
+        <span class="tag tag-green">Copy-Paste Ready</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Evidence Table</h3>
+      <p>
+        Structured data for every paper: methodology, sample size, key findings, confidence scores.
+        Perfect for building charts, infographics, comparison tables, and data visualisations.
+      </p>
+      <div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">
+        <span class="tag tag-accent">CSV Export</span>
+        <span class="tag tag-accent">29 Columns</span>
+        <span class="tag tag-accent">Chart-Ready</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Reference Library</h3>
+      <p>
+        Complete BibTeX and RIS files for all included papers. Link every claim in your
+        content to its source. Your audience can verify &mdash; and they'll find you were right.
+      </p>
+      <div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">
+        <span class="tag tag-accent">BibTeX</span>
+        <span class="tag tag-accent">RIS</span>
+        <span class="tag tag-accent">Full Metadata</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-3" style="margin-top: 16px;">
+    <div class="card card-accent">
+      <h3>Ask the Corpus</h3>
+      <p>
+        Send me follow-up questions any time and get cited answers back quickly.
+        Like having a research assistant on retainer for every new angle.
+      </p>
+      <div style="margin-top: 10px;">
+        <span class="tag tag-accent">Fast cited responses</span>
+      </div>
+    </div>
+    <div class="card card-green">
+      <h3>What-If Testing</h3>
+      <p>
+        Ask me to test your claims before you publish &mdash; I'll filter by year, method,
+        or study quality and tell you if the finding still holds.
+      </p>
+      <div style="margin-top: 10px;">
+        <span class="tag tag-green">Sensitivity testing</span>
+      </div>
+    </div>
+    <div class="card card-amber">
+      <h3>Evidence Map</h3>
+      <p>
+        I provide visual network diagrams showing how studies connect, agree, and disagree.
+        Great for explaining complex topics to your audience.
+      </p>
+      <div style="margin-top: 10px;">
+        <span class="tag tag-amber">Visual network</span>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">04</span>
+</div>
+
+<!-- Slide 5: Interactive Platform -->
+<div class="slide">
+  <h2>Not just a report. A research consultant that stays on call.</h2>
+  <p class="subtitle">
+    Every engagement includes ongoing support. When a new content angle hits you
+    or a commenter challenges your claim &mdash; send me the question and I'll get you an answer fast.
+  </p>
+
+  <div class="grid grid-3">
+    <div class="card card-accent">
+      <h3>Ask the Corpus</h3>
+      <p>
+        Send me any angle &mdash; "What's the strongest counter-argument?",
+        "Which study has the biggest sample size?", "What did the 2024 papers find?" &mdash;
+        and I'll send back a cited answer quickly. No waiting for a full new report.
+      </p>
+      <div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">
+        <span class="tag tag-accent">Any question, any time</span>
+        <span class="tag tag-accent">Cited sources</span>
+        <span class="tag tag-accent">Fast turnaround</span>
+      </div>
+    </div>
+    <div class="card card-green">
+      <h3>What-If Sensitivity</h3>
+      <p>
+        Ask me to stress-test your thesis before you publish. I'll remove weak studies, filter by methodology,
+        restrict to the last 5 years &mdash; and tell you if your claim still holds.
+        If it does, say so with confidence. If it doesn't, I just saved your credibility.
+      </p>
+      <div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">
+        <span class="tag tag-green">Filter &amp; compare</span>
+        <span class="tag tag-green">Side-by-side results</span>
+        <span class="tag tag-green">Stress-test claims</span>
+      </div>
+    </div>
+    <div class="card card-amber">
+      <h3>Evidence Map</h3>
+      <p>
+        I'll provide a visual map of the research landscape. Which studies agree, which disagree, and why.
+        Papers are nodes, shared findings are connections, and disagreements are visible fault lines.
+        Perfect for explaining "here's where the science stands" to your audience.
+      </p>
+      <div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">
+        <span class="tag tag-amber">Consensus clusters</span>
+        <span class="tag tag-amber">Disagreement mapping</span>
+        <span class="tag tag-amber">Storytelling tool</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote" style="font-style: normal;">
+    When a commenter says "but what about the studies that show the opposite?" &mdash;
+    just forward me the question. I'll tell you exactly which studies they mean, what those studies found,
+    and <strong>why the weight of evidence points where it does</strong>.
+  </div>
+  <span class="slide-number">05</span>
+</div>
+
+<!-- Slide 6: Content Formats -->
+<div class="slide">
+  <h2>One research base. Every content format.</h2>
+  <p class="subtitle">
+    The same evidence synthesis powers articles, videos, podcasts, threads, courses, and books.
+    Here's how the research translates to what you actually produce.
+  </p>
+
+  <div class="grid grid-3">
+    <div class="card card-accent">
+      <h3>Long-Form Articles &amp; Newsletters</h3>
+      <p>
+        Use the research brief as your outline. Drop in verified quotes. Link every claim to its source.
+        Your Substack or blog post becomes the most well-sourced piece your readers have ever seen.
+      </p>
+      <div style="margin-top: 10px;">
+        <span class="tag tag-accent">Substack</span>
+        <span class="tag tag-accent">Blog</span>
+        <span class="tag tag-accent">Journalism</span>
+      </div>
+    </div>
+    <div class="card card-accent">
+      <h3>YouTube Scripts</h3>
+      <p>
+        Key findings become your narrative beats. The evidence table gives you on-screen data for B-roll.
+        The evidence map is a visual you can screen-share or animate. "According to a meta-analysis of 47 studies..."
+      </p>
+      <div style="margin-top: 10px;">
+        <span class="tag tag-accent">Script beats</span>
+        <span class="tag tag-accent">On-screen data</span>
+        <span class="tag tag-accent">B-roll charts</span>
+      </div>
+    </div>
+    <div class="card card-accent">
+      <h3>Podcast Prep</h3>
+      <p>
+        Walk into interviews knowing the full evidence landscape. The source pack gives you
+        specific quotes to reference. The What-If explorer lets you prep for guest pushback.
+      </p>
+      <div style="margin-top: 10px;">
+        <span class="tag tag-accent">Interview prep</span>
+        <span class="tag tag-accent">Talking points</span>
+        <span class="tag tag-accent">Counter-arguments</span>
+      </div>
+    </div>
+    <div class="card card-green">
+      <h3>Twitter / LinkedIn Threads</h3>
+      <p>
+        Each key finding is a tweet. Each verified quote is a screenshot-worthy source.
+        The numbers from your evidence table are built for engagement. One research brief = 10+ threads.
+      </p>
+      <div style="margin-top: 10px;">
+        <span class="tag tag-green">Thread-ready</span>
+        <span class="tag tag-green">Quotable stats</span>
+        <span class="tag tag-green">Carousel data</span>
+      </div>
+    </div>
+    <div class="card card-green">
+      <h3>Course Material</h3>
+      <p>
+        Build curriculum on a foundation of structured evidence. The reference library lets students
+        go deeper. The evidence table becomes a teaching resource. Requery for each module.
+      </p>
+      <div style="margin-top: 10px;">
+        <span class="tag tag-green">Modules</span>
+        <span class="tag tag-green">Student resources</span>
+        <span class="tag tag-green">Reading lists</span>
+      </div>
+    </div>
+    <div class="card card-green">
+      <h3>Book Research</h3>
+      <p>
+        Build an evidence base per chapter. Ask the Corpus lets you explore angles as you write.
+        Every claim in your manuscript has a traceable source before it reaches an editor.
+      </p>
+      <div style="margin-top: 10px;">
+        <span class="tag tag-green">Chapter-level</span>
+        <span class="tag tag-green">Fact-checkable</span>
+        <span class="tag tag-green">Endnotes ready</span>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">06</span>
+</div>
+
+<!-- Slide 7: The Requery Advantage -->
+<div class="slide">
+  <h2>One research engagement. A month of content.</h2>
+  <p class="subtitle">
+    Once I've built your evidence base, you can send me unlimited follow-up questions.
+    Each new angle gets a new brief back in minutes &mdash; same verified corpus, fresh perspective.
+  </p>
+
+  <div class="grid grid-2" style="margin-top: 24px;">
+    <div class="card" style="border: 1px solid var(--accent);">
+      <h3 style="color: var(--accent);">Initial Research</h3>
+      <ul class="list">
+        <li><span class="bullet">1</span> You send me your topic or question</li>
+        <li><span class="bullet">2</span> I build the evidence corpus (300&ndash;2,000 papers)</li>
+        <li><span class="bullet">3</span> Full pipeline: screening, extraction, verification, synthesis</li>
+        <li><span class="bullet">4</span> Research brief + source pack + evidence table delivered</li>
+      </ul>
+      <div style="margin-top: 14px; padding: 10px; background: var(--accent-bg); border-radius: 8px; text-align: center;">
+        <div style="font-size: 0.7rem; color: var(--text-muted);">Typical turnaround</div>
+        <div style="font-size: 1.3rem; font-weight: 700; color: var(--accent);">48 hours</div>
+      </div>
+    </div>
+    <div class="card" style="border: 1px solid var(--green);">
+      <h3 style="color: var(--green);">Follow-up Angles</h3>
+      <ul class="list">
+        <li><span class="bullet" style="color: var(--green);">&rarr;</span> "What's the most controversial finding?"</li>
+        <li><span class="bullet" style="color: var(--green);">&rarr;</span> "What changed in the last 3 years?"</li>
+        <li><span class="bullet" style="color: var(--green);">&rarr;</span> "What do critics say?"</li>
+        <li><span class="bullet" style="color: var(--green);">&rarr;</span> "Explain this for a non-expert audience"</li>
+      </ul>
+      <div style="margin-top: 14px; padding: 10px; background: var(--green-bg); border-radius: 8px; text-align: center;">
+        <div style="font-size: 0.7rem; color: var(--text-muted);">Each follow-up</div>
+        <div style="font-size: 1.3rem; font-weight: 700; color: var(--green);">5 minutes</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote" style="font-style: normal;">
+    One evidence base on sleep science could fuel a newsletter deep-dive, a YouTube explainer,
+    a Twitter thread debunking a myth, a podcast interview prep doc, and a course module &mdash;
+    each from a <strong>different angle, same verified sources</strong>.
+  </div>
+  <span class="slide-number">07</span>
+</div>
+
+<!-- Slide 8: How It Compares -->
+<div class="slide">
+  <h2>How this compares</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">Dimension</th>
+        <th style="width: 22%;">You Researching</th>
+        <th style="width: 22%;">AI Summary (ChatGPT etc.)</th>
+        <th style="width: 31%;" class="highlight-row">Evidensity Research</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Time spent</td>
+        <td>6&ndash;20 hours per topic</td>
+        <td>5 minutes</td>
+        <td class="highlight-row"><strong>Zero (I do it for you)</strong></td>
+      </tr>
+      <tr>
+        <td>Sources checked</td>
+        <td>5&ndash;15 papers (if you're thorough)</td>
+        <td>Unknown / unverifiable</td>
+        <td class="highlight-row"><strong>300&ndash;2,000 papers</strong></td>
+      </tr>
+      <tr>
+        <td>Fact-checkable claims</td>
+        <td>Partially &mdash; you know your own sources</td>
+        <td><span class="cross">&#10007;</span> Hallucination risk</td>
+        <td class="highlight-row"><span class="check">&#10003;</span> <strong>Every claim traceable</strong></td>
+      </tr>
+      <tr>
+        <td>Audience trust</td>
+        <td>Depends on your diligence</td>
+        <td>Erodes when caught</td>
+        <td class="highlight-row"><span class="check">&#10003;</span> <strong>Fully verifiable</strong></td>
+      </tr>
+      <tr>
+        <td>Follow-up angles</td>
+        <td>Start over each time</td>
+        <td>New prompt, no memory</td>
+        <td class="highlight-row"><strong>Unlimited, same corpus</strong></td>
+      </tr>
+      <tr>
+        <td>Visual assets</td>
+        <td>Make your own</td>
+        <td><span class="cross">&#10007;</span> None</td>
+        <td class="highlight-row"><span class="check">&#10003;</span> <strong>Evidence map, data tables, charts</strong></td>
+      </tr>
+      <tr>
+        <td>Verified source quotes</td>
+        <td>If you copy-paste carefully</td>
+        <td><span class="cross">&#10007;</span> Often fabricated</td>
+        <td class="highlight-row"><span class="check">&#10003;</span> <strong>Programmatically verified</strong></td>
+      </tr>
+      <tr>
+        <td>Disagreement awareness</td>
+        <td>Depends on what you found</td>
+        <td><span class="cross">&#10007;</span> Usually omitted</td>
+        <td class="highlight-row"><span class="check">&#10003;</span> <strong>Structured with attribution</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="slide-number">08</span>
+</div>
+
+<!-- Slide 9: Credibility Guarantees -->
+<div class="slide">
+  <h2>Your audience can check your sources. They'll find you were right.</h2>
+  <p class="subtitle">
+    Every claim in your content traces back to a specific paper, a verified quote, and a credibility score.
+    This isn't "I read a study once" &mdash; it's evidence synthesis your audience can audit.
+  </p>
+
+  <div class="grid grid-2" style="margin-top: 24px;">
+    <div>
+      <h3>Every claim is traceable</h3>
+      <ul class="list">
+        <li><span class="bullet">&#10003;</span><div><strong>Source-linked findings</strong> &mdash; every claim maps to a specific paper with full citation. Your audience can find the original with one click.</div></li>
+        <li><span class="bullet">&#10003;</span><div><strong>Verified verbatim quotes</strong> &mdash; quotes are programmatically checked against source text. Not paraphrased, not generated, not hallucinated.</div></li>
+        <li><span class="bullet">&#10003;</span><div><strong>Credibility scoring</strong> &mdash; every paper is scored for methodological rigour. You'll know which sources are gold-standard and which are preliminary.</div></li>
+        <li><span class="bullet">&#10003;</span><div><strong>Disagreement transparency</strong> &mdash; when studies conflict, you'll know. Present both sides and explain why &mdash; your audience will respect you more, not less.</div></li>
+      </ul>
+    </div>
+    <div>
+      <h3>PRISMA-grade methodology</h3>
+      <ul class="list">
+        <li><span class="bullet">&#10003;</span><div><strong>Systematic search</strong> &mdash; 10 academic databases searched with defined queries. No cherry-picking, no confirmation bias.</div></li>
+        <li><span class="bullet">&#10003;</span><div><strong>Inclusion criteria</strong> &mdash; papers are screened against pre-defined relevance criteria. You can explain exactly why a paper was included or excluded.</div></li>
+        <li><span class="bullet">&#10003;</span><div><strong>Evidence grounding</strong> &mdash; extracted claims are verified as exact substrings of source text. Unverifiable claims are flagged.</div></li>
+        <li><span class="bullet">&#10003;</span><div><strong>Explicit limitations</strong> &mdash; every brief states what the evidence can and cannot conclude. Your audience sees intellectual honesty, not overselling.</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="quote" style="font-style: normal;">
+    The best defence against "you're wrong" is being able to say: "Here are the 47 studies I reviewed,
+    here's exactly what each found, and here's <strong>why the evidence points this way</strong>.
+    Check them yourself."
+  </div>
+  <span class="slide-number">09</span>
+</div>
+
+<!-- Slide 10: By the Numbers -->
+<div class="slide">
+  <h2>By the numbers</h2>
+
+  <div class="grid grid-4">
+    <div class="card stat">
+      <div class="stat-value">10</div>
+      <div class="stat-label">Academic databases</div>
+      <div class="stat-detail">Semantic Scholar, OpenAlex, CrossRef, PubMed, Europe PMC, arXiv, CORE, DOAJ, ERIC, Wikipedia</div>
+    </div>
+    <div class="card stat">
+      <div class="stat-value">17</div>
+      <div class="stat-label">Analysis stages</div>
+      <div class="stat-detail">Discovery through credibility, evidence grounding, cross-validation, and meta-analysis</div>
+    </div>
+    <div class="card stat">
+      <div class="stat-value" style="color: var(--green);">48h</div>
+      <div class="stat-label">First research brief</div>
+      <div class="stat-detail">From your question to a content-ready evidence package</div>
+    </div>
+    <div class="card stat">
+      <div class="stat-value" style="color: var(--amber);">5m</div>
+      <div class="stat-label">Follow-up angles</div>
+      <div class="stat-detail">New question, new brief, same verified evidence base</div>
+    </div>
+  </div>
+
+  <div class="grid grid-3" style="margin-top: 16px;">
+    <div class="card stat">
+      <div style="font-size: 1.8rem; font-weight: 700;">100%</div>
+      <div class="stat-label">Source transparency</div>
+      <p style="margin-top: 6px; text-align: center;">Every claim linked to a specific paper with verified quote. Your audience can check.</p>
+    </div>
+    <div class="card stat">
+      <div style="font-size: 1.8rem; font-weight: 700;">29 cols</div>
+      <div class="stat-label">Data per paper</div>
+      <p style="margin-top: 6px; text-align: center;">Methods, results, confidence, credibility &mdash; structured for charts and infographics</p>
+    </div>
+    <div class="card stat">
+      <div style="font-size: 1.8rem; font-weight: 700;">&infin;</div>
+      <div class="stat-label">Content angles</div>
+      <p style="margin-top: 6px; text-align: center;">One evidence base powers articles, videos, podcasts, threads, courses, and books</p>
+    </div>
+  </div>
+  <span class="slide-number">10</span>
+</div>
+
+<!-- Slide 11: Use Cases -->
+<div class="slide">
+  <h2>Who this is for</h2>
+
+  <div class="grid grid-3">
+    <div class="card card-accent">
+      <h3>Science Communicators</h3>
+      <ul class="list">
+        <li><span class="bullet">&bull;</span> Explain what the research actually says</li>
+        <li><span class="bullet">&bull;</span> Debunk myths with structured evidence</li>
+        <li><span class="bullet">&bull;</span> Show where the consensus is (and isn't)</li>
+        <li><span class="bullet">&bull;</span> Give your audience primary sources</li>
+      </ul>
+    </div>
+    <div class="card card-accent">
+      <h3>Health &amp; Wellness Creators</h3>
+      <ul class="list">
+        <li><span class="bullet">&bull;</span> Back supplement and nutrition claims</li>
+        <li><span class="bullet">&bull;</span> Navigate contradictory health studies</li>
+        <li><span class="bullet">&bull;</span> Separate clinical evidence from hype</li>
+        <li><span class="bullet">&bull;</span> Protect yourself from liability</li>
+      </ul>
+    </div>
+    <div class="card card-accent">
+      <h3>Finance &amp; Investing</h3>
+      <ul class="list">
+        <li><span class="bullet">&bull;</span> Evidence-backed market analysis</li>
+        <li><span class="bullet">&bull;</span> Academic research on investment strategies</li>
+        <li><span class="bullet">&bull;</span> Behavioural finance deep-dives</li>
+        <li><span class="bullet">&bull;</span> Regulatory and policy impact research</li>
+      </ul>
+    </div>
+    <div class="card card-green">
+      <h3>Tech Reviewers &amp; Analysts</h3>
+      <ul class="list">
+        <li><span class="bullet">&bull;</span> Research behind emerging technologies</li>
+        <li><span class="bullet">&bull;</span> AI safety and ethics evidence base</li>
+        <li><span class="bullet">&bull;</span> Academic vs industry performance claims</li>
+        <li><span class="bullet">&bull;</span> Environmental impact assessments</li>
+      </ul>
+    </div>
+    <div class="card card-green">
+      <h3>Education &amp; Course Creators</h3>
+      <ul class="list">
+        <li><span class="bullet">&bull;</span> Evidence-based curriculum design</li>
+        <li><span class="bullet">&bull;</span> Per-module research packages</li>
+        <li><span class="bullet">&bull;</span> Student reading lists from real literature</li>
+        <li><span class="bullet">&bull;</span> Credible sources for course material</li>
+      </ul>
+    </div>
+    <div class="card card-green">
+      <h3>Policy &amp; Politics Commentators</h3>
+      <ul class="list">
+        <li><span class="bullet">&bull;</span> Evidence behind policy debates</li>
+        <li><span class="bullet">&bull;</span> Cross-country comparisons from the literature</li>
+        <li><span class="bullet">&bull;</span> Intervention effectiveness data</li>
+        <li><span class="bullet">&bull;</span> Structured counter-argument preparation</li>
+      </ul>
+    </div>
+  </div>
+  <span class="slide-number">11</span>
+</div>
+
+<!-- Slide 12: CTA -->
+<div class="slide slide-cta">
+  <div>
+    <h2 style="font-size: 2.4rem;">
+      What topic is your audience<br>
+      <span style="color: var(--accent);">asking about?</span>
+    </h2>
+    <p class="subtitle" style="text-align: center; margin: 20px auto 0; max-width: 560px;">
+      Send me the question your next piece of content is built around.
+      I'll scope the evidence landscape for free and show you exactly what's out there &mdash;
+      before you commit to anything.
+    </p>
+
+    <div style="margin-top: 40px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+      <div class="card" style="padding: 20px 28px; text-align: center; min-width: 200px;">
+        <h3 style="color: var(--green); margin-bottom: 6px;">Start here</h3>
+        <p>Free landscape scan on your topic. See the evidence before you decide.</p>
+      </div>
+      <div class="card" style="padding: 20px 28px; text-align: center; min-width: 200px;">
+        <h3 style="color: var(--accent); margin-bottom: 6px;">Fixed-price engagements</h3>
+        <p>Full evidence package. Research brief, source pack, evidence table, and ongoing support.</p>
+      </div>
+      <div class="card" style="padding: 20px 28px; text-align: center; min-width: 200px;">
+        <h3 style="color: var(--amber); margin-bottom: 6px;">Monthly retainer</h3>
+        <p>Regular content research. New topics, follow-up angles, and priority turnaround.</p>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">12</span>
+</div>
+
+</body>
+</html>

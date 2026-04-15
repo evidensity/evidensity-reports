@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evidensity Research — Research Consulting</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --bg-card: #ffffff;
+      --bg-muted: #f1f5f9;
+      --accent: #1e40af;
+      --accent-light: #3b82f6;
+      --accent-bg: rgba(30, 64, 175, 0.06);
+      --green: #047857;
+      --green-bg: rgba(4, 120, 87, 0.06);
+      --amber: #b45309;
+      --amber-bg: rgba(180, 83, 9, 0.06);
+      --text: #1e293b;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --border: #e2e8f0;
+      --radius: 10px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .slide {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 100px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .slide-number {
+      position: absolute;
+      bottom: 24px;
+      right: 40px;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      max-width: 680px;
+      line-height: 1.7;
+    }
+
+    .grid { display: grid; gap: 20px; margin-top: 28px; }
+    .grid-2 { grid-template-columns: 1fr 1fr; }
+    .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .grid-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .card p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .card-accent { border-left: 3px solid var(--accent); }
+    .card-green { border-left: 3px solid var(--green); }
+    .card-amber { border-left: 3px solid var(--amber); }
+
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .tag-accent { background: var(--accent-bg); color: var(--accent); }
+    .tag-green { background: var(--green-bg); color: var(--green); }
+    .tag-amber { background: var(--amber-bg); color: var(--amber); }
+
+    .stat { text-align: center; padding: 28px 16px; }
+    .stat-value { font-size: 2.6rem; font-weight: 800; letter-spacing: -0.03em; color: var(--accent); }
+    .stat-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 6px; }
+    .stat-detail { font-size: 0.7rem; color: var(--text-muted); margin-top: 4px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-size: 0.88rem;
+    }
+    th {
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 2px solid var(--border);
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    tr:last-child td { border-bottom: none; }
+    .highlight-row { background: var(--accent-bg); }
+    .check { color: var(--green); font-weight: 600; }
+    .cross { color: var(--text-muted); }
+
+    .flow {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      margin-top: 32px;
+    }
+    .flow-step {
+      flex: 1;
+      padding: 18px 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      text-align: center;
+      position: relative;
+    }
+    .flow-step:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+    .flow-step:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+    .flow-step .num {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .flow-step .title { font-size: 0.85rem; font-weight: 600; margin-bottom: 3px; }
+    .flow-step .detail { font-size: 0.7rem; color: var(--text-secondary); }
+    .flow-arrow { display: flex; align-items: center; color: var(--accent-light); font-size: 1.1rem; margin: 0 -5px; z-index: 1; }
+
+    .quote {
+      border-left: 3px solid var(--accent);
+      padding: 16px 24px;
+      background: var(--accent-bg);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin-top: 24px;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .list { list-style: none; margin-top: 14px; }
+    .list li {
+      padding: 9px 0;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .list li:last-child { border-bottom: none; }
+    .bullet { color: var(--accent); font-weight: 700; flex-shrink: 0; }
+
+    .slide-title {
+      background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+    }
+    .slide-cta {
+      text-align: center;
+      align-items: center;
+      background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 50%, #f0fdf4 100%);
+    }
+
+    @media (max-width: 900px) {
+      .slide { padding: 40px 28px; }
+      h1 { font-size: 2.2rem; }
+      h2 { font-size: 1.6rem; }
+      .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
+      .flow { flex-direction: column; }
+      .flow-arrow { transform: rotate(90deg); justify-content: center; }
+      .flow-step:first-child, .flow-step:last-child { border-radius: var(--radius); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Slide 1: Title -->
+<div class="slide slide-title">
+  <div>
+    <div style="margin-bottom: 16px;">
+      <span class="tag tag-accent">Research Consulting</span>
+    </div>
+    <h1>Evidensity Research</h1>
+    <p class="subtitle">
+      I deliver rigorous, evidence-backed research reports in days, not months.
+      Your questions answered with structured analysis of the academic literature,
+      full source transparency, and unlimited follow-up.
+    </p>
+    <div style="margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap;">
+      <span class="tag tag-green" style="font-size: 0.8rem; padding: 6px 16px;">10 academic databases</span>
+      <span class="tag tag-accent" style="font-size: 0.8rem; padding: 6px 16px;">17-stage analysis pipeline</span>
+      <span class="tag tag-amber" style="font-size: 0.8rem; padding: 6px 16px;">Reports in 48 hours</span>
+    </div>
+  </div>
+  <span class="slide-number">01</span>
+</div>
+
+<!-- Slide 2: The Problem -->
+<div class="slide">
+  <h2>You need evidence. Getting it takes too long.</h2>
+  <p class="subtitle">
+    Whether it's due diligence on a scientific claim, an evidence base for a strategy decision,
+    or a literature review for a regulatory submission &mdash; you need answers from the research, and you need them fast.
+  </p>
+
+  <div class="grid grid-3">
+    <div class="card card-amber">
+      <h3>Traditional reviews</h3>
+      <p>6&ndash;18 months, $30k&ndash;$150k. Delivered long after the decision window has closed. Usually too academic to act on.</p>
+    </div>
+    <div class="card card-amber">
+      <h3>AI summaries</h3>
+      <p>Fast but unverifiable. No source trail, no methodology, no way to know what was missed. Unacceptable for serious decisions.</p>
+    </div>
+    <div class="card card-amber">
+      <h3>Internal desk research</h3>
+      <p>Your team spends days reading papers and produces a subjective summary. No structured extraction, no reproducibility, no confidence scoring.</p>
+    </div>
+  </div>
+
+  <div class="quote" style="font-style: normal;">
+    A single systematic review costs an average of <strong>$141,194</strong> and takes a mean of
+    <strong>67 weeks</strong> to complete.
+    <div style="margin-top: 8px; font-size: 0.75rem; color: var(--text-muted); font-style: normal;">
+      Michelson &amp; Reuter (2019), <em>Contemporary Clinical Trials Communications</em>, 16, 100443.
+      Borah et al. (2017), <em>BMJ Open</em>, 7(2), e012545.
+    </div>
+  </div>
+  <span class="slide-number">02</span>
+</div>
+
+<!-- Slide 3: What I Do -->
+<div class="slide">
+  <h2>Structured evidence synthesis at consulting speed</h2>
+  <p class="subtitle">
+    I combine AI-powered analysis with expert oversight to deliver research reports
+    that are rigorous enough to cite and fast enough to use.
+  </p>
+
+  <div class="flow">
+    <div class="flow-step" style="border-top: 3px solid var(--accent);">
+      <div class="num">Day 1</div>
+      <div class="title">Discover</div>
+      <div class="detail">Search 10 academic databases. Build a corpus of 300&ndash;2,000 papers.</div>
+    </div>
+    <div class="flow-arrow">&rsaquo;</div>
+    <div class="flow-step" style="border-top: 3px solid var(--accent-light);">
+      <div class="num">Day 1</div>
+      <div class="title">Screen</div>
+      <div class="detail">AI-assisted relevance gating with defined inclusion criteria.</div>
+    </div>
+    <div class="flow-arrow">&rsaquo;</div>
+    <div class="flow-step" style="border-top: 3px solid var(--green);">
+      <div class="num">Day 1&ndash;2</div>
+      <div class="title">Extract</div>
+      <div class="detail">Structured extraction of methods, results, claims, and metrics.</div>
+    </div>
+    <div class="flow-arrow">&rsaquo;</div>
+    <div class="flow-step" style="border-top: 3px solid var(--green);">
+      <div class="num">Day 2</div>
+      <div class="title">Verify</div>
+      <div class="detail">Credibility scoring, evidence grounding against source text.</div>
+    </div>
+    <div class="flow-arrow">&rsaquo;</div>
+    <div class="flow-step" style="border-top: 3px solid var(--amber);">
+      <div class="num">Day 2</div>
+      <div class="title">Synthesise</div>
+      <div class="detail">Meta-analysis with disagreement detection, weighted by evidence quality.</div>
+    </div>
+    <div class="flow-arrow">&rsaquo;</div>
+    <div class="flow-step" style="border-top: 3px solid var(--amber);">
+      <div class="num">Day 2</div>
+      <div class="title">Report</div>
+      <div class="detail">Executive brief, detailed report, evidence table, references.</div>
+    </div>
+  </div>
+  <span class="slide-number">03</span>
+</div>
+
+<!-- Slide 4: What You Get -->
+<div class="slide">
+  <h2>What you receive</h2>
+  <p class="subtitle">Every engagement delivers a complete evidence package, not just a summary.</p>
+
+  <div class="grid grid-2">
+    <div class="card card-accent">
+      <h3>Executive Brief</h3>
+      <p>
+        1&ndash;2 pages. Numbered findings with evidence strength qualifiers.
+        Clear bottom line. Written for people who need to act, not read.
+      </p>
+      <div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">
+        <span class="tag tag-accent">Bottom Line</span>
+        <span class="tag tag-accent">Key Findings</span>
+        <span class="tag tag-accent">Evidence Landscape</span>
+        <span class="tag tag-accent">Limitations</span>
+      </div>
+    </div>
+    <div class="card card-green">
+      <h3>Detailed Report</h3>
+      <p>
+        Comprehensive analysis with APA citations, verified source quotes,
+        credibility assessments, and areas of disagreement.
+        Self-contained HTML with citation tooltips.
+      </p>
+      <div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">
+        <span class="tag tag-green">Inline Source Quotes</span>
+        <span class="tag tag-green">Evidence Appendix</span>
+        <span class="tag tag-green">Disagreement Analysis</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Structured Evidence Table</h3>
+      <p>
+        Every paper with 29 data columns: methodology, key claims,
+        confidence scores, credibility tier, grounding coverage.
+        CSV export for your own analysis.
+      </p>
+      <div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">
+        <span class="tag tag-accent">CSV</span>
+        <span class="tag tag-accent">29 Columns</span>
+        <span class="tag tag-accent">Filterable</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Reference Library</h3>
+      <p>
+        Complete BibTeX and RIS reference files for all included papers.
+        Import directly into Zotero, Mendeley, or EndNote.
+      </p>
+      <div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">
+        <span class="tag tag-accent">BibTeX</span>
+        <span class="tag tag-accent">RIS</span>
+        <span class="tag tag-accent">Full Metadata</span>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">04</span>
+</div>
+
+<!-- Slide 5: Interactive Platform -->
+<div class="slide">
+  <h2>Not just a report. An explorable evidence base.</h2>
+  <p class="subtitle">
+    Every engagement includes ongoing consulting support &mdash;
+    send me follow-up questions, ask me to test assumptions, and request visualisations of how papers connect.
+  </p>
+
+  <div class="grid grid-3">
+    <div class="card card-accent">
+      <h3>Ask the Corpus</h3>
+      <p>
+        Send me a question in plain English and get a sourced answer back quickly.
+        Every response includes inline citations with verified quotes from specific papers.
+        No waiting for a full new report &mdash; get answers as questions arise.
+      </p>
+      <div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">
+        <span class="tag tag-accent">Fast cited responses</span>
+        <span class="tag tag-accent">Cited sources</span>
+        <span class="tag tag-accent">Confidence scoring</span>
+      </div>
+    </div>
+    <div class="card card-green">
+      <h3>What-If Sensitivity</h3>
+      <p>
+        Ask me to filter by year, methodology, paper tier, or exclude individual studies &mdash;
+        and I'll show you how the conclusions change.
+        Answers questions like "does this finding hold if we remove the weaker studies?"
+      </p>
+      <div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">
+        <span class="tag tag-green">Year &amp; method filters</span>
+        <span class="tag tag-green">Side-by-side comparison</span>
+        <span class="tag tag-green">Delta highlights</span>
+      </div>
+    </div>
+    <div class="card card-amber">
+      <h3>Evidence Map</h3>
+      <p>
+        I provide visual network diagrams showing how papers cluster around shared findings.
+        Papers are nodes, patterns are connections, and disagreements are visible fault lines.
+      </p>
+      <div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">
+        <span class="tag tag-amber">Visual network</span>
+        <span class="tag tag-amber">Pattern clusters</span>
+        <span class="tag tag-amber">Disagreement mapping</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote" style="font-style: normal;">
+    Traditional reviews give you a document. Evidensity gives you a <strong>living evidence base</strong>
+    you can keep coming back to with new questions &mdash; long after the initial engagement.
+  </div>
+  <span class="slide-number">05</span>
+</div>
+
+<!-- Slide 6: Engagement Models -->
+<div class="slide">
+  <h2>How we work together</h2>
+  <p class="subtitle">
+    Six engagement patterns, each designed for a different stage of your decision-making process.
+    Every engagement includes ongoing consulting support for follow-up questions and deeper exploration.
+  </p>
+
+  <div class="grid grid-3">
+    <div class="card card-accent">
+      <h3>Landscape Scan</h3>
+      <p>
+        "What does the evidence look like?"<br>
+        Fast scoping of the research landscape. Ideal for proposals, feasibility checks, and initial briefings.
+      </p>
+      <div style="margin-top: 10px;">
+        <span class="tag tag-accent">1&ndash;2 days</span>
+      </div>
+    </div>
+    <div class="card card-accent">
+      <h3>Evidence Build</h3>
+      <p>
+        "Build me a structured evidence base."<br>
+        Thorough extraction and full-text analysis. Produces the CSV evidence table your analysts can work with.
+      </p>
+      <div style="margin-top: 10px;">
+        <span class="tag tag-accent">2&ndash;3 days</span>
+      </div>
+    </div>
+    <div class="card card-accent">
+      <h3>Deep Analysis</h3>
+      <p>
+        "Give me the full picture."<br>
+        Tiered analysis: top papers get deep extraction with credibility scoring and evidence grounding.
+      </p>
+      <div style="margin-top: 10px;">
+        <span class="tag tag-accent">3&ndash;5 days</span>
+      </div>
+    </div>
+    <div class="card card-green">
+      <h3>Rapid Response</h3>
+      <p>
+        "I need an answer by Friday."<br>
+        Top 50 papers, mid-tier analysis, executive brief. For urgent decisions and board prep.
+      </p>
+      <div style="margin-top: 10px;">
+        <span class="tag tag-green">2&ndash;4 hours</span>
+      </div>
+    </div>
+    <div class="card card-green">
+      <h3>Hypothesis Test</h3>
+      <p>
+        "Is this claim actually true?"<br>
+        Deep extraction, credibility assessment, and evidence grounding focused on a specific claim. For due diligence.
+      </p>
+      <div style="margin-top: 10px;">
+        <span class="tag tag-green">2&ndash;3 days</span>
+      </div>
+    </div>
+    <div class="card card-green">
+      <h3>Conflict Analysis</h3>
+      <p>
+        "Why do studies disagree about this?"<br>
+        Structured analysis of conflicting findings with attribution to methodology, data, or context differences.
+      </p>
+      <div style="margin-top: 10px;">
+        <span class="tag tag-green">3&ndash;5 days</span>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">06</span>
+</div>
+
+<!-- Slide 7: The Requery Advantage -->
+<div class="slide">
+  <h2>Ask one question. Then ask twenty more.</h2>
+  <p class="subtitle">
+    Once I've built your evidence base, follow-up questions are answered in minutes.
+    Same corpus, new perspective, new report. No additional research cost.
+  </p>
+
+  <div class="grid grid-2" style="margin-top: 24px;">
+    <div class="card" style="border: 1px solid var(--accent);">
+      <h3 style="color: var(--accent);">Initial Engagement</h3>
+      <ul class="list">
+        <li><span class="bullet">1</span> Define your research question</li>
+        <li><span class="bullet">2</span> I build the evidence corpus (300&ndash;2,000 papers)</li>
+        <li><span class="bullet">3</span> Full pipeline: screening, extraction, verification, synthesis</li>
+        <li><span class="bullet">4</span> Executive brief + detailed report delivered</li>
+      </ul>
+      <div style="margin-top: 14px; padding: 10px; background: var(--accent-bg); border-radius: 8px; text-align: center;">
+        <div style="font-size: 0.7rem; color: var(--text-muted);">Typical turnaround</div>
+        <div style="font-size: 1.3rem; font-weight: 700; color: var(--accent);">2&ndash;3 days</div>
+      </div>
+    </div>
+    <div class="card" style="border: 1px solid var(--green);">
+      <h3 style="color: var(--green);">Follow-up Questions</h3>
+      <ul class="list">
+        <li><span class="bullet" style="color: var(--green);">&rarr;</span> "What are the cost implications specifically?"</li>
+        <li><span class="bullet" style="color: var(--green);">&rarr;</span> "Which methods show the strongest results?"</li>
+        <li><span class="bullet" style="color: var(--green);">&rarr;</span> "What does the European evidence say vs US?"</li>
+        <li><span class="bullet" style="color: var(--green);">&rarr;</span> "Summarise for a non-technical board audience"</li>
+      </ul>
+      <div style="margin-top: 14px; padding: 10px; background: var(--green-bg); border-radius: 8px; text-align: center;">
+        <div style="font-size: 0.7rem; color: var(--text-muted);">Each follow-up</div>
+        <div style="font-size: 1.3rem; font-weight: 700; color: var(--green);">5&ndash;10 minutes</div>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">07</span>
+</div>
+
+<!-- Slide 8: How It Compares -->
+<div class="slide">
+  <h2>How this compares</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 28%;">Dimension</th>
+        <th style="width: 22%;">Traditional Review</th>
+        <th style="width: 22%;">AI Summary</th>
+        <th style="width: 28%;" class="highlight-row">Evidensity Research</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Turnaround</td>
+        <td>6&ndash;18 months</td>
+        <td>Minutes</td>
+        <td class="highlight-row"><strong>2&ndash;5 days</strong></td>
+      </tr>
+      <tr>
+        <td>Papers analysed</td>
+        <td>20&ndash;100 (manual)</td>
+        <td>Unknown</td>
+        <td class="highlight-row"><strong>300&ndash;2,000</strong></td>
+      </tr>
+      <tr>
+        <td>Source transparency</td>
+        <td><span class="check">&#10003;</span> Full</td>
+        <td><span class="cross">&#10007;</span> None</td>
+        <td class="highlight-row"><span class="check">&#10003;</span> <strong>Full audit trail</strong></td>
+      </tr>
+      <tr>
+        <td>Verified source quotes</td>
+        <td><span class="cross">&#10007;</span> Rarely</td>
+        <td><span class="cross">&#10007;</span> Hallucination risk</td>
+        <td class="highlight-row"><span class="check">&#10003;</span> <strong>Programmatic verification</strong></td>
+      </tr>
+      <tr>
+        <td>Credibility assessment</td>
+        <td><span class="check">&#10003;</span> Expert judgement</td>
+        <td><span class="cross">&#10007;</span> None</td>
+        <td class="highlight-row"><span class="check">&#10003;</span> <strong>Per-paper scoring</strong></td>
+      </tr>
+      <tr>
+        <td>Disagreement detection</td>
+        <td>Sometimes</td>
+        <td><span class="cross">&#10007;</span> No</td>
+        <td class="highlight-row"><span class="check">&#10003;</span> <strong>Structured with attribution</strong></td>
+      </tr>
+      <tr>
+        <td>Follow-up questions</td>
+        <td>New engagement</td>
+        <td>New prompt</td>
+        <td class="highlight-row"><strong>Minutes, same evidence base</strong></td>
+      </tr>
+      <tr>
+        <td>Interactive exploration</td>
+        <td><span class="cross">&#10007;</span> Static PDF</td>
+        <td><span class="cross">&#10007;</span> Single prompt</td>
+        <td class="highlight-row"><span class="check">&#10003;</span> <strong>Q&amp;A, sensitivity, evidence map</strong></td>
+      </tr>
+      <tr>
+        <td>Exportable data</td>
+        <td>PDF</td>
+        <td>Text</td>
+        <td class="highlight-row"><strong>CSV, BibTeX, RIS, HTML</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="slide-number">08</span>
+</div>
+
+<!-- Slide 9: Methodology -->
+<div class="slide">
+  <h2>Rigour you can cite</h2>
+  <p class="subtitle">
+    Every claim in every report is traceable to a specific paper, verified against source text,
+    and scored for credibility. No black boxes.
+  </p>
+
+  <div class="grid grid-2" style="margin-top: 24px;">
+    <div>
+      <h3>Evidence quality controls</h3>
+      <ul class="list">
+        <li><span class="bullet">&#10003;</span><div><strong>Multi-stage screening</strong> &mdash; papers scored for relevance, then independently gated against defined inclusion/exclusion criteria</div></li>
+        <li><span class="bullet">&#10003;</span><div><strong>Evidence grounding</strong> &mdash; every extracted claim verified as an exact substring of the source paper. Unverifiable claims are flagged and excluded from confidence calculations</div></li>
+        <li><span class="bullet">&#10003;</span><div><strong>Credibility assessment</strong> &mdash; per-paper scoring on methodological rigour, data quality, and reproducibility. Weighted in meta-analysis</div></li>
+        <li><span class="bullet">&#10003;</span><div><strong>Disagreement detection</strong> &mdash; structured identification of conflicting findings with attribution to methodology, data, or context differences</div></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Transparency guarantees</h3>
+      <ul class="list">
+        <li><span class="bullet">&#10003;</span><div><strong>PRISMA-style evidence flow</strong> &mdash; complete paper counts at every stage from identification through synthesis</div></li>
+        <li><span class="bullet">&#10003;</span><div><strong>Verified source quotes</strong> &mdash; reports include programmatically verified verbatim quotes from source papers, not paraphrased or generated text</div></li>
+        <li><span class="bullet">&#10003;</span><div><strong>Evidence appendix</strong> &mdash; table of every verified quote mapped to claim and source paper</div></li>
+        <li><span class="bullet">&#10003;</span><div><strong>Explicit limitations</strong> &mdash; every report states what was not covered, what biases may exist, and what the evidence cannot conclude</div></li>
+      </ul>
+    </div>
+  </div>
+  <span class="slide-number">09</span>
+</div>
+
+<!-- Slide 10: By the Numbers -->
+<div class="slide">
+  <h2>By the numbers</h2>
+
+  <div class="grid grid-4">
+    <div class="card stat">
+      <div class="stat-value">10</div>
+      <div class="stat-label">Academic databases</div>
+      <div class="stat-detail">Semantic Scholar, OpenAlex, CrossRef, PubMed, Europe PMC, arXiv, CORE, DOAJ, ERIC, Wikipedia</div>
+    </div>
+    <div class="card stat">
+      <div class="stat-value">17</div>
+      <div class="stat-label">Analysis stages</div>
+      <div class="stat-detail">Discovery through credibility assessment, evidence grounding, and meta-analysis</div>
+    </div>
+    <div class="card stat">
+      <div class="stat-value" style="color: var(--green);">48h</div>
+      <div class="stat-label">First report</div>
+      <div class="stat-detail">Question to executive brief with full evidence package</div>
+    </div>
+    <div class="card stat">
+      <div class="stat-value" style="color: var(--amber);">5m</div>
+      <div class="stat-label">Follow-up</div>
+      <div class="stat-detail">New question, new report, same evidence base</div>
+    </div>
+  </div>
+
+  <div class="grid grid-3" style="margin-top: 16px;">
+    <div class="card stat">
+      <div style="font-size: 1.8rem; font-weight: 700;">100%</div>
+      <div class="stat-label">Source transparency</div>
+      <p style="margin-top: 6px; text-align: center;">Every claim linked to a specific paper with APA citation and verified source quote</p>
+    </div>
+    <div class="card stat">
+      <div style="font-size: 1.8rem; font-weight: 700;">29 cols</div>
+      <div class="stat-label">Data per paper</div>
+      <p style="margin-top: 6px; text-align: center;">Methods, results, claims, credibility, grounding coverage &mdash; all exportable</p>
+    </div>
+    <div class="card stat">
+      <div style="font-size: 1.8rem; font-weight: 700;">6</div>
+      <div class="stat-label">Engagement types</div>
+      <p style="margin-top: 6px; text-align: center;">From 2-hour rapid response to comprehensive deep analysis with paper tiering</p>
+    </div>
+  </div>
+  <span class="slide-number">10</span>
+</div>
+
+<!-- Slide 11: Use Cases -->
+<div class="slide">
+  <h2>Questions I answer</h2>
+
+  <div class="grid grid-2">
+    <div class="card card-accent">
+      <h3>Healthcare &amp; Life Sciences</h3>
+      <ul class="list">
+        <li><span class="bullet">&bull;</span> Treatment efficacy evidence reviews</li>
+        <li><span class="bullet">&bull;</span> Health technology assessments</li>
+        <li><span class="bullet">&bull;</span> Regulatory submission evidence packages</li>
+        <li><span class="bullet">&bull;</span> Clinical pathway evidence mapping</li>
+      </ul>
+    </div>
+    <div class="card card-accent">
+      <h3>Technology &amp; Innovation</h3>
+      <ul class="list">
+        <li><span class="bullet">&bull;</span> Technology landscape assessments</li>
+        <li><span class="bullet">&bull;</span> Due diligence on scientific claims</li>
+        <li><span class="bullet">&bull;</span> R&amp;D prioritisation evidence</li>
+        <li><span class="bullet">&bull;</span> Competitive intelligence synthesis</li>
+      </ul>
+    </div>
+    <div class="card card-green">
+      <h3>Policy &amp; Public Sector</h3>
+      <ul class="list">
+        <li><span class="bullet">&bull;</span> Rapid evidence assessments</li>
+        <li><span class="bullet">&bull;</span> Intervention effectiveness reviews</li>
+        <li><span class="bullet">&bull;</span> Stakeholder briefing preparation</li>
+        <li><span class="bullet">&bull;</span> Cross-country policy comparisons</li>
+      </ul>
+    </div>
+    <div class="card card-green">
+      <h3>Strategy, Legal &amp; Education</h3>
+      <ul class="list">
+        <li><span class="bullet">&bull;</span> Investment thesis validation</li>
+        <li><span class="bullet">&bull;</span> Expert witness research support</li>
+        <li><span class="bullet">&bull;</span> Grant application evidence bases</li>
+        <li><span class="bullet">&bull;</span> Curriculum development support</li>
+      </ul>
+    </div>
+  </div>
+  <span class="slide-number">11</span>
+</div>
+
+<!-- Slide 12: CTA -->
+<div class="slide slide-cta">
+  <div>
+    <h2 style="font-size: 2.4rem;">
+      What question do you need<br>
+      <span style="color: var(--accent);">answered this week?</span>
+    </h2>
+    <p class="subtitle" style="text-align: center; margin: 20px auto 0; max-width: 560px;">
+      Send me your research question. I'll scope the evidence landscape for free
+      and tell you honestly what I can deliver &mdash; before you commit.
+    </p>
+
+    <div style="margin-top: 40px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+      <div class="card" style="padding: 20px 28px; text-align: center; min-width: 200px;">
+        <h3 style="color: var(--green); margin-bottom: 6px;">Start here</h3>
+        <p>Free landscape scan on your first question. No commitment.</p>
+      </div>
+      <div class="card" style="padding: 20px 28px; text-align: center; min-width: 200px;">
+        <h3 style="color: var(--accent); margin-bottom: 6px;">Fixed-price engagements</h3>
+        <p>Priced by depth of analysis, not by the hour. Scoped after the landscape scan.</p>
+      </div>
+      <div class="card" style="padding: 20px 28px; text-align: center; min-width: 200px;">
+        <h3 style="color: var(--amber); margin-bottom: 6px;">Retainer available</h3>
+        <p>Ongoing evidence support with multiple questions and priority turnaround.</p>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">12</span>
+</div>
+
+</body>
+</html>

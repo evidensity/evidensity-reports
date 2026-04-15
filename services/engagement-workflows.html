@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evidensity Research — Engagement Workflow Guide</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --bg-card: #ffffff;
+      --bg-muted: #f1f5f9;
+      --accent: #1e40af;
+      --accent-light: #3b82f6;
+      --accent-bg: rgba(30, 64, 175, 0.06);
+      --green: #047857;
+      --green-bg: rgba(4, 120, 87, 0.06);
+      --amber: #b45309;
+      --amber-bg: rgba(180, 83, 9, 0.06);
+      --text: #1e293b;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --border: #e2e8f0;
+      --radius: 10px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 32px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-top: 48px;
+      margin-bottom: 6px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--border);
+      color: var(--text);
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-top: 24px;
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .audience-tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-right: 4px;
+    }
+    .tag-business { background: var(--accent-bg); color: var(--accent); }
+    .tag-creators { background: var(--green-bg); color: var(--green); }
+    .tag-academic { background: var(--amber-bg); color: var(--amber); }
+
+    .engagement {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+
+    .engagement-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .engagement-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .engagement-time {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg-muted);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    .engagement-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .step {
+      display: flex;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .step-content { flex: 1; }
+
+    .step-action {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+
+    .step-detail {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .ui-ref {
+      display: inline-block;
+      background: var(--accent-bg);
+      color: var(--accent);
+      padding: 1px 7px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: 'Consolas', 'SF Mono', monospace;
+    }
+
+    .client-step .step-num {
+      background: var(--green);
+    }
+
+    .toc {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+
+    .toc a {
+      display: block;
+      padding: 4px 0;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .toc a:hover { text-decoration: underline; }
+
+    .section-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 700px) {
+      body { padding: 20px 16px; }
+      h1 { font-size: 1.5rem; }
+      h2 { font-size: 1.2rem; }
+      .engagement { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<h1>Engagement Workflow Guide</h1>
+<p class="subtitle">
+  For each engagement pattern, this document specifies the exact UI workflow &mdash;
+  which tabs to visit, what to click, and what the client sees at each step.
+  Green-numbered steps are client-facing interactions; blue are internal.
+</p>
+
+<div class="toc">
+  <div class="section-label">Business Engagements</div>
+  <a href="#landscape-scan">1. Landscape Scan</a>
+  <a href="#evidence-build">2. Evidence Build</a>
+  <a href="#deep-analysis">3. Deep Analysis</a>
+  <a href="#rapid-response">4. Rapid Response</a>
+  <a href="#hypothesis-test">5. Hypothesis Test</a>
+  <a href="#conflict-analysis">6. Conflict Analysis</a>
+  <div class="section-label" style="margin-top: 12px;">Academic Engagements</div>
+  <a href="#meta-analysis">7. Meta-Analysis</a>
+  <a href="#systematic-review">8. Systematic Review</a>
+  <a href="#scoping-review">9. Scoping Review</a>
+  <a href="#rapid-evidence">10. Rapid Evidence Assessment</a>
+  <a href="#literature-survey">11. Literature Survey</a>
+  <div class="section-label" style="margin-top: 12px;">Content Creator Engagements</div>
+  <a href="#long-form">12. Long-Form Articles &amp; Newsletters</a>
+  <a href="#video-scripts">13. YouTube Scripts</a>
+  <a href="#podcast-prep">14. Podcast Prep</a>
+  <a href="#threads">15. Twitter / LinkedIn Threads</a>
+  <a href="#course-material">16. Course Material</a>
+  <a href="#book-research">17. Book Research</a>
+</div>
+
+<!-- ============================================================ -->
+<h2>Business Engagements</h2>
+<!-- ============================================================ -->
+
+<div class="engagement" id="landscape-scan">
+  <div class="engagement-header">
+    <span class="engagement-title">Landscape Scan</span>
+    <span class="engagement-time">1&ndash;2 days</span>
+  </div>
+  <div style="margin-bottom: 8px;"><span class="audience-tag tag-business">Business</span></div>
+  <div class="engagement-desc">
+    "What does the evidence look like?" Fast scoping of the research landscape.
+    Ideal for proposals, feasibility checks, and initial briefings.
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <div class="step-action">Create project from research question</div>
+      <div class="step-detail">Click <strong>+ New Project</strong> in the top bar. Enter the client's research question. Use <strong>Dev mode</strong> for speed. The Research Planner generates a YAML config automatically.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <div class="step-action">Run Discovery</div>
+      <div class="step-detail">Go to <span class="ui-ref">Pipeline</span> tab. Click the <strong>Discovery</strong> stage card and run it. This searches 10 databases and builds the paper corpus. Check paper count on completion.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <div class="step-action">Run pipeline through Insights</div>
+      <div class="step-detail">On <span class="ui-ref">Pipeline</span>, click <strong>Run Pipeline</strong> and select the <strong>Landscape</strong> preset (Discovery &rarr; Abstract Enrichment &rarr; Relevance Gate &rarr; Classification). This gives corpus shape without deep extraction.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <div class="step-action">Review corpus overview</div>
+      <div class="step-detail">Open <span class="ui-ref">Insights</span> tab. Capture: year distribution, source breakdown, top-cited papers, methodology distribution, gate stats (pass/review/fail). This is your landscape snapshot.</div>
+    </div>
+  </div>
+  <div class="step client-step">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <div class="step-action">Client handoff: share Insights + paper count</div>
+      <div class="step-detail">Screenshot or export the Insights dashboard. Deliver: "We found X papers across Y databases. Here's the evidence landscape. Recommend [Evidence Build / Deep Analysis] for full synthesis."</div>
+    </div>
+  </div>
+</div>
+
+<div class="engagement" id="evidence-build">
+  <div class="engagement-header">
+    <span class="engagement-title">Evidence Build</span>
+    <span class="engagement-time">2&ndash;3 days</span>
+  </div>
+  <div style="margin-bottom: 8px;"><span class="audience-tag tag-business">Business</span></div>
+  <div class="engagement-desc">
+    "Build me a structured evidence base." Thorough extraction and full-text analysis.
+    Produces the CSV evidence table the client's analysts can work with.
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <div class="step-action">Create project and run Discovery</div>
+      <div class="step-detail">Same as Landscape Scan steps 1&ndash;2. Ensure corpus is built.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <div class="step-action">Run full pipeline (Evidence Build preset)</div>
+      <div class="step-detail">On <span class="ui-ref">Pipeline</span>, click <strong>Run Pipeline</strong>. Select the <strong>Evidence Build</strong> preset or run stages through Results Extraction. This runs: Abstract Enrichment &rarr; Gate &rarr; Extraction &rarr; OA Retrieval &rarr; Full Text &rarr; Classification &rarr; Data Audit &rarr; Results.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <div class="step-action">Quality-check in Paper Browser</div>
+      <div class="step-detail">Open <span class="ui-ref">Pipeline</span> &rarr; click individual stage cards to see per-paper results. Spot-check extraction quality on 5&ndash;10 papers. Review any gate=review papers and accept/reject manually.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <div class="step-action">Export evidence table</div>
+      <div class="step-detail">From the paper list, use the <strong>Export CSV</strong> button. This produces the 29-column evidence table. Also export BibTeX and RIS reference files.</div>
+    </div>
+  </div>
+  <div class="step client-step">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <div class="step-action">Client handoff: CSV + references + platform access</div>
+      <div class="step-detail">Deliver: evidence table CSV, BibTeX/RIS files. Give client access to <span class="ui-ref">Ask</span> tab for ad-hoc questions against the corpus.</div>
+    </div>
+  </div>
+</div>
+
+<div class="engagement" id="deep-analysis">
+  <div class="engagement-header">
+    <span class="engagement-title">Deep Analysis</span>
+    <span class="engagement-time">3&ndash;5 days</span>
+  </div>
+  <div style="margin-bottom: 8px;"><span class="audience-tag tag-business">Business</span></div>
+  <div class="engagement-desc">
+    "Give me the full picture." Tiered analysis with credibility scoring, evidence grounding,
+    and meta-analysis. The most comprehensive engagement.
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <div class="step-action">Create project, run Discovery</div>
+      <div class="step-detail">Same as above. For Deep Analysis, consider running Discovery in <strong>Full mode</strong> for better scoring.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <div class="step-action">Run full pipeline with Thorough preset</div>
+      <div class="step-detail">On <span class="ui-ref">Pipeline</span>, click <strong>Run Pipeline</strong> &rarr; select <strong>Thorough</strong> or <strong>Deep Analysis</strong> preset. This runs all 14 stages including Credibility, Evidence Grounding, Cross-Validation, and Meta-Analysis.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <div class="step-action">Review tiering and credibility</div>
+      <div class="step-detail">Check paper tiers on the paper list (T1/T2/T3). Open stage detail views for <strong>Credibility</strong> and <strong>Evidence Grounding</strong> to review per-paper scores. Manually override tiers if needed.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <div class="step-action">Review meta-analysis results</div>
+      <div class="step-detail">Open <span class="ui-ref">Insights</span> for disagreement analysis, methodology distribution, and consensus findings. Use <span class="ui-ref">Map</span> to visualise the evidence network &mdash; identify clusters and fault lines.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <div class="step-action">Generate report</div>
+      <div class="step-detail">Go to <span class="ui-ref">Reports</span> tab. Generate with <strong>insight</strong> or <strong>executive</strong> tone. Download the self-contained HTML report with APA citations and source quotes.</div>
+    </div>
+  </div>
+  <div class="step client-step">
+    <div class="step-num">6</div>
+    <div class="step-content">
+      <div class="step-action">Client handoff: report + platform access</div>
+      <div class="step-detail">Deliver: HTML report, CSV evidence table, BibTeX/RIS. Give client access to <span class="ui-ref">Ask</span> (follow-up questions), <span class="ui-ref">What If</span> (sensitivity testing), and <span class="ui-ref">Map</span> (evidence visualisation).</div>
+    </div>
+  </div>
+</div>
+
+<div class="engagement" id="rapid-response">
+  <div class="engagement-header">
+    <span class="engagement-title">Rapid Response</span>
+    <span class="engagement-time">2&ndash;4 hours</span>
+  </div>
+  <div style="margin-bottom: 8px;"><span class="audience-tag tag-business">Business</span></div>
+  <div class="engagement-desc">
+    "I need an answer by Friday." Top 50 papers, mid-tier analysis, executive brief.
+    For urgent decisions and board prep.
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <div class="step-action">Create project in Dev mode</div>
+      <div class="step-detail">Click <strong>+ New Project</strong>, enter question, use <strong>Dev mode</strong> for fastest config generation.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <div class="step-action">Run Discovery, then Rapid preset</div>
+      <div class="step-detail">Run Discovery, then on <span class="ui-ref">Pipeline</span> select <strong>Rapid</strong> preset. This runs core stages only (Gate &rarr; Extraction &rarr; Results &rarr; Meta-Analysis &rarr; Report) on top 50 papers by relevance.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <div class="step-action">Quick QA via Ask tab</div>
+      <div class="step-detail">Open <span class="ui-ref">Ask</span> tab. Test 2&ndash;3 key questions the client needs answered. Verify answers are grounded and citations are relevant. This takes seconds per question.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <div class="step-action">Generate executive brief</div>
+      <div class="step-detail">Go to <span class="ui-ref">Reports</span>. Generate with <strong>executive</strong> or <strong>insight</strong> tone. This produces a concise, action-oriented brief.</div>
+    </div>
+  </div>
+  <div class="step client-step">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <div class="step-action">Client handoff: brief + Ask access</div>
+      <div class="step-detail">Deliver: executive brief. Give client access to <span class="ui-ref">Ask</span> tab for any follow-up questions that arise during board discussion.</div>
+    </div>
+  </div>
+</div>
+
+<div class="engagement" id="hypothesis-test">
+  <div class="engagement-header">
+    <span class="engagement-title">Hypothesis Test</span>
+    <span class="engagement-time">2&ndash;3 days</span>
+  </div>
+  <div style="margin-bottom: 8px;"><span class="audience-tag tag-business">Business</span></div>
+  <div class="engagement-desc">
+    "Is this claim actually true?" Deep extraction, credibility assessment, and evidence grounding
+    focused on a specific claim. For due diligence.
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <div class="step-action">Frame question as falsifiable hypothesis</div>
+      <div class="step-detail">Create project with a specific claim-testing question (e.g. "Does X actually improve Y?"). The config should have tight inclusion criteria focused on the claim.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <div class="step-action">Run full pipeline with credibility + grounding</div>
+      <div class="step-detail">Run Discovery, then full pipeline including <strong>Credibility</strong> and <strong>Evidence Grounding</strong> stages. These are critical for hypothesis testing &mdash; they score each paper's methodological rigour and verify claims against source text.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <div class="step-action">Sensitivity test the hypothesis</div>
+      <div class="step-detail">Open <span class="ui-ref">What If</span> tab. Filter to T1 papers only &mdash; does the conclusion hold? Remove the oldest studies &mdash; still holds? Remove a specific methodology &mdash; still holds? This stress-tests the claim.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <div class="step-action">Check disagreement landscape</div>
+      <div class="step-detail">Open <span class="ui-ref">Map</span> tab. Look for red disagreement nodes. Click each to see which papers are on which side and why. This reveals the nuance behind a yes/no answer.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <div class="step-action">Generate report framed around the claim</div>
+      <div class="step-detail">Go to <span class="ui-ref">Reports</span>. Generate with the original hypothesis as the question. Use <strong>insight</strong> tone for a direct verdict.</div>
+    </div>
+  </div>
+  <div class="step client-step">
+    <div class="step-num">6</div>
+    <div class="step-content">
+      <div class="step-action">Client handoff: verdict + sensitivity results + platform</div>
+      <div class="step-detail">Deliver: report with clear verdict, sensitivity analysis screenshots from <span class="ui-ref">What If</span>, evidence map screenshot showing agreement/disagreement. Platform access for <span class="ui-ref">Ask</span> follow-ups.</div>
+    </div>
+  </div>
+</div>
+
+<div class="engagement" id="conflict-analysis">
+  <div class="engagement-header">
+    <span class="engagement-title">Conflict Analysis</span>
+    <span class="engagement-time">3&ndash;5 days</span>
+  </div>
+  <div style="margin-bottom: 8px;"><span class="audience-tag tag-business">Business</span></div>
+  <div class="engagement-desc">
+    "Why do studies disagree about this?" Structured analysis of conflicting findings
+    with attribution to methodology, data, or context differences.
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <div class="step-action">Build corpus on the contested topic</div>
+      <div class="step-detail">Create project with the contested question. Run Discovery with broad search terms to capture both sides of the debate.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <div class="step-action">Run full pipeline with all quality stages</div>
+      <div class="step-detail">Run all 14 stages via <span class="ui-ref">Pipeline</span>. Credibility and Evidence Grounding are especially important here &mdash; they determine which side of a disagreement has stronger evidence.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <div class="step-action">Explore disagreements on Evidence Map</div>
+      <div class="step-detail">Open <span class="ui-ref">Map</span> tab. Red nodes are disagreements. Click each to see both sides, which papers support each position, and the attributed reason (methodology, data, context, sample size). Toggle off pattern nodes to isolate the conflict structure.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <div class="step-action">Decompose via What-If filters</div>
+      <div class="step-detail">Open <span class="ui-ref">What If</span>. Filter by methodology type &mdash; do RCTs agree with observational studies? Filter by year &mdash; did newer studies resolve the conflict? Filter by tier &mdash; is it only weak studies that disagree?</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <div class="step-action">Ask targeted questions</div>
+      <div class="step-detail">Open <span class="ui-ref">Ask</span> tab. Ask: "Why do studies disagree on X?", "Which methodological differences explain the conflicting findings?", "What would resolve this disagreement?"</div>
+    </div>
+  </div>
+  <div class="step client-step">
+    <div class="step-num">6</div>
+    <div class="step-content">
+      <div class="step-action">Client handoff: conflict report + evidence map + platform</div>
+      <div class="step-detail">Deliver: report focused on the disagreement, evidence map screenshots annotated with conflict lines, sensitivity analysis showing which filters resolve/preserve the conflict. Full platform access.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2>Academic Engagements</h2>
+<!-- ============================================================ -->
+
+<div class="engagement" id="meta-analysis">
+  <div class="engagement-header">
+    <span class="engagement-title">Meta-Analysis</span>
+    <span class="engagement-time">2&ndash;4 days</span>
+  </div>
+  <div style="margin-bottom: 8px;"><span class="audience-tag tag-academic">Academic</span></div>
+  <div class="engagement-desc">
+    Quantitative synthesis of findings across studies. Full extraction of results,
+    weighted aggregation by study quality, and disagreement assessment.
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <div class="step-action">Configure with precise research question</div>
+      <div class="step-detail">Create project. Then open <span class="ui-ref">Config</span> tab to refine: tighten inclusion/exclusion criteria, set methodology vocabulary for the domain, and configure credibility dimensions. Set <strong>research_type: meta_analysis</strong>.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <div class="step-action">Run Discovery in Full mode</div>
+      <div class="step-detail">Run Discovery from <span class="ui-ref">Pipeline</span> in <strong>Full mode</strong> (Sonnet scoring) for better relevance ranking. Aim for high recall &mdash; the gate will filter later.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <div class="step-action">Run complete pipeline (all 14 stages)</div>
+      <div class="step-detail">Run full pipeline with the <strong>Thorough</strong> preset. All stages are needed: Gate &rarr; Extraction &rarr; OA Retrieval &rarr; Full Text &rarr; Classification &rarr; Data Audit &rarr; Results &rarr; Dataset Linker &rarr; Credibility &rarr; Evidence Grounding &rarr; Cross-Validation &rarr; Meta-Analysis &rarr; Report.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <div class="step-action">Review cross-validation and grounding</div>
+      <div class="step-detail">Click the <strong>Cross-Validation</strong> stage card on <span class="ui-ref">Pipeline</span> to see the cross-validation report. Check <strong>Evidence Grounding</strong> stage detail for verification rates. Flag any papers with low grounding coverage for manual review.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <div class="step-action">Robustness testing</div>
+      <div class="step-detail">Open <span class="ui-ref">What If</span>. Test: exclude T3 papers &mdash; do effect sizes hold? Filter to last 5 years only &mdash; any temporal trend? Exclude single most-cited study &mdash; is the finding driven by one paper?</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">6</div>
+    <div class="step-content">
+      <div class="step-action">Generate academic report</div>
+      <div class="step-detail">Go to <span class="ui-ref">Reports</span>. Generate with <strong>academic</strong> tone. This produces methodology-first structure with APA citations, appropriate hedging, and explicit limitations.</div>
+    </div>
+  </div>
+  <div class="step client-step">
+    <div class="step-num">7</div>
+    <div class="step-content">
+      <div class="step-action">Deliver: report + evidence table + references + platform</div>
+      <div class="step-detail">Deliver: academic report (HTML), evidence table (CSV for statistical analysis), BibTeX + RIS files, verified quotes export. Platform access for <span class="ui-ref">Ask</span> (sub-questions), <span class="ui-ref">What If</span> (sensitivity), <span class="ui-ref">Map</span> (visualising the evidence network for thesis figures).</div>
+    </div>
+  </div>
+</div>
+
+<div class="engagement" id="systematic-review">
+  <div class="engagement-header">
+    <span class="engagement-title">Systematic Review</span>
+    <span class="engagement-time">2&ndash;5 days</span>
+  </div>
+  <div style="margin-bottom: 8px;"><span class="audience-tag tag-academic">Academic</span></div>
+  <div class="engagement-desc">
+    PRISMA-aligned comprehensive synthesis. Protocol-driven screening, structured extraction,
+    quality assessment, and narrative synthesis.
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <div class="step-action">Configure with PRISMA-aligned criteria</div>
+      <div class="step-detail">Create project. Open <span class="ui-ref">Config</span> to define precise inclusion/exclusion criteria matching the review protocol. Set <strong>research_type: systematic_review</strong>. Configure all discovery sources.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <div class="step-action">Run Discovery across all sources</div>
+      <div class="step-detail">Run Discovery in Full mode. Check <span class="ui-ref">Insights</span> &rarr; source distribution to verify all databases returned results. The PRISMA flow on the Pipeline tab tracks identification counts.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <div class="step-action">Screen with Gate + manual review</div>
+      <div class="step-detail">Run Abstract Enrichment &rarr; Relevance Gate. Then review gate=review papers manually: click papers on <span class="ui-ref">Pipeline</span> &rarr; Gate stage detail, and accept/reject borderline cases. This is the dual-screening step.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <div class="step-action">Run remaining pipeline stages</div>
+      <div class="step-detail">Run the remaining stages: Extraction through Meta-Analysis. Use Full mode for Extraction and Results for highest-quality output on the included papers.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <div class="step-action">Generate report with academic tone</div>
+      <div class="step-detail">Go to <span class="ui-ref">Reports</span>. Use <strong>academic</strong> tone. The report includes the PRISMA evidence flow, methodology section, and explicit limitations &mdash; all required for systematic review publication.</div>
+    </div>
+  </div>
+  <div class="step client-step">
+    <div class="step-num">6</div>
+    <div class="step-content">
+      <div class="step-action">Deliver: report + PRISMA data + evidence table + references</div>
+      <div class="step-detail">Deliver: academic report, CSV for their own analysis, BibTeX/RIS, PRISMA flow data. Platform access for exploring sub-questions via <span class="ui-ref">Ask</span> and testing robustness via <span class="ui-ref">What If</span>.</div>
+    </div>
+  </div>
+</div>
+
+<div class="engagement" id="scoping-review">
+  <div class="engagement-header">
+    <span class="engagement-title">Scoping Review</span>
+    <span class="engagement-time">1&ndash;3 days</span>
+  </div>
+  <div style="margin-bottom: 8px;"><span class="audience-tag tag-academic">Academic</span></div>
+  <div class="engagement-desc">
+    Map the breadth of evidence on a topic. Broader inclusion, classification-focused extraction,
+    gap identification. Ideal for identifying research directions and grant framing.
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <div class="step-action">Configure with broad inclusion criteria</div>
+      <div class="step-detail">Create project with a broad question. Open <span class="ui-ref">Config</span> and set wide inclusion criteria. Set <strong>research_type: scoping_review</strong>.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <div class="step-action">Run Discovery + Classification pipeline</div>
+      <div class="step-detail">Run Discovery, then the pipeline through Classification. Deep extraction and credibility are less critical here &mdash; the goal is to map breadth, not depth.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <div class="step-action">Explore the landscape</div>
+      <div class="step-detail">Open <span class="ui-ref">Insights</span> for methodology and year distributions. Open <span class="ui-ref">Map</span> to see how the field clusters. Identify gaps: what methods are underrepresented? What years have sparse coverage?</div>
+    </div>
+  </div>
+  <div class="step client-step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <div class="step-action">Deliver: landscape report + evidence map + gap analysis</div>
+      <div class="step-detail">Generate report with <strong>academic</strong> tone. Deliver with evidence map screenshots showing field structure. Use <span class="ui-ref">Ask</span> to answer "What areas are underresearched?" and "Where is the field moving?"</div>
+    </div>
+  </div>
+</div>
+
+<div class="engagement" id="rapid-evidence">
+  <div class="engagement-header">
+    <span class="engagement-title">Rapid Evidence Assessment</span>
+    <span class="engagement-time">4&ndash;8 hours</span>
+  </div>
+  <div style="margin-bottom: 8px;"><span class="audience-tag tag-academic">Academic</span></div>
+  <div class="engagement-desc">
+    Streamlined synthesis for conference deadlines and grant submissions.
+    Focused search, lighter extraction, priority analysis of top studies.
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <div class="step-action">Create project, run Discovery in Dev mode</div>
+      <div class="step-detail">Speed is key. Use Dev mode throughout. Create project, run Discovery immediately.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <div class="step-action">Run Rapid preset pipeline</div>
+      <div class="step-detail">On <span class="ui-ref">Pipeline</span>, select <strong>Rapid</strong> preset. This runs core stages on the top papers by relevance: Gate &rarr; Extraction &rarr; Results &rarr; Meta-Analysis.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <div class="step-action">Quick corpus interrogation</div>
+      <div class="step-detail">Open <span class="ui-ref">Ask</span> tab. Ask the specific questions needed for the grant or conference abstract. Each answer comes in 3&ndash;8 seconds with citations.</div>
+    </div>
+  </div>
+  <div class="step client-step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <div class="step-action">Deliver: brief + Ask access for deadline-day questions</div>
+      <div class="step-detail">Generate report with <strong>insight</strong> tone (concise, direct). Deliver report + <span class="ui-ref">Ask</span> access so they can query the corpus as they write their submission.</div>
+    </div>
+  </div>
+</div>
+
+<div class="engagement" id="literature-survey">
+  <div class="engagement-header">
+    <span class="engagement-title">Literature Survey</span>
+    <span class="engagement-time">1&ndash;2 days</span>
+  </div>
+  <div style="margin-bottom: 8px;"><span class="audience-tag tag-academic">Academic</span></div>
+  <div class="engagement-desc">
+    Broad landscape mapping with narrative synthesis. For thesis introductions,
+    background chapters, and identifying themes.
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <div class="step-action">Create project with broad topic</div>
+      <div class="step-detail">Create project. Set <strong>research_type: literature_survey</strong> in <span class="ui-ref">Config</span>. Wide inclusion criteria.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <div class="step-action">Run core stages pipeline</div>
+      <div class="step-detail">Run Discovery &rarr; Gate &rarr; Extraction &rarr; Classification &rarr; Results &rarr; Meta-Analysis. Skip credibility and grounding for speed.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <div class="step-action">Requery for each thesis section</div>
+      <div class="step-detail">Open <span class="ui-ref">Questions</span> tab. Submit different questions for each chapter/section: "What are the theoretical frameworks for X?", "What empirical methods are used to study Y?", "What are the open questions in Z?" Each generates a focused report.</div>
+    </div>
+  </div>
+  <div class="step client-step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <div class="step-action">Deliver: section-specific reports + BibTeX + platform</div>
+      <div class="step-detail">Deliver: one report per thesis section, combined BibTeX file, evidence map for the introduction figure. <span class="ui-ref">Ask</span> access for on-demand questions as they write.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2>Content Creator Engagements</h2>
+<!-- ============================================================ -->
+
+<div class="engagement" id="long-form">
+  <div class="engagement-header">
+    <span class="engagement-title">Long-Form Articles &amp; Newsletters</span>
+    <span class="engagement-time">2&ndash;3 days</span>
+  </div>
+  <div style="margin-bottom: 8px;"><span class="audience-tag tag-creators">Content Creator</span></div>
+  <div class="engagement-desc">
+    Research brief as outline, verified quotes as evidence, source links for every claim.
+    The most well-sourced piece your readers have ever seen.
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <div class="step-action">Create project from content angle</div>
+      <div class="step-detail">Translate the article thesis into a research question. Create project. Run Discovery to build the corpus.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <div class="step-action">Run pipeline through Results + Meta-Analysis</div>
+      <div class="step-detail">Run the pipeline on <span class="ui-ref">Pipeline</span>. Include Evidence Grounding for verified quotes the creator can use verbatim.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <div class="step-action">Generate research brief</div>
+      <div class="step-detail">Go to <span class="ui-ref">Reports</span>. Generate with <strong>insight</strong> tone &mdash; this produces a clear, direct brief that maps to article structure. Key findings become section headings.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <div class="step-action">Pull verified quotes</div>
+      <div class="step-detail">Export the verified quotes file. These are exact-match quotes from source papers &mdash; safe to use verbatim in the article with proper attribution.</div>
+    </div>
+  </div>
+  <div class="step client-step">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <div class="step-action">Creator writes with Ask tab open</div>
+      <div class="step-detail">Give platform access. As they write, they use <span class="ui-ref">Ask</span> to check facts ("Is it true that X?"), find specific stats ("What's the average effect size for Y?"), and explore angles ("What's the contrarian view on Z?").</div>
+    </div>
+  </div>
+</div>
+
+<div class="engagement" id="video-scripts">
+  <div class="engagement-header">
+    <span class="engagement-title">YouTube Scripts</span>
+    <span class="engagement-time">2&ndash;3 days</span>
+  </div>
+  <div style="margin-bottom: 8px;"><span class="audience-tag tag-creators">Content Creator</span></div>
+  <div class="engagement-desc">
+    Key findings as narrative beats, evidence table for on-screen data,
+    evidence map as an animatable visual.
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <div class="step-action">Build corpus and run pipeline</div>
+      <div class="step-detail">Create project from the video's central question. Run Discovery + full pipeline including Meta-Analysis.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <div class="step-action">Generate insight-tone report for script beats</div>
+      <div class="step-detail">Go to <span class="ui-ref">Reports</span>. Generate with <strong>insight</strong> tone. Each key finding becomes a narrative beat. Consensus findings become "here's what the research agrees on" segments.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <div class="step-action">Capture visual assets</div>
+      <div class="step-detail">Open <span class="ui-ref">Insights</span> &mdash; screenshot charts for B-roll (year distribution, methodology breakdown). Open <span class="ui-ref">Map</span> &mdash; capture the evidence network for animated explainer segments. These are screen-share ready.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <div class="step-action">Find the controversy angle</div>
+      <div class="step-detail">Open <span class="ui-ref">Map</span> &mdash; click red disagreement nodes. Open <span class="ui-ref">Ask</span> and ask "What's the most controversial finding?" and "What do critics argue?" These make compelling video segments.</div>
+    </div>
+  </div>
+  <div class="step client-step">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <div class="step-action">Creator uses platform during production</div>
+      <div class="step-detail">Deliver report + visual screenshots. Platform access for <span class="ui-ref">Ask</span> (fact-checking during editing) and <span class="ui-ref">Map</span> (generating additional visuals as the script evolves).</div>
+    </div>
+  </div>
+</div>
+
+<div class="engagement" id="podcast-prep">
+  <div class="engagement-header">
+    <span class="engagement-title">Podcast Prep</span>
+    <span class="engagement-time">1&ndash;2 days</span>
+  </div>
+  <div style="margin-bottom: 8px;"><span class="audience-tag tag-creators">Content Creator</span></div>
+  <div class="engagement-desc">
+    Walk into interviews knowing the full evidence landscape.
+    Source quotes for reference, What-If for prepping against pushback.
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <div class="step-action">Build corpus on the episode topic</div>
+      <div class="step-detail">Create project. Run Discovery + core pipeline (Gate &rarr; Extraction &rarr; Results &rarr; Meta-Analysis). Speed over depth &mdash; Rapid preset works well.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <div class="step-action">Generate talking points via Ask</div>
+      <div class="step-detail">Open <span class="ui-ref">Ask</span>. Ask the questions the audience would ask: "What does the research actually show?", "What's the strongest evidence for X?", "What are the common misconceptions?" Each answer becomes a segment.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <div class="step-action">Prep counter-arguments</div>
+      <div class="step-detail">Open <span class="ui-ref">What If</span>. Test the guest's likely claims: filter to only their methodology &mdash; does it hold? Open <span class="ui-ref">Ask</span>: "What would critics of X argue?" This prepares the host to push back intelligently.</div>
+    </div>
+  </div>
+  <div class="step client-step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <div class="step-action">Creator uses Ask tab live during recording</div>
+      <div class="step-detail">Give platform access. During recording, they can quickly check a claim via <span class="ui-ref">Ask</span>: "Is it true that X?" &mdash; answer in 5 seconds with citations. Makes for authoritative live responses.</div>
+    </div>
+  </div>
+</div>
+
+<div class="engagement" id="threads">
+  <div class="engagement-header">
+    <span class="engagement-title">Twitter / LinkedIn Threads</span>
+    <span class="engagement-time">1&ndash;2 days</span>
+  </div>
+  <div style="margin-bottom: 8px;"><span class="audience-tag tag-creators">Content Creator</span></div>
+  <div class="engagement-desc">
+    Each key finding is a tweet. Each verified quote is screenshot-worthy.
+    One research brief = 10+ threads.
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <div class="step-action">Build corpus and run pipeline</div>
+      <div class="step-detail">Create project, run Discovery + pipeline through Meta-Analysis. Include Evidence Grounding for verified quotes.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <div class="step-action">Mine thread hooks via Ask</div>
+      <div class="step-detail">Open <span class="ui-ref">Ask</span>. Ask provocative angles: "What's the most surprising finding?", "What does everyone get wrong about X?", "What changed in the last 3 years?" Each answer is a thread hook.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <div class="step-action">Pull stats and quotes</div>
+      <div class="step-detail">Open <span class="ui-ref">Insights</span> for chart-worthy stats. Export verified quotes &mdash; these are screenshot-safe for "here's what the paper actually says" posts. The evidence table has numbers for carousel content.</div>
+    </div>
+  </div>
+  <div class="step client-step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <div class="step-action">Creator uses Ask + Questions for ongoing content</div>
+      <div class="step-detail">Platform access. Use <span class="ui-ref">Ask</span> for new angles as engagement data comes in ("my audience is asking about Y &mdash; what does the evidence say?"). Use <span class="ui-ref">Questions</span> tab to track which angles have been covered.</div>
+    </div>
+  </div>
+</div>
+
+<div class="engagement" id="course-material">
+  <div class="engagement-header">
+    <span class="engagement-title">Course Material</span>
+    <span class="engagement-time">3&ndash;5 days</span>
+  </div>
+  <div style="margin-bottom: 8px;"><span class="audience-tag tag-creators">Content Creator</span></div>
+  <div class="engagement-desc">
+    Build curriculum on structured evidence. Reference library for students,
+    evidence table as teaching resource, requery for each module.
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <div class="step-action">Build comprehensive corpus on course topic</div>
+      <div class="step-detail">Create project with the course's overarching question. Run Discovery in Full mode for comprehensive coverage. Run full pipeline including Credibility for quality tiers.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <div class="step-action">Generate module-specific reports via Questions</div>
+      <div class="step-detail">Open <span class="ui-ref">Questions</span> tab. Submit one question per module/lesson: "What are the foundations of X?", "What methods are used to study Y?", "What are the current debates in Z?" Each generates a focused report.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <div class="step-action">Build reading lists from evidence table</div>
+      <div class="step-detail">Export CSV and BibTeX. Filter the evidence table by topic/method to create per-module reading lists. T1 papers become required reading, T2 recommended, T3 supplementary.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <div class="step-action">Create visual teaching aids</div>
+      <div class="step-detail">Open <span class="ui-ref">Map</span> &mdash; capture evidence network for lecture slides showing how the field connects. Open <span class="ui-ref">Insights</span> &mdash; use methodology distribution and year trends as teaching context.</div>
+    </div>
+  </div>
+  <div class="step client-step">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <div class="step-action">Creator uses Ask for student questions</div>
+      <div class="step-detail">Platform access. When students ask unexpected questions, the creator can check <span class="ui-ref">Ask</span> in seconds and respond with cited evidence. Builds immense credibility in live sessions.</div>
+    </div>
+  </div>
+</div>
+
+<div class="engagement" id="book-research">
+  <div class="engagement-header">
+    <span class="engagement-title">Book Research</span>
+    <span class="engagement-time">5&ndash;7 days</span>
+  </div>
+  <div style="margin-bottom: 8px;"><span class="audience-tag tag-creators">Content Creator</span></div>
+  <div class="engagement-desc">
+    Evidence base per chapter. Ask the Corpus as a writing companion.
+    Every claim traceable to a source before it reaches an editor.
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <div class="step-action">Build master corpus for the book's thesis</div>
+      <div class="step-detail">Create project with the book's central argument as the research question. Run Discovery with broad terms. Run full pipeline with all quality stages &mdash; this is a long-term evidence base.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <div class="step-action">Generate chapter-level reports</div>
+      <div class="step-detail">Open <span class="ui-ref">Questions</span>. Submit one question per chapter. Each generates a focused report with chapter-relevant citations and findings. Use different tones: <strong>academic</strong> for methodology chapters, <strong>insight</strong> for narrative chapters.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <div class="step-action">Stress-test the book's argument</div>
+      <div class="step-detail">Open <span class="ui-ref">What If</span>. The book's thesis needs to survive scrutiny &mdash; filter by methodology, exclude weak studies, test temporal trends. Open <span class="ui-ref">Ask</span>: "What is the strongest counter-argument to X?" Address this in the book.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <div class="step-action">Build the bibliography</div>
+      <div class="step-detail">Export BibTeX for the complete corpus. The evidence table serves as the master fact-checking reference for the editorial process.</div>
+    </div>
+  </div>
+  <div class="step client-step">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <div class="step-action">Creator writes with Ask as a research companion</div>
+      <div class="step-detail">Platform access throughout the writing process. <span class="ui-ref">Ask</span> becomes a live research assistant: "What study showed X?", "How many papers support Y?", "What's the citation for Z?" Every claim is verifiable before submission.</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

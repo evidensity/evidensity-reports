@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evidensity Research — For Academics &amp; Research Teams</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --bg-card: #ffffff;
+      --bg-muted: #f1f5f9;
+      --accent: #1e40af;
+      --accent-light: #3b82f6;
+      --accent-bg: rgba(30, 64, 175, 0.06);
+      --green: #047857;
+      --green-bg: rgba(4, 120, 87, 0.06);
+      --amber: #b45309;
+      --amber-bg: rgba(180, 83, 9, 0.06);
+      --text: #1e293b;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --border: #e2e8f0;
+      --radius: 10px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .slide {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 100px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .slide-number {
+      position: absolute;
+      bottom: 24px;
+      right: 40px;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      max-width: 680px;
+      line-height: 1.7;
+    }
+
+    .grid { display: grid; gap: 20px; margin-top: 28px; }
+    .grid-2 { grid-template-columns: 1fr 1fr; }
+    .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .grid-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .card p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .card-accent { border-left: 3px solid var(--accent); }
+    .card-green { border-left: 3px solid var(--green); }
+    .card-amber { border-left: 3px solid var(--amber); }
+
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .tag-accent { background: var(--accent-bg); color: var(--accent); }
+    .tag-green { background: var(--green-bg); color: var(--green); }
+    .tag-amber { background: var(--amber-bg); color: var(--amber); }
+
+    .stat { text-align: center; padding: 28px 16px; }
+    .stat-value { font-size: 2.6rem; font-weight: 800; letter-spacing: -0.03em; color: var(--accent); }
+    .stat-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 6px; }
+    .stat-detail { font-size: 0.7rem; color: var(--text-muted); margin-top: 4px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-size: 0.88rem;
+    }
+    th {
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 2px solid var(--border);
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    tr:last-child td { border-bottom: none; }
+    .highlight-row { background: var(--accent-bg); }
+    .check { color: var(--green); font-weight: 600; }
+    .cross { color: var(--text-muted); }
+
+    .flow {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      margin-top: 32px;
+    }
+    .flow-step {
+      flex: 1;
+      padding: 18px 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      text-align: center;
+      position: relative;
+    }
+    .flow-step:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+    .flow-step:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+    .flow-step .num {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .flow-step .title { font-size: 0.85rem; font-weight: 600; margin-bottom: 3px; }
+    .flow-step .detail { font-size: 0.7rem; color: var(--text-secondary); }
+    .flow-arrow { display: flex; align-items: center; color: var(--accent-light); font-size: 1.1rem; margin: 0 -5px; z-index: 1; }
+
+    .quote {
+      border-left: 3px solid var(--accent);
+      padding: 16px 24px;
+      background: var(--accent-bg);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin-top: 24px;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .list { list-style: none; margin-top: 14px; }
+    .list li {
+      padding: 9px 0;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .list li:last-child { border-bottom: none; }
+    .bullet { color: var(--accent); font-weight: 700; flex-shrink: 0; }
+
+    .slide-title {
+      background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+    }
+    .slide-cta {
+      text-align: center;
+      align-items: center;
+      background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 50%, #f0fdf4 100%);
+    }
+
+    @media (max-width: 900px) {
+      .slide { padding: 40px 28px; }
+      h1 { font-size: 2.2rem; }
+      h2 { font-size: 1.6rem; }
+      .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
+      .flow { flex-direction: column; }
+      .flow-arrow { transform: rotate(90deg); justify-content: center; }
+      .flow-step:first-child, .flow-step:last-child { border-radius: var(--radius); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Slide 1: Title -->
+<div class="slide slide-title">
+  <div>
+    <div style="margin-bottom: 16px;">
+      <span class="tag tag-accent">For Academics &amp; Research Teams</span>
+    </div>
+    <h1>Evidensity Research</h1>
+    <p class="subtitle">
+      Accelerate systematic evidence synthesis from months to days.
+      Structured, auditable, PRISMA-aligned reviews &mdash; built on the same corpus
+      you would construct yourself, but extracted and verified at scale.
+    </p>
+    <div style="margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap;">
+      <span class="tag tag-green" style="font-size: 0.8rem; padding: 6px 16px;">10 academic databases</span>
+      <span class="tag tag-accent" style="font-size: 0.8rem; padding: 6px 16px;">PRISMA-aligned methodology</span>
+      <span class="tag tag-amber" style="font-size: 0.8rem; padding: 6px 16px;">Structured extraction</span>
+    </div>
+  </div>
+  <span class="slide-number">01</span>
+</div>
+
+<!-- Slide 2: The Problem -->
+<div class="slide">
+  <h2>Systematic reviews are essential. The process is broken.</h2>
+  <p class="subtitle">
+    You know the evidence needs to be synthesised rigorously. But the time and cost
+    of doing it properly means reviews are often outdated before they reach peer review.
+  </p>
+
+  <div class="grid grid-3">
+    <div class="card card-amber">
+      <h3>The 67-week review</h3>
+      <p>By the time your systematic review is published, the literature has moved on. New studies have appeared, old conclusions may no longer hold, and the field has already shifted.</p>
+    </div>
+    <div class="card card-amber">
+      <h3>Scope paralysis</h3>
+      <p>3,000 results from your search strategy &mdash; how do you screen them all systematically? Title-abstract screening alone can take weeks of concentrated effort from two independent reviewers.</p>
+    </div>
+    <div class="card card-amber">
+      <h3>Reproducibility gap</h3>
+      <p>Ad-hoc search strategies, subjective screening decisions, and inconsistent extraction templates make replication nearly impossible. Reviewer disagreement is common and poorly documented.</p>
+    </div>
+  </div>
+
+  <div class="quote" style="font-style: normal;">
+    A single systematic review costs an average of <strong>$141,194</strong> and takes a mean of
+    <strong>67 weeks</strong> to complete.
+    <div style="margin-top: 8px; font-size: 0.75rem; color: var(--text-muted); font-style: normal;">
+      Michelson &amp; Reuter (2019), <em>Contemporary Clinical Trials Communications</em>, 16, 100443.
+      Borah et al. (2017), <em>BMJ Open</em>, 7(2), e012545.
+    </div>
+  </div>
+  <span class="slide-number">02</span>
+</div>
+
+<!-- Slide 3: Pipeline Overview -->
+<div class="slide">
+  <h2>A 10-stage pipeline producing structured, auditable outputs</h2>
+  <p class="subtitle">
+    Each stage generates structured JSON with confidence scores and provenance tracking.
+    Every decision is logged. Every extraction is traceable to source text.
+  </p>
+
+  <div class="flow">
+    <div class="flow-step" style="border-top: 3px solid var(--accent);">
+      <div class="num">Stage 1</div>
+      <div class="title">Discovery</div>
+      <div class="detail">10 databases, deduplication, relevance scoring</div>
+    </div>
+    <div class="flow-arrow">&rsaquo;</div>
+    <div class="flow-step" style="border-top: 3px solid var(--accent);">
+      <div class="num">Stage 2</div>
+      <div class="title">Screening</div>
+      <div class="detail">Inclusion/exclusion criteria, relevance gating</div>
+    </div>
+    <div class="flow-arrow">&rsaquo;</div>
+    <div class="flow-step" style="border-top: 3px solid var(--accent-light);">
+      <div class="num">Stage 3</div>
+      <div class="title">Extraction</div>
+      <div class="detail">Methodology, design, sample, findings</div>
+    </div>
+    <div class="flow-arrow">&rsaquo;</div>
+    <div class="flow-step" style="border-top: 3px solid var(--accent-light);">
+      <div class="num">Stage 4</div>
+      <div class="title">Full-Text</div>
+      <div class="detail">OA retrieval, section parsing</div>
+    </div>
+    <div class="flow-arrow">&rsaquo;</div>
+    <div class="flow-step" style="border-top: 3px solid var(--green);">
+      <div class="num">Stage 5</div>
+      <div class="title">Classification</div>
+      <div class="detail">Method taxonomy, study design tags</div>
+    </div>
+  </div>
+
+  <div class="flow" style="margin-top: 12px;">
+    <div class="flow-step" style="border-top: 3px solid var(--green);">
+      <div class="num">Stage 6</div>
+      <div class="title">Credibility</div>
+      <div class="detail">Per-paper quality scoring</div>
+    </div>
+    <div class="flow-arrow">&rsaquo;</div>
+    <div class="flow-step" style="border-top: 3px solid var(--green);">
+      <div class="num">Stage 7</div>
+      <div class="title">Grounding</div>
+      <div class="detail">Claims verified against source text</div>
+    </div>
+    <div class="flow-arrow">&rsaquo;</div>
+    <div class="flow-step" style="border-top: 3px solid var(--amber);">
+      <div class="num">Stage 8</div>
+      <div class="title">Cross-Val</div>
+      <div class="detail">Inter-agent agreement checks</div>
+    </div>
+    <div class="flow-arrow">&rsaquo;</div>
+    <div class="flow-step" style="border-top: 3px solid var(--amber);">
+      <div class="num">Stage 9</div>
+      <div class="title">Meta-Analysis</div>
+      <div class="detail">Weighted synthesis, disagreement detection</div>
+    </div>
+    <div class="flow-arrow">&rsaquo;</div>
+    <div class="flow-step" style="border-top: 3px solid var(--amber);">
+      <div class="num">Stage 10</div>
+      <div class="title">Report</div>
+      <div class="detail">APA citations, PRISMA flow, evidence tables</div>
+    </div>
+  </div>
+  <span class="slide-number">03</span>
+</div>
+
+<!-- Slide 4: What You Get -->
+<div class="slide">
+  <h2>What you receive</h2>
+  <p class="subtitle">A complete evidence package ready for your thesis chapter, grant application, or publication.</p>
+
+  <div class="grid grid-2">
+    <div class="card card-accent">
+      <h3>Systematic Review Report</h3>
+      <p>
+        Full methodology section, results with APA citations, limitations discussion,
+        and evidence synthesis. Self-contained HTML with citation tooltips and verified source quotes.
+      </p>
+      <div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">
+        <span class="tag tag-accent">APA Citations</span>
+        <span class="tag tag-accent">Methodology Section</span>
+        <span class="tag tag-accent">Limitations</span>
+      </div>
+    </div>
+    <div class="card card-green">
+      <h3>Structured Evidence Table</h3>
+      <p>
+        Every included paper with 29 data columns: study design, methodology, sample characteristics,
+        key findings, confidence scores, credibility tier. CSV export ready for your own statistical analysis.
+      </p>
+      <div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">
+        <span class="tag tag-green">29 Columns</span>
+        <span class="tag tag-green">CSV Export</span>
+        <span class="tag tag-green">Analysis-Ready</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3>PRISMA Flow &amp; Reference Library</h3>
+      <p>
+        PRISMA-style flow diagram with paper counts at each stage.
+        Complete BibTeX and RIS reference files &mdash; import directly into Zotero, Mendeley, or EndNote.
+      </p>
+      <div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">
+        <span class="tag tag-accent">PRISMA Diagram</span>
+        <span class="tag tag-accent">BibTeX</span>
+        <span class="tag tag-accent">RIS</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Verified Source Quotes</h3>
+      <p>
+        Every extracted claim is programmatically matched against full text as an exact substring.
+        Unverifiable claims are flagged. Evidence appendix maps every quote to its source paper and page.
+      </p>
+      <div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">
+        <span class="tag tag-accent">Substring Verification</span>
+        <span class="tag tag-accent">Evidence Appendix</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote" style="font-style: normal; margin-top: 24px;">
+    <strong>NEW: Interactive exploration</strong> &mdash; Ask the Corpus, What-If Sensitivity Analysis, and Evidence Map
+    capabilities are included with every engagement. Go beyond the static report with follow-up questions and visualisations.
+  </div>
+  <span class="slide-number">04</span>
+</div>
+
+<!-- Slide 5: Interactive Platform -->
+<div class="slide">
+  <h2>An interactive research service, not just a report</h2>
+  <p class="subtitle">
+    Every engagement includes ongoing consulting support &mdash; send me sub-questions,
+    ask for robustness checks, and request visualisations of the evidence landscape.
+  </p>
+
+  <div class="grid grid-3">
+    <div class="card card-accent">
+      <h3>Ask the Corpus</h3>
+      <p>
+        Send me specific sub-questions and receive cited answers drawn from the included papers.
+        Every response includes inline citations with verified quotes &mdash;
+        ideal for drafting specific sections of a literature review.
+      </p>
+      <div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">
+        <span class="tag tag-accent">Cited answers</span>
+        <span class="tag tag-accent">Sub-question exploration</span>
+        <span class="tag tag-accent">Draft-ready output</span>
+      </div>
+    </div>
+    <div class="card card-green">
+      <h3>What-If Sensitivity</h3>
+      <p>
+        Robustness testing for your synthesis. Ask me to exclude studies by year, method, quality tier,
+        or individually &mdash; and I'll tell you if your conclusions hold. Answers questions like
+        "does this finding survive if we restrict to RCTs?" or "what changes post-2020?"
+      </p>
+      <div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">
+        <span class="tag tag-green">Method filters</span>
+        <span class="tag tag-green">Quality thresholds</span>
+        <span class="tag tag-green">Side-by-side comparison</span>
+      </div>
+    </div>
+    <div class="card card-amber">
+      <h3>Evidence Map</h3>
+      <p>
+        I provide visual evidence network diagrams showing clusters of agreement, lines of disagreement,
+        and isolated findings. Papers are nodes, shared findings are connections,
+        and methodological conflicts are visible fault lines.
+      </p>
+      <div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;">
+        <span class="tag tag-amber">Agreement clusters</span>
+        <span class="tag tag-amber">Disagreement mapping</span>
+        <span class="tag tag-amber">Gap identification</span>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">05</span>
+</div>
+
+<!-- Slide 6: Methodological Rigour -->
+<div class="slide">
+  <h2>Methodological rigour at every stage</h2>
+  <p class="subtitle">
+    This is not a black-box summariser. Every decision is auditable, every claim is grounded,
+    and every confidence score is derived from explicit criteria.
+  </p>
+
+  <div class="grid grid-2" style="margin-top: 24px;">
+    <div>
+      <h3>Screening &amp; extraction controls</h3>
+      <ul class="list">
+        <li><span class="bullet">&#10003;</span><div><strong>Multi-stage screening</strong> &mdash; defined inclusion/exclusion criteria applied consistently across the entire corpus, with per-paper relevance scores</div></li>
+        <li><span class="bullet">&#10003;</span><div><strong>Evidence grounding</strong> &mdash; every extracted claim verified as an exact substring of the source paper. Unverifiable claims are flagged and excluded from confidence calculations</div></li>
+        <li><span class="bullet">&#10003;</span><div><strong>Cross-validation</strong> &mdash; independent extraction agents cross-check results. Disagreements between agents are surfaced with structured attribution</div></li>
+        <li><span class="bullet">&#10003;</span><div><strong>Confidence scoring</strong> &mdash; every stage produces numerical confidence scores, propagated through the pipeline and weighted in final synthesis</div></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Quality assessment &amp; synthesis</h3>
+      <ul class="list">
+        <li><span class="bullet">&#10003;</span><div><strong>Per-paper credibility</strong> &mdash; scoring on methodological rigour, data quality, and reproducibility. Configurable dimensions and weights per domain</div></li>
+        <li><span class="bullet">&#10003;</span><div><strong>Disagreement detection</strong> &mdash; structured identification of conflicting findings with attribution to methodology, data, or context differences</div></li>
+        <li><span class="bullet">&#10003;</span><div><strong>PRISMA-style evidence flow</strong> &mdash; complete paper counts at every stage from identification through final synthesis, with reasons for exclusion</div></li>
+        <li><span class="bullet">&#10003;</span><div><strong>Explicit limitations</strong> &mdash; every report states coverage gaps, potential biases, and what the evidence cannot conclude</div></li>
+      </ul>
+    </div>
+  </div>
+  <span class="slide-number">06</span>
+</div>
+
+<!-- Slide 7: Research Types Supported -->
+<div class="slide">
+  <h2>Five research types, one service</h2>
+  <p class="subtitle">
+    The pipeline adapts to your research design. Each type activates different stages,
+    applies appropriate thresholds, and produces the expected outputs.
+  </p>
+
+  <div class="grid grid-3">
+    <div class="card card-accent">
+      <h3>Meta-Analysis</h3>
+      <p>
+        Quantitative synthesis of effect sizes across studies. Full extraction of statistical results,
+        weighted aggregation by study quality, heterogeneity assessment, and forest plot data.
+      </p>
+      <div style="margin-top: 10px;">
+        <span class="tag tag-accent">Full pipeline &middot; 2&ndash;4 days</span>
+      </div>
+    </div>
+    <div class="card card-accent">
+      <h3>Systematic Review</h3>
+      <p>
+        Comprehensive, protocol-driven synthesis of all available evidence on a defined question.
+        PRISMA-aligned screening, structured extraction, and narrative synthesis with quality assessment.
+      </p>
+      <div style="margin-top: 10px;">
+        <span class="tag tag-accent">Full pipeline &middot; 2&ndash;5 days</span>
+      </div>
+    </div>
+    <div class="card card-green">
+      <h3>Scoping Review</h3>
+      <p>
+        Map the breadth of evidence on a topic. Broader inclusion criteria, classification-focused
+        extraction, and gap identification. Ideal for identifying research directions and grant framing.
+      </p>
+      <div style="margin-top: 10px;">
+        <span class="tag tag-green">Discovery + classification &middot; 1&ndash;3 days</span>
+      </div>
+    </div>
+    <div class="card card-green">
+      <h3>Rapid Evidence Assessment</h3>
+      <p>
+        Streamlined synthesis when you need answers fast. Focused search, lighter extraction,
+        prioritised analysis of highest-quality studies. For conference deadlines and grant submissions.
+      </p>
+      <div style="margin-top: 10px;">
+        <span class="tag tag-green">Priority stages &middot; 4&ndash;8 hours</span>
+      </div>
+    </div>
+    <div class="card card-amber">
+      <h3>Literature Survey</h3>
+      <p>
+        Broad landscape mapping with narrative synthesis. Lower extraction depth, wider inclusion,
+        emphasis on identifying themes and trends. Ideal for thesis introductions and background chapters.
+      </p>
+      <div style="margin-top: 10px;">
+        <span class="tag tag-amber">Core stages &middot; 1&ndash;2 days</span>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">07</span>
+</div>
+
+<!-- Slide 8: The Requery Advantage -->
+<div class="slide">
+  <h2>One corpus, unlimited research questions</h2>
+  <p class="subtitle">
+    Supervisor asks a new angle? Committee wants a different framing?
+    Re-run meta-analysis and reporting in minutes, not months. The evidence base is already built.
+  </p>
+
+  <div class="grid grid-2" style="margin-top: 24px;">
+    <div class="card" style="border: 1px solid var(--accent);">
+      <h3 style="color: var(--accent);">Initial Engagement</h3>
+      <ul class="list">
+        <li><span class="bullet">1</span> Define your primary research question</li>
+        <li><span class="bullet">2</span> Corpus built from 10 databases (300&ndash;2,000 papers)</li>
+        <li><span class="bullet">3</span> Full pipeline: screening, extraction, grounding, synthesis</li>
+        <li><span class="bullet">4</span> Systematic review report + evidence table delivered</li>
+      </ul>
+      <div style="margin-top: 14px; padding: 10px; background: var(--accent-bg); border-radius: 8px; text-align: center;">
+        <div style="font-size: 0.7rem; color: var(--text-muted);">Typical turnaround</div>
+        <div style="font-size: 1.3rem; font-weight: 700; color: var(--accent);">2&ndash;5 days</div>
+      </div>
+    </div>
+    <div class="card" style="border: 1px solid var(--green);">
+      <h3 style="color: var(--green);">Requery &mdash; New Questions, Same Corpus</h3>
+      <ul class="list">
+        <li><span class="bullet" style="color: var(--green);">&rarr;</span> <strong>Chapter 2:</strong> "What methodologies dominate this field?"</li>
+        <li><span class="bullet" style="color: var(--green);">&rarr;</span> <strong>Chapter 3:</strong> "What are the main areas of disagreement?"</li>
+        <li><span class="bullet" style="color: var(--green);">&rarr;</span> <strong>Chapter 4:</strong> "How do results differ by population?"</li>
+        <li><span class="bullet" style="color: var(--green);">&rarr;</span> <strong>Grant app:</strong> "Summarise the evidence gap we propose to fill"</li>
+      </ul>
+      <div style="margin-top: 14px; padding: 10px; background: var(--green-bg); border-radius: 8px; text-align: center;">
+        <div style="font-size: 0.7rem; color: var(--text-muted);">Each follow-up question</div>
+        <div style="font-size: 1.3rem; font-weight: 700; color: var(--green);">5&ndash;10 minutes</div>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">08</span>
+</div>
+
+<!-- Slide 9: How It Compares -->
+<div class="slide">
+  <h2>How this compares</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 24%;">Dimension</th>
+        <th style="width: 22%;">Manual Systematic Review</th>
+        <th style="width: 22%;">Covidence / Rayyan</th>
+        <th style="width: 32%;" class="highlight-row">Evidensity Research</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Timeline</td>
+        <td>6&ndash;18 months</td>
+        <td>3&ndash;12 months (screening only accelerated)</td>
+        <td class="highlight-row"><strong>2&ndash;5 days</strong></td>
+      </tr>
+      <tr>
+        <td>Papers screened</td>
+        <td>Hundreds (manual)</td>
+        <td>Hundreds (human-in-loop)</td>
+        <td class="highlight-row"><strong>300&ndash;2,000 (automated + auditable)</strong></td>
+      </tr>
+      <tr>
+        <td>Extraction depth</td>
+        <td><span class="check">&#10003;</span> Custom forms</td>
+        <td>Template-based (manual entry)</td>
+        <td class="highlight-row"><span class="check">&#10003;</span> <strong>29 columns, structured JSON</strong></td>
+      </tr>
+      <tr>
+        <td>Evidence grounding</td>
+        <td>Ad-hoc quotes</td>
+        <td><span class="cross">&#10007;</span> Not supported</td>
+        <td class="highlight-row"><span class="check">&#10003;</span> <strong>Programmatic substring verification</strong></td>
+      </tr>
+      <tr>
+        <td>Disagreement detection</td>
+        <td>Narrative (if included)</td>
+        <td><span class="cross">&#10007;</span> Not supported</td>
+        <td class="highlight-row"><span class="check">&#10003;</span> <strong>Structured with attribution</strong></td>
+      </tr>
+      <tr>
+        <td>Reproducibility</td>
+        <td>Protocol-dependent</td>
+        <td>Screening decisions logged</td>
+        <td class="highlight-row"><span class="check">&#10003;</span> <strong>Full pipeline audit trail</strong></td>
+      </tr>
+      <tr>
+        <td>Follow-up questions</td>
+        <td>Months of additional work</td>
+        <td>Manual re-extraction</td>
+        <td class="highlight-row"><strong>Minutes, same evidence base</strong></td>
+      </tr>
+      <tr>
+        <td>Export formats</td>
+        <td>Word / PDF</td>
+        <td>CSV (screening data only)</td>
+        <td class="highlight-row"><strong>CSV, BibTeX, RIS, HTML, JSON</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="slide-number">09</span>
+</div>
+
+<!-- Slide 10: By the Numbers -->
+<div class="slide">
+  <h2>By the numbers</h2>
+
+  <div class="grid grid-4">
+    <div class="card stat">
+      <div class="stat-value">10</div>
+      <div class="stat-label">Academic databases</div>
+      <div class="stat-detail">Semantic Scholar, OpenAlex, CrossRef, PubMed, Europe PMC, arXiv, CORE, DOAJ, ERIC, Wikipedia</div>
+    </div>
+    <div class="card stat">
+      <div class="stat-value">17</div>
+      <div class="stat-label">Pipeline stages</div>
+      <div class="stat-detail">Discovery through credibility assessment, evidence grounding, cross-validation, and meta-analysis</div>
+    </div>
+    <div class="card stat">
+      <div class="stat-value">29</div>
+      <div class="stat-label">Data columns</div>
+      <div class="stat-detail">Per-paper structured extraction: design, methods, sample, findings, credibility, grounding</div>
+    </div>
+    <div class="card stat">
+      <div class="stat-value" style="color: var(--green);">100%</div>
+      <div class="stat-label">Source traceability</div>
+      <div class="stat-detail">Every claim linked to a specific paper with APA citation and verified source quote</div>
+    </div>
+  </div>
+
+  <div class="grid grid-3" style="margin-top: 16px;">
+    <div class="card stat">
+      <div style="font-size: 1.8rem; font-weight: 700;">300&ndash;2,000</div>
+      <div class="stat-label">Papers per corpus</div>
+      <p style="margin-top: 6px; text-align: center;">Comprehensive coverage across all configured databases and search strategies</p>
+    </div>
+    <div class="card stat">
+      <div style="font-size: 1.8rem; font-weight: 700;">YAML</div>
+      <div class="stat-label">Domain-adaptive config</div>
+      <p style="margin-top: 6px; text-align: center;">Configurable methodology vocabularies, inclusion criteria, and credibility dimensions per domain</p>
+    </div>
+    <div class="card stat">
+      <div style="font-size: 1.8rem; font-weight: 700;">5 types</div>
+      <div class="stat-label">Research designs</div>
+      <p style="margin-top: 6px; text-align: center;">Meta-analysis, systematic review, scoping review, rapid evidence assessment, literature survey</p>
+    </div>
+  </div>
+  <span class="slide-number">10</span>
+</div>
+
+<!-- Slide 11: Use Cases -->
+<div class="slide">
+  <h2>Built for every stage of the research lifecycle</h2>
+
+  <div class="grid grid-2">
+    <div class="card card-accent">
+      <h3>PhD Literature Reviews</h3>
+      <ul class="list">
+        <li><span class="bullet">&bull;</span> Comprehensive background chapter with structured evidence synthesis</li>
+        <li><span class="bullet">&bull;</span> Identify gaps in the literature to justify your research contribution</li>
+        <li><span class="bullet">&bull;</span> Requery for each thesis chapter with different sub-questions</li>
+      </ul>
+    </div>
+    <div class="card card-accent">
+      <h3>Grant Application Evidence Bases</h3>
+      <ul class="list">
+        <li><span class="bullet">&bull;</span> Rapid evidence synthesis to support funding proposals</li>
+        <li><span class="bullet">&bull;</span> Demonstrate command of the field with structured, cited analysis</li>
+        <li><span class="bullet">&bull;</span> Evidence gap identification to frame your proposed contribution</li>
+      </ul>
+    </div>
+    <div class="card card-green">
+      <h3>Systematic Review Acceleration</h3>
+      <ul class="list">
+        <li><span class="bullet">&bull;</span> Use as a first pass to build the screening corpus and extraction template</li>
+        <li><span class="bullet">&bull;</span> Structured outputs ready for human verification and refinement</li>
+        <li><span class="bullet">&bull;</span> PRISMA-aligned methodology documented from the start</li>
+      </ul>
+    </div>
+    <div class="card card-green">
+      <h3>Research Group Evidence Monitoring</h3>
+      <ul class="list">
+        <li><span class="bullet">&bull;</span> Periodic re-runs to track new publications in your area</li>
+        <li><span class="bullet">&bull;</span> Lab-wide evidence base that multiple researchers can draw on</li>
+        <li><span class="bullet">&bull;</span> Incremental corpus building as the literature grows</li>
+      </ul>
+    </div>
+    <div class="card card-amber">
+      <h3>Tenure Portfolio &amp; Impact Cases</h3>
+      <ul class="list">
+        <li><span class="bullet">&bull;</span> Map the citation landscape around your own research programme</li>
+        <li><span class="bullet">&bull;</span> Identify where your work sits within the broader evidence base</li>
+        <li><span class="bullet">&bull;</span> Generate structured summaries for impact narratives</li>
+      </ul>
+    </div>
+    <div class="card card-amber">
+      <h3>Conference &amp; Paper Preparation</h3>
+      <ul class="list">
+        <li><span class="bullet">&bull;</span> Rapid background research for conference submissions</li>
+        <li><span class="bullet">&bull;</span> Related work sections with comprehensive, structured coverage</li>
+        <li><span class="bullet">&bull;</span> BibTeX export for immediate integration into LaTeX workflows</li>
+      </ul>
+    </div>
+  </div>
+  <span class="slide-number">11</span>
+</div>
+
+<!-- Slide 12: CTA -->
+<div class="slide slide-cta">
+  <div>
+    <h2 style="font-size: 2.4rem;">
+      What's your<br>
+      <span style="color: var(--accent);">research question?</span>
+    </h2>
+    <p class="subtitle" style="text-align: center; margin: 20px auto 0; max-width: 600px;">
+      Send me your research question. I'll scope the evidence landscape for free
+      and tell you what the pipeline can deliver &mdash; before you commit anything.
+      I hold a research background in computational linguistics and understand
+      the standards your work needs to meet.
+    </p>
+
+    <div style="margin-top: 40px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+      <div class="card" style="padding: 20px 28px; text-align: center; min-width: 200px;">
+        <h3 style="color: var(--green); margin-bottom: 6px;">Free scoping assessment</h3>
+        <p>Send your question. I'll map the evidence landscape and estimate corpus size &mdash; no cost, no commitment.</p>
+      </div>
+      <div class="card" style="padding: 20px 28px; text-align: center; min-width: 200px;">
+        <h3 style="color: var(--accent); margin-bottom: 6px;">Fixed-price engagements</h3>
+        <p>Priced by research type and depth of analysis. Scoped after the initial assessment.</p>
+      </div>
+      <div class="card" style="padding: 20px 28px; text-align: center; min-width: 200px;">
+        <h3 style="color: var(--amber); margin-bottom: 6px;">Department &amp; lab retainers</h3>
+        <p>Ongoing evidence support for research groups. Multiple questions, priority turnaround, shared corpora.</p>
+      </div>
+    </div>
+  </div>
+  <span class="slide-number">12</span>
+</div>
+
+</body>
+</html>
