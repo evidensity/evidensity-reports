@@ -219,6 +219,20 @@
   </style>
 </head>
 <body>
+<div id="ev-nav" style="
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  max-width: 960px; margin: 0 auto; padding: 12px 24px;
+  display: flex; gap: 20px; align-items: center;
+  font-size: 0.85rem; border-bottom: 1px solid #e2e8f0;
+  background: #fff; position: sticky; top: 0; z-index: 9999;
+">
+  <span style="font-weight: 700; font-size: 0.95rem; color: #2c3e50; margin-right: auto;">Evidensity Research</span>
+  <a href="/evidensity-reports/" style="color: #64748b; text-decoration: none;">Home</a>
+  <a href="/evidensity-reports/portfolio/" style="color: #64748b; text-decoration: none;">Portfolio</a>
+  <a href="/evidensity-reports/services/" style="color: #64748b; text-decoration: none;">Services</a>
+  <a href="/evidensity-reports/contact.html" style="color: #64748b; text-decoration: none;">Contact</a>
+</div>
+
 
 <!-- Slide 1: Title -->
 <div class="slide slide-title">
@@ -277,7 +291,7 @@
 
 <!-- Slide 3: Pipeline Overview -->
 <div class="slide">
-  <h2>A 10-stage pipeline producing structured, auditable outputs</h2>
+  <h2>A 19-agent pipeline producing structured, auditable outputs</h2>
   <p class="subtitle">
     Each stage generates structured JSON with confidence scores and provenance tracking.
     Every decision is logged. Every extraction is traceable to source text.
@@ -285,65 +299,71 @@
 
   <div class="flow">
     <div class="flow-step" style="border-top: 3px solid var(--accent);">
-      <div class="num">Stage 1</div>
+      <div class="num">Discover</div>
       <div class="title">Discovery</div>
-      <div class="detail">10 databases, deduplication, relevance scoring</div>
+      <div class="detail">10 databases, dedup, scoring</div>
     </div>
     <div class="flow-arrow">&rsaquo;</div>
     <div class="flow-step" style="border-top: 3px solid var(--accent);">
-      <div class="num">Stage 2</div>
+      <div class="num">Enrich</div>
+      <div class="title">Enrichment</div>
+      <div class="detail">Abstract enrichment, OA full-text retrieval</div>
+    </div>
+    <div class="flow-arrow">&rsaquo;</div>
+    <div class="flow-step" style="border-top: 3px solid var(--accent);">
+      <div class="num">Screen</div>
       <div class="title">Screening</div>
-      <div class="detail">Inclusion/exclusion criteria, relevance gating</div>
+      <div class="detail">Relevance gate, inclusion/exclusion</div>
     </div>
     <div class="flow-arrow">&rsaquo;</div>
     <div class="flow-step" style="border-top: 3px solid var(--accent-light);">
-      <div class="num">Stage 3</div>
+      <div class="num">Extract</div>
       <div class="title">Extraction</div>
-      <div class="detail">Methodology, design, sample, findings</div>
+      <div class="detail">Methodology, results, claims, data audit</div>
     </div>
     <div class="flow-arrow">&rsaquo;</div>
     <div class="flow-step" style="border-top: 3px solid var(--accent-light);">
-      <div class="num">Stage 4</div>
-      <div class="title">Full-Text</div>
-      <div class="detail">OA retrieval, section parsing</div>
-    </div>
-    <div class="flow-arrow">&rsaquo;</div>
-    <div class="flow-step" style="border-top: 3px solid var(--green);">
-      <div class="num">Stage 5</div>
+      <div class="num">Classify</div>
       <div class="title">Classification</div>
-      <div class="detail">Method taxonomy, study design tags</div>
+      <div class="detail">Method taxonomy, claim extraction, dataset linking</div>
     </div>
   </div>
 
   <div class="flow" style="margin-top: 12px;">
     <div class="flow-step" style="border-top: 3px solid var(--green);">
-      <div class="num">Stage 6</div>
+      <div class="num">Assess</div>
       <div class="title">Credibility</div>
       <div class="detail">Per-paper quality scoring</div>
     </div>
     <div class="flow-arrow">&rsaquo;</div>
     <div class="flow-step" style="border-top: 3px solid var(--green);">
-      <div class="num">Stage 7</div>
+      <div class="num">Ground</div>
       <div class="title">Grounding</div>
       <div class="detail">Claims verified against source text</div>
     </div>
     <div class="flow-arrow">&rsaquo;</div>
-    <div class="flow-step" style="border-top: 3px solid var(--amber);">
-      <div class="num">Stage 8</div>
-      <div class="title">Cross-Val</div>
-      <div class="detail">Inter-agent agreement checks</div>
+    <div class="flow-step" style="border-top: 3px solid var(--green);">
+      <div class="num">Group</div>
+      <div class="title">Claim Grouping</div>
+      <div class="detail">Semantic clustering across papers</div>
     </div>
     <div class="flow-arrow">&rsaquo;</div>
     <div class="flow-step" style="border-top: 3px solid var(--amber);">
-      <div class="num">Stage 9</div>
+      <div class="num">Validate</div>
+      <div class="title">Cross-Validation</div>
+      <div class="detail">Inter-agent consistency checks</div>
+    </div>
+    <div class="flow-arrow">&rsaquo;</div>
+    <div class="flow-step" style="border-top: 3px solid var(--amber);">
+      <div class="num">Synthesise</div>
       <div class="title">Meta-Analysis</div>
       <div class="detail">Weighted synthesis, disagreement detection</div>
     </div>
     <div class="flow-arrow">&rsaquo;</div>
     <div class="flow-step" style="border-top: 3px solid var(--amber);">
-      <div class="num">Stage 10</div>
+      <div class="num">Report</div>
       <div class="title">Report</div>
-      <div class="detail">APA citations, PRISMA flow, evidence tables</div>
+      <div class="detail">7 tones, APA citations, evidence tables</div>
     </div>
   </div>
   <span class="slide-number">03</span>
@@ -674,9 +694,9 @@
       <div class="stat-detail">Semantic Scholar, OpenAlex, CrossRef, PubMed, Europe PMC, arXiv, CORE, DOAJ, ERIC, Wikipedia</div>
     </div>
     <div class="card stat">
-      <div class="stat-value">17</div>
-      <div class="stat-label">Pipeline stages</div>
-      <div class="stat-detail">Discovery through credibility assessment, evidence grounding, cross-validation, and meta-analysis</div>
+      <div class="stat-value">19</div>
+      <div class="stat-label">Specialised agents</div>
+      <div class="stat-detail">Discovery through claim extraction, credibility, evidence grounding, claim grouping, cross-validation, and meta-analysis</div>
     </div>
     <div class="card stat">
       <div class="stat-value">29</div>
@@ -775,10 +795,10 @@
       <span style="color: var(--accent);">research question?</span>
     </h2>
     <p class="subtitle" style="text-align: center; margin: 20px auto 0; max-width: 600px;">
-      Send me your research question. I'll scope the evidence landscape for free
+      Send your research question to
+      <a href="mailto:evidensity.research@gmail.com" style="color: var(--accent); font-weight: 600;">evidensity.research@gmail.com</a>.
+      I'll scope the evidence landscape for free
       and tell you what the pipeline can deliver &mdash; before you commit anything.
-      I hold a research background in computational linguistics and understand
-      the standards your work needs to meet.
     </p>
 
     <div style="margin-top: 40px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
