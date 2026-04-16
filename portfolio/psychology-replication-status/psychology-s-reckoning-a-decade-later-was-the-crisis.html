@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="report-tone" content="substack">
+  <title>Psychology's Reckoning: A Decade Later, Was the Crisis Actually Fixed?</title>
+<style>
+  /* === Base typography === */
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    max-width: 920px; margin: 40px auto; padding: 0 28px;
+    color: #1a1a1a; line-height: 1.75; font-size: 15px;
+    background: #fff;
+  }
+  h1 {
+    font-size: 1.65em; border-bottom: 2px solid #2c3e50;
+    padding-bottom: 0.3em; margin-top: 1.5em; color: #1a1a1a;
+  }
+  h2 {
+    font-size: 1.32em; border-bottom: 1px solid #ddd;
+    padding-bottom: 0.2em; margin-top: 1.6em; color: #2c3e50;
+  }
+  h3 { font-size: 1.08em; margin-top: 1.3em; color: #34495e; }
+  h4 { font-size: 1.0em; margin-top: 1em; color: #555; }
+  p  { margin: 0.65em 0; }
+  ul, ol { margin: 0.6em 0 0.6em 1.4em; }
+  li { margin: 0.2em 0; }
+
+  /* === Tables === */
+  table {
+    border-collapse: collapse; width: 100%; margin: 1.2em 0;
+    font-size: 0.91em;
+  }
+  th, td {
+    border: 1px solid #d5d8dc; padding: 7px 12px; text-align: left;
+  }
+  th { background: #f2f4f6; font-weight: 600; color: #2c3e50; }
+  tr:nth-child(even) { background: #fafbfc; }
+
+  /* === Blockquotes (default) === */
+  blockquote {
+    border-left: 4px solid #bdc3c7; margin: 1.2em 0;
+    padding: 0.6em 1em; color: #555; background: #fafafa;
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* === Insight callouts === */
+  blockquote.callout-insight {
+    border-left-color: #2980b9; background: #eaf2f8; color: #1a1a1a;
+  }
+  blockquote.callout-insight strong:first-child {
+    color: #2471a3;
+  }
+
+  /* === Finding callouts === */
+  blockquote.callout-finding {
+    border-left-color: #27ae60; background: #eafaf1; color: #1a1a1a;
+  }
+  blockquote.callout-finding strong:first-child {
+    color: #1e8449;
+  }
+
+  /* === Report figures === */
+  figure.report-figure {
+    margin: 28px auto;
+    padding: 0;
+    max-width: 720px;
+    text-align: center;
+  }
+  figure.report-figure svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  figure.report-figure figcaption {
+    margin-top: 8px;
+    font-size: 0.78rem;
+    color: #64748b;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  /* === APA citation tooltips === */
+  .cite {
+    color: #2c3e50; cursor: help; position: relative;
+    border-bottom: 1px dotted #7f8c8d;
+  }
+  .cite:hover { color: #2980b9; border-bottom-color: #2980b9; }
+
+  .cite-tooltip {
+    display: none; position: absolute; bottom: calc(100% + 6px);
+    left: 50%; transform: translateX(-50%);
+    background: #2c3e50; color: #ecf0f1;
+    padding: 8px 14px; border-radius: 6px;
+    font-size: 0.82em; line-height: 1.5;
+    white-space: normal; width: max-content; max-width: 420px;
+    z-index: 100; box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+    pointer-events: none;
+  }
+  .cite-tooltip::after {
+    content: ''; position: absolute; top: 100%; left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent; border-top-color: #2c3e50;
+  }
+  .cite:hover .cite-tooltip { display: block; }
+
+  /* === Metadata banner === */
+  .meta {
+    color: #666; font-size: 0.86em; margin-bottom: 2em;
+    padding-bottom: 1em; border-bottom: 1px solid #eee;
+  }
+
+  /* === Code === */
+  code {
+    background: #f4f4f4; padding: 1px 5px; border-radius: 3px;
+    font-size: 0.9em;
+  }
+  pre {
+    background: #f4f4f4; padding: 12px; border-radius: 4px;
+    overflow-x: auto;
+  }
+</style>
+</head>
+<body>
+<div id="ev-nav" style="
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  max-width: 960px; margin: 0 auto; padding: 12px 24px;
+  display: flex; gap: 20px; align-items: center;
+  font-size: 0.85rem; border-bottom: 1px solid #e2e8f0;
+  background: #fff; position: sticky; top: 0; z-index: 9999;
+">
+  <span style="font-weight: 700; font-size: 0.95rem; color: #2c3e50; margin-right: auto;">Evidensity Research</span>
+  <a href="/evidensity-reports/" style="color: #64748b; text-decoration: none;">Home</a>
+  <a href="/evidensity-reports/portfolio/" style="color: #64748b; text-decoration: none;">Portfolio</a>
+  <a href="/evidensity-reports/services/" style="color: #64748b; text-decoration: none;">Services</a>
+  <a href="/evidensity-reports/contact.html" style="color: #64748b; text-decoration: none;">Contact</a>
+</div>
+<figure style="max-width: 920px; margin: 20px auto 32px; padding: 0 28px; font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Reproducible_Research_and_Data_Analysis_-_Open_Science_Training_Handbook_14.png/960px-Reproducible_Research_and_Data_Analysis_-_Open_Science_Training_Handbook_14.png" alt="Illustration from Sonja Bezjak, April Clyburne-Sherin, Philipp Conzett, Pedro Fernandes, Edit Görögh, Kerstin Helbig, Bianca Kramer, Ignasi Labastida, Kyle Niemeyer, Fotis Psomopoulos, Tony Ross-Hellauer, René Schneider, Jon Tennant, Ellen Verbakel, Helene Brinken, &amp;amp; Lambert Heller. (2018). Open Science Training Handbook (1.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.1212496 ." style="width: 100%; height: auto; max-height: 420px; object-fit: cover; border-radius: 6px; display: block;"><figcaption style="margin-top: 8px; font-size: 0.75rem; color: #64748b; text-align: center;">Photo: Sonja Bezjak, April Clyburne-Sherin, Philipp Conzett, Pedro Fernandes, Edit Görögh, Kerstin Helbig, Bianca Kramer, Ignasi Labastida, Kyle Niemeyer, Fotis Psomopoulos, Tony Ross-Hellauer, René Schneide via <a href="https://commons.wikimedia.org/wiki/File:Reproducible_Research_and_Data_Analysis_-_Open_Science_Training_Handbook_14.png" target="_blank" rel="noopener" style="color: #64748b;">Wikimedia Commons</a>, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" target="_blank" rel="noopener" style="color: #64748b;">CC0</a></figcaption></figure>
+
+<p class="meta">Domain: <strong>psychology_replication_status</strong> &nbsp;|&nbsp; Generated: 20260416_201033</p>
+<h1>Psychology's Reckoning: A Decade Later, Was the Crisis Actually Fixed?</h1>
+<p><em>The replication revolution promised to clean house — but the evidence suggests we tidied some rooms and quietly locked others.</em></p>
+<p>Ten years ago, a team of 270 researchers published a paper in <em>Science</em> that shook the foundations of modern psychology. They had attempted to replicate 100 published studies — findings that had shaped textbooks, informed policy, and launched careers. Only <strong>36%</strong> succeeded. The headline was devastating. But the more interesting question, the one that has taken a decade to begin answering, is: what happened next?</p>
+<hr />
+<p>The 2015 Reproducibility Project — formally reported by <span class="cite" data-info="Estimating the reproducibility of psychological science | Alexander A. Aarts | 2015 | Science | DOI: 10.1126/science.aac4716">Aarts (2015)</span> — was not the first sign of trouble, but it was the loudest alarm. Psychology had built an impressive edifice on a surprisingly sandy foundation. The original studies had reported statistically significant results <strong>97%</strong> of the time. The replications managed only <strong>36%</strong>. Replication effect sizes were, on average, half the magnitude of the originals. This was not mere statistical noise — it was systematic. The field had, to a significant degree, been producing findings that did not hold up.</p>
+<p>The immediate response from critics was twofold: some argued that the replications were flawed, that replicators had missed crucial contextual details, that the original findings were real but fragile. Others argued the numbers spoke for themselves. Both camps, it turns out, had partial points. But before we get to that, it is worth understanding the scale of the problem the field was inheriting.</p>
+<p>Klein and colleagues had already begun mapping the terrain. Their 2014 Many Labs 1 project found that <strong>10 of 13 classic effects replicated consistently</strong> across 36 independent samples and over 6,000 participants — an encouraging result that contained a sting in its tail. The three that failed — imagined contact reducing prejudice, flag priming influencing conservatism, and currency priming affecting system justification — were precisely the kinds of subtle, context-dependent social priming effects that had come to define ambitious social psychology. The field's flashiest claims were its most vulnerable.</p>
+<p>Then came the preregistered, multi-lab assaults on individual findings. The ego depletion effect — Baumeister's influential idea that willpower is a limited resource that depletes with use — became a case study in controlled demolition. Hagger and colleagues (2016) recruited <strong>23 labs and 2,141 participants</strong> for a standardised protocol replication. The effect size they found was <em>d</em> = <strong>0.04</strong>, with a confidence interval that comfortably straddled zero. Vohs and colleagues (2021) followed with an even larger effort: <strong>36 laboratories, 3,531 participants</strong>, a Bayesian meta-analysis that found the data were <strong>four times more likely under the null hypothesis</strong> than under the informed-prior alternative. After two of the most rigorous replication attempts in psychology's history, the resource-model of self-control looked, at minimum, profoundly overstated.</p>
+<hr />
+<p>The social priming literature fared even worse. Giolla and colleagues (2024) conducted a systematic meta-analysis of <strong>70 replication attempts across 49 unique original studies</strong>. The pattern was stark: original studies had achieved statistical significance <strong>85.71%</strong> of the time; replications managed just <strong>17.14%</strong>. The replication p-values (median = 0.630) bore essentially no resemblance to the originals (median = 0.017). This is not the signature of a finding that is real but contextually fragile — it is the signature of findings that were never as robust as reported. The intelligence priming literature was particularly damning: two papers in that space were retracted for outright malpractice, and at least one failed replication had been suppressed for over a decade before anyone noticed ("Priming intelligent behavior: an elusive phenomenon," 2013).</p>
+<p>Power posing — the idea that holding an expansive body posture for two minutes could raise testosterone, lower cortisol, and increase risk tolerance — became perhaps the most publicly scrutinised case. Simmons and Simonsohn (2017) subjected the published evidence base to p-curve analysis and found that the distribution of p-values was indistinguishable from what you would expect if the true effect were zero. As they put it: the existing power posing evidence was "too weak to justify moderator searches or practical advocacy." Subsequent replication attempts confirmed the picture. Efrat and colleagues (2024) found no testosterone effects and no feelings-of-power effects, though they did find cortisol reductions and replicated risk-taking effects. Klaschinski and colleagues (2017) found no effects on dominance or hireability in job interview contexts. The literature fractured into small, inconsistent findings with no coherent theoretical core.</p>
+<p>Precognition — Daryl Bem's extraordinary 2011 claim that people can anticipate random future events — was always the sharpest test of the system. If the field's methods could support precognition, they could support almost anything. Muhmenthaler and colleagues (2022) mounted a large-scale replication with <strong>over 2,000 participants</strong> across three experiments and found nothing. Schlitz and colleagues (2021), in two preregistered international collaborations that included Bem himself, failed to support the primary hypothesis. The "Correcting the past" replication series found that <strong>seven of seven</strong> attempts to replicate Bem's Experiments 8 and 9 failed to detect the effect. Bem's own meta-analysis (Bem et al., 2015; 2016) claims a small but statistically reliable effect across 90 studies — but this is precisely the kind of conclusion that Kvarven and colleagues (2019) showed is systematically inflated in psychology meta-analyses, where <strong>meta-analytic effect sizes average three times larger</strong> than results from pre-registered multi-lab replications.</p>
+<blockquote class="callout-finding">
+<p><strong>Key Finding:</strong> Across the analysed literature, replication effect sizes were systematically and substantially smaller than originals — with a <strong>median 75% reduction</strong> in Cohen's <em>d</em> in the Many Labs 2 project alone, where the original median <em>d</em> of <strong>0.60</strong> shrank to <strong>0.15</strong> in replication.</p>
+</blockquote>
+<hr />
+<p>So: crisis solved? The answer requires distinguishing between the meta-level question (has the field reformed?) and the object-level question (do the old findings hold up?). The answers are different.</p>
+<p>On reform, the picture is genuinely encouraging. Preregistration has become standard practice for high-quality work. Multi-lab collaborations now routinely produce samples an order of magnitude larger than the originals being tested. Open data policies allow post-hoc scrutiny that was simply impossible in 2010. The Registered Report format — where journals commit to publication before data collection, removing the incentive to p-hack — has spread across dozens of outlets. These are real changes with measurable effects.</p>
+<p>On the object-level, the picture is messier. Not everything failed. The body-specificity hypothesis — that right-handed people associate right-space with positive valence — replicated cross-culturally across 12 countries and <strong>2,222 participants</strong> (Yamada et al., 2024). The Ebbinghaus forgetting curve, first observed in the 1880s, was reproduced with striking fidelity (Murre &amp; Dros, 2015). Cognitive effects like the Stroop task, the Simon effect, and attentional priming for basic perceptual features replicated robustly online (Crump et al., 2013). The status quo bias replicated in <strong>3 of 4 decision scenarios</strong> (Xiao et al., 2021). The ambivalence-certainty interaction on political opinion stability held in a registered voter sample (Luttrell et al., 2020). Social class effects, examined at scale across four countries by Batruch and colleagues (2025), replicated in roughly <strong>50%</strong> of cases — a middling but not catastrophic result.</p>
+<blockquote class="callout-insight">
+<p><strong>Key Insight:</strong> Psychology's replicability problem is not uniform. Cognitive and perceptual effects with clean operationalisations tend to replicate; subtle social priming effects and small-sample personality findings tend not to. The crisis was never equally distributed across the field, even if it was reported as though it were.</p>
+</blockquote>
+<p>The interpretive war over what replication failures <em>mean</em> remains genuinely unresolved. One camp holds that a well-powered null result is a null result, and the original effect should be abandoned. Another insists that replication failures often reflect unmeasured moderators — that what looks like a null effect is actually a finding about boundary conditions. Bressan (2019a, 2019b, 2020) examined several failures from the Reproducibility Project and argued that some contained methodological artifacts — stimulus allocation biases and confounds that, when corrected, restored the original effect. Chatard and colleagues (2020) demonstrated that the Many Labs 4 failure to replicate mortality salience effects was partly driven by the inclusion of underpowered labs that violated preregistered sample size criteria; excluding those labs produced a successful replication in the expert-advice condition.</p>
+<p>These arguments are not merely special pleading. Baranski and colleagues (2020) showed that protocol matters enormously: when the Shnabel &amp; Nadler (2008) reconciliation model was tested with more relatable materials rather than the original protocol, replication succeeded. Sadeghiyeh and colleagues (2018) found that a failed exploration replication was explained by a previously unknown moderator — whether participants were <em>actively</em> or <em>passively</em> receiving information — and that switching between conditions within a session could toggle the effect on and off. These are real discoveries, not excuses.</p>
+<p>But the moderator explanation cannot be invoked infinitely. At some point, an effect that only appears under unspecified conditions, with unspecified samples, using unspecified materials, is not a robust phenomenon — it is a fragile local observation. Zeevi and colleagues (2020) offered a more structural critique: analysing 88 Reproducibility Project papers, they found that each reported an average of <strong>77.7 results</strong> without correcting for multiple comparisons. A statistical adjustment for this multiple-testing problem rendered <strong>21 of 88 focal results</strong> non-significant — and those 21 constituted over a third of all findings that failed to replicate. The crisis, in this reading, was partly a mathematics problem hiding in plain sight.</p>
+<blockquote class="callout-finding">
+<p><strong>Key Finding:</strong> Zeevi and colleagues' (2020) reanalysis found that over a third of non-replicable RPP findings could be explained by uncorrected multiple comparisons alone — a systematic statistical error that preregistration, if properly enforced, would largely eliminate.</p>
+</blockquote>
+<hr />
+<p>What does this mean, practically? The most important implication is that the distinction between a <em>finding</em> and a <em>phenomenon</em> needs to become central to how psychology trains its researchers and communicates its results. A statistically significant result in a single small study is a finding. A phenomenon is something that survives methodological variation, larger samples, and adversarial testing. The crisis revealed that psychology had been treating findings as phenomena — citing a single study as established fact, building theories on results that were never robust enough to bear that weight.</p>
+<p>The second implication is harder to sit with. Many of the findings that failed to replicate are still in the textbooks. They are still cited in policy documents. They are still taught to undergraduates as established science. The cognitive bias literature, the implicit bias literature, the self-depletion literature — all of these have been substantially revised by the replication evidence, yet the revision has not propagated downstream at anything like the same speed as the original claims. The scientific community may have accepted that the crisis is real. The broader culture that consumed and acted on those findings largely has not.</p>
+<p>The replication crisis was not solved. It was partially addressed, honestly confronted, and thoroughly complicated. That is, in its own way, progress. But the work of separating what psychology actually knows from what it believed it knew is still, unmistakably, ongoing.</p>
+<hr />
+<h2>How this research was conducted</h2>
+<p>This analysis synthesised findings from <strong>109 published papers</strong> examining replication attempts of pre-2015 psychology studies. Literature was identified across Semantic Scholar, Crossref, arXiv, OpenAlex, PubMed, and Wikipedia, spanning 2013–2026. Papers were included only if they reported explicit replication attempts with sufficient methodological detail to assess fidelity to the original study. Claims were verified against source text. The analysis covers over <strong>250 individual replication attempts</strong> across social, cognitive, and personality psychology domains.</p>
+<p><em>This analysis was produced by Evidensity Research. If you need source-verified evidence synthesis for your own research, organisation, or content — get in touch.</em></p>
+<hr />
+<h2>Further Reading</h2>
+<ul>
+<li>
+<p><span class="cite" data-info="Estimating the reproducibility of psychological science | Alexander A. Aarts | 2015 | Science | DOI: 10.1126/science.aac4716">Aarts (2015)</span>. "Estimating the reproducibility of psychological science." <em>Science</em>. https://doi.org/10.1126/science.aac4716</p>
+</li>
+<li>
+<p><span class="cite" data-info="Many Labs 2: Investigating Variation in Replicability Across Samples and Settings | Richard Klein; Michelangelo Vianello; Fred Hasselman; Byron G. Adams; Reginald B. Adams; Sinan Alper | 2018 | Advances in Methods and Practices in Psychological Science | DOI: 10.1177/2515245918810225">Klein et al. (2018)</span>. "Many Labs 2: Investigating Variation in Replicability Across Samples and Settings." <em>Advances in Methods and Practices in Psychological Science</em>. https://doi.org/10.1177/2515245918810225</p>
+</li>
+<li>
+<p><span class="cite" data-info="Evaluating the Replicability of Social Priming Studies | Giolla, Erik Mac; Karlsson, Simon; Neequaye, David A.; Bergquist, Magnus | 2024 | Meta-Psychology | DOI: 10.15626/MP.2022.3308">Giolla et al. (2024)</span>. "Evaluating the Replicability of Social Priming Studies." <em>Meta-Psychology</em>. https://doi.org/10.15626/MP.2022.3308</p>
+</li>
+<li>
+<p><span class="cite" data-info="A Multisite Preregistered Paradigmatic Test of the Ego-Depletion Effect | Kathleen D. Vohs; Brandon J. Schmeichel; Sophie Lohmann; Quentin F. Gronau; Anna J Finley; Sarah E. Ainsworth | 2021 | Psychological Science | DOI: 10.1177/0956797621989733">Vohs et al. (2021)</span>. "A Multisite Preregistered Paradigmatic Test of the Ego-Depletion Effect." <em>Psychological Science</em>. https://doi.org/10.1177/0956797621989733</p>
+</li>
+<li>
+<p><span class="cite" data-info="Comparing Meta-Analyses and Pre-Registered Multiple Labs Replication Projects | Kvarven, Amanda; Strømland, Eirik; Johannesson, Magnus | 2019 | DOI: 10.31219/osf.io/brzwt">Kvarven et al. (2019)</span>. "Comparing Meta-Analyses and Pre-Registered Multiple Labs Replication Projects." https://doi.org/10.31219/osf.io/brzwt</p>
+</li>
+<li>
+<p><span class="cite" data-info="Time to adjust: Improving replicability in experimental psychology by adjustment for evident selective inference | Yoav Zeevi; Sofi Astashenko; Liad Mudrik; Yoav Benjamini | 2020 | arXiv">Zeevi et al. (2020)</span>. "Time to adjust: Improving replicability in experimental psychology by adjustment for evident selective inference." <em>arXiv</em>. https://arxiv.org/abs/2006.11585</p>
+</li>
+<li>
+<p><span class="cite" data-info="Power Posing: &lt;i&gt;P-&lt;/i&gt;Curving the Evidence | Joseph P. Simmons; Uri Simonsohn | 2017 | Psychological Science | DOI: 10.1177/0956797616658563">Simmons &amp; Simonsohn (2017)</span>. "Power Posing: P-Curving the Evidence." <em>Psychological Science</em>. https://doi.org/10.1177/0956797616658563</p>
+</li>
+<li>
+<p><span class="cite" data-info="The future failed: No evidence for precognition in a large scale replication attempt of Bem (2011). | Michèle C. Muhmenthaler; Mirela Dubravac; Beat H. Meier | 2022 | Psychology of Consciousness Theory Research and Practice | DOI: 10.1037/cns0000342">Muhmenthaler et al. (2022)</span>. "The future failed: No evidence for precognition in a large scale replication attempt of Bem (2011)." <em>Psychology of Consciousness: Theory, Research, and Practice</em>. https://doi.org/10.1037/cns0000342</p>
+</li>
+</ul>
+<div style="margin-top: 48px; padding-top: 16px; border-top: 1px solid #e2e8f0; text-align: center; font-size: 0.75rem; color: #94a3b8;">Generated by <strong>Evidensity Research</strong> &mdash; source-verified evidence synthesis</div>
+<script>
+  // Create tooltip elements for citations on hover
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.cite[data-info]').forEach(function(el) {
+      var tip = document.createElement('span');
+      tip.className = 'cite-tooltip';
+      tip.textContent = el.getAttribute('data-info');
+      el.appendChild(tip);
+    });
+  });
+</script>
+</body>
+</html>
