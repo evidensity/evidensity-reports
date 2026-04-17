@@ -6,27 +6,31 @@
   <title>Evidensity Research</title>
   <style>
     :root {
-      --bg: #fafafa;
-      --bg-card: #ffffff;
-      --bg-muted: #f1f5f9;
-      --accent: #1e40af;
-      --accent-light: #3b82f6;
-      --accent-bg: rgba(30, 64, 175, 0.06);
-      --green: #047857;
-      --green-bg: rgba(4, 120, 87, 0.06);
-      --amber: #b45309;
-      --amber-bg: rgba(180, 83, 9, 0.06);
-      --text: #1e293b;
-      --text-secondary: #475569;
-      --text-muted: #94a3b8;
-      --border: #e2e8f0;
-      --radius: 10px;
+      /* Evidensity brand v0.1 — warm ivory + ink + oxblood.  See brand/tokens.css. */
+      --bg: #fdfcf7;
+      --bg-card: #fffefb;
+      --bg-muted: #f2ede0;
+      --accent: #7a1f1f;
+      --accent-light: #7a1f1f;
+      --accent-bg: rgba(122, 31, 31, 0.06);
+      --green: #2d4a2d;
+      --green-bg: rgba(45, 74, 45, 0.06);
+      --amber: #8a6a1f;
+      --amber-bg: rgba(138, 106, 31, 0.06);
+      --text: #1a1a1a;
+      --text-secondary: #6b6b6b;
+      --text-muted: #a8a29a;
+      --border: #d8d2c4;
+      --radius: 2px;
+      --serif: 'Spectral', 'Hoefler Text', Georgia, 'Times New Roman', serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: var(--serif);
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -53,16 +57,16 @@
 
     h1 {
       font-size: 3rem;
-      font-weight: 800;
+      font-weight: 500;
       line-height: 1.15;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.02em;
       color: var(--accent);
       margin-bottom: 20px;
     }
 
     h2 {
       font-size: 2rem;
-      font-weight: 700;
+      font-weight: 500;
       line-height: 1.2;
       letter-spacing: -0.02em;
       margin-bottom: 16px;
@@ -118,7 +122,7 @@
     .tag-amber { background: var(--amber-bg); color: var(--amber); }
 
     .stat { text-align: center; padding: 28px 16px; }
-    .stat-value { font-size: 2.6rem; font-weight: 800; letter-spacing: -0.03em; color: var(--accent); }
+    .stat-value { font-size: 2.6rem; font-weight: 500; letter-spacing: -0.02em; color: var(--accent); }
     .stat-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 6px; }
     .stat-detail { font-size: 0.7rem; color: var(--text-muted); margin-top: 4px; }
 
@@ -217,6 +221,12 @@
       .flow-step:first-child, .flow-step:last-child { border-radius: var(--radius); }
     }
   </style>
+  <link rel="icon" type="image/svg+xml" href="/evidensity-reports/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/evidensity-reports/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/evidensity-reports/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   <meta property="og:title" content="Evidensity Research">
   <meta property="og:description" content="Research-backed content at production speed. I give journalists, YouTubers, newsletter writers, and podcasters the evidence base they need to publish with authority &amp;mdash; without spending weeks lost...">
   <meta property="og:type" content="article">
@@ -225,20 +235,23 @@
   <meta name="twitter:title" content="Evidensity Research">
   <meta name="twitter:description" content="Research-backed content at production speed. I give journalists, YouTubers, newsletter writers, and podcasters the evidence base they need to publish with authority &amp;mdash; without spending weeks lost...">
   <meta name="description" content="Research-backed content at production speed. I give journalists, YouTubers, newsletter writers, and podcasters the evidence base they need to publish with authority &amp;mdash; without spending weeks lost...">
+  <meta property="og:image" content="https://evidensity.github.io/evidensity-reports/og-default.png">
+  <meta name="twitter:image" content="https://evidensity.github.io/evidensity-reports/og-default.png">
 </head>
 <body>
 <div id="ev-nav" style="
-  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
-  max-width: 960px; margin: 0 auto; padding: 12px 24px;
-  display: flex; gap: 20px; align-items: center;
-  font-size: 0.85rem; border-bottom: 1px solid #e2e8f0;
-  background: #fff; position: sticky; top: 0; z-index: 9999;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  max-width: 960px; margin: 0 auto; padding: 14px 24px;
+  display: flex; gap: 24px; align-items: center;
+  font-size: 14px; border-bottom: 1px solid #e8e2d4;
+  background: #fdfcf7; position: sticky; top: 0; z-index: 9999;
 ">
-  <span style="font-weight: 700; font-size: 0.95rem; color: #2c3e50; margin-right: auto;">Evidensity Research</span>
-  <a href="/evidensity-reports/" style="color: #64748b; text-decoration: none;">Home</a>
-  <a href="/evidensity-reports/portfolio/" style="color: #64748b; text-decoration: none;">Portfolio</a>
-  <a href="/evidensity-reports/services/" style="color: #64748b; text-decoration: none;">Services</a>
-  <a href="/evidensity-reports/contact.html" style="color: #64748b; text-decoration: none;">Contact</a>
+  <a href="/evidensity-reports/" style="margin-right: auto; text-decoration: none; display: inline-flex; align-items: center;" aria-label="Evidensity Research">
+    <svg style="height:34px;width:auto;display:block;" viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Evidensity"><text font-family="Spectral, 'Hoefler Text', Georgia, serif" font-weight="500" letter-spacing="-1.5"><tspan x="0" y="100" font-size="104" fill="#0e0e0e">Evidensity</tspan><tspan dx="4" y="44" font-size="62" font-weight="600" fill="#7a1f1f">&#8224;</tspan></text></svg>
+  </a>
+  <a href="/evidensity-reports/portfolio/" style="color: #6b6b6b; text-decoration: none;">Reports</a>
+  <a href="/evidensity-reports/services/" style="color: #6b6b6b; text-decoration: none;">Services</a>
+  <a href="/evidensity-reports/contact.html" style="color: #6b6b6b; text-decoration: none;">Contact</a>
 </div>
 
 
