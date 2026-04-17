@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home — Evidensity Research</title>
   <meta property="og:title" content="Home — Evidensity Research">
-  <meta property="og:description" content="Source-verified evidence synthesis by Evidensity Research.">
+  <meta property="og:description" content="Peer-reviewed evidence synthesis. Every claim traced to a verified source quote.">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Evidensity Research">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Home — Evidensity Research">
-  <meta name="twitter:description" content="Source-verified evidence synthesis by Evidensity Research.">
-  <meta name="description" content="Source-verified evidence synthesis by Evidensity Research.">
+  <meta name="twitter:description" content="Peer-reviewed evidence synthesis. Every claim traced to a verified source quote.">
+  <meta name="description" content="Peer-reviewed evidence synthesis. Every claim traced to a verified source quote.">
   <meta property="og:image" content="https://evidensity.github.io/evidensity-reports/og-default.png">
   <meta name="twitter:image" content="https://evidensity.github.io/evidensity-reports/og-default.png">
   <link rel="icon" type="image/svg+xml" href="/evidensity-reports/favicon.svg">
@@ -152,6 +152,17 @@
     background: transparent; border-radius: 0;
   }
 
+  /* Preset-name cells in the contact pricing table — small-caps mono,
+     reads as "editions of the publication" rather than SKUs. */
+  .preset-name {
+    font-family: var(--sans) !important;
+    font-size: 12px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500 !important;
+    color: var(--text-strong) !important;
+  }
+
   /* Tables (contact/pricing) */
   table { border-collapse: collapse; width: 100%; }
   th, td {
@@ -188,8 +199,7 @@
   <a href="/evidensity-reports/" class="wordmark" aria-label="Evidensity Research home">
     <svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Evidensity"><text font-family="Spectral, 'Hoefler Text', Georgia, serif" font-weight="500" letter-spacing="-1.5"><tspan x="0" y="100" font-size="104" fill="#0e0e0e">Evidensity</tspan><tspan dx="4" y="44" font-size="62" font-weight="600" fill="#7a1f1f">&#8224;</tspan></text></svg>
   </a>
-  <a href="/evidensity-reports/">Home</a>
-  <a href="/evidensity-reports/portfolio/">Portfolio</a>
+  <a href="/evidensity-reports/portfolio/">Reports</a>
   <a href="/evidensity-reports/services/">Services</a>
   <a href="/evidensity-reports/contact.html">Contact</a>
 </nav>
@@ -207,15 +217,15 @@
   <div class="grid" style="grid-template-columns: repeat(3, 1fr);">
     <div class="card">
       <h3><a href="services/for-academics.html">For Academics</a></h3>
-      <p>Systematic reviews, meta-analyses, and evidence maps with full source verification.</p>
+      <p>Systematic reviews and meta-analyses with every claim traced to a verified source quote. PRISMA-aligned, audit-ready.</p>
     </div>
     <div class="card">
       <h3><a href="services/for-business.html">For Business</a></h3>
-      <p>Evidence-based decision support, market research, and competitive intelligence.</p>
+      <p>Evidence briefs for decision-makers. Turnaround in days, not months. No summarisation, no paraphrase.</p>
     </div>
     <div class="card">
       <h3><a href="services/for-content-creators.html">For Creators</a></h3>
-      <p>Research-backed content packs with verified quotes and source material.</p>
+      <p>Quotable research packs for podcasts, newsletters, and investigations. Every quote traceable to its source.</p>
     </div>
   </div>
 </div>
@@ -245,14 +255,14 @@
     </div>
   </div>
   <p style="margin-top: 16px; font-size: 14px;">
-    <a href="portfolio/">View all 8 reports across 4 topics &rarr;</a>
+    <a href="portfolio/">All 8 reports across 4 topics &rarr;</a>
   </p>
 </div>
 
 <div class="section" style="text-align: center; padding: 40px 0;">
-  <h2 style="border-bottom: none; padding-bottom: 0;">Get in Touch</h2>
-  <p style="font-size: 17px; color: var(--text-dim); margin-bottom: 16px;">
-    Have a research question? Need evidence synthesis for your project?
+  <h2 style="border-bottom: none; padding-bottom: 0;">Commission a brief</h2>
+  <p style="font-size: 17px; color: var(--text-dim); margin-bottom: 16px; max-width: 540px; margin-left: auto; margin-right: auto;">
+    A research question, a specific claim to investigate, or a literature you need mapped &mdash; start here.
   </p>
   <p><a href="mailto:evidensity.research@gmail.com" style="font-size: 19px; font-weight: 500;">evidensity.research@gmail.com</a></p>
 </div>

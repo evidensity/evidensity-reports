@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact — Evidensity Research</title>
   <meta property="og:title" content="Contact — Evidensity Research">
-  <meta property="og:description" content="Source-verified evidence synthesis by Evidensity Research.">
+  <meta property="og:description" content="Peer-reviewed evidence synthesis. Every claim traced to a verified source quote.">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Evidensity Research">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Contact — Evidensity Research">
-  <meta name="twitter:description" content="Source-verified evidence synthesis by Evidensity Research.">
-  <meta name="description" content="Source-verified evidence synthesis by Evidensity Research.">
+  <meta name="twitter:description" content="Peer-reviewed evidence synthesis. Every claim traced to a verified source quote.">
+  <meta name="description" content="Peer-reviewed evidence synthesis. Every claim traced to a verified source quote.">
   <meta property="og:image" content="https://evidensity.github.io/evidensity-reports/og-default.png">
   <meta name="twitter:image" content="https://evidensity.github.io/evidensity-reports/og-default.png">
   <link rel="icon" type="image/svg+xml" href="/evidensity-reports/favicon.svg">
@@ -152,6 +152,17 @@
     background: transparent; border-radius: 0;
   }
 
+  /* Preset-name cells in the contact pricing table — small-caps mono,
+     reads as "editions of the publication" rather than SKUs. */
+  .preset-name {
+    font-family: var(--sans) !important;
+    font-size: 12px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500 !important;
+    color: var(--text-strong) !important;
+  }
+
   /* Tables (contact/pricing) */
   table { border-collapse: collapse; width: 100%; }
   th, td {
@@ -188,17 +199,16 @@
   <a href="/evidensity-reports/" class="wordmark" aria-label="Evidensity Research home">
     <svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Evidensity"><text font-family="Spectral, 'Hoefler Text', Georgia, serif" font-weight="500" letter-spacing="-1.5"><tspan x="0" y="100" font-size="104" fill="#0e0e0e">Evidensity</tspan><tspan dx="4" y="44" font-size="62" font-weight="600" fill="#7a1f1f">&#8224;</tspan></text></svg>
   </a>
-  <a href="/evidensity-reports/">Home</a>
-  <a href="/evidensity-reports/portfolio/">Portfolio</a>
+  <a href="/evidensity-reports/portfolio/">Reports</a>
   <a href="/evidensity-reports/services/">Services</a>
   <a href="/evidensity-reports/contact.html">Contact</a>
 </nav>
 <div class="section" style="max-width: 640px; margin: 40px auto;">
-  <h2>Get a Free Scoping Assessment</h2>
-  <p style="margin: 16px 0; font-size: 0.95rem; line-height: 1.7;">
-    Send your research question and I'll scope the evidence landscape for free:
-    how many papers exist, what the major themes are, and what a full analysis
-    would deliver. No cost, no commitment.
+  <h2>Start with a free scoping assessment</h2>
+  <p style="margin: 16px 0; font-size: 17px; line-height: 1.65;">
+    Send your research question. I'll map the evidence landscape &mdash; how many
+    papers exist, the major themes, and what a full analysis would reveal &mdash;
+    and send it back within 24 hours. Free, no commitment.
   </p>
 
   <div class="card" style="padding: 28px; margin: 24px 0; border-left: 3px solid var(--accent);">
@@ -207,26 +217,26 @@
       <div style="flex: 1; min-width: 150px;">
         <div style="font-family: var(--serif); font-size: 2rem; font-weight: 500; color: var(--accent); line-height: 1;">1</div>
         <div style="font-family: var(--serif); font-size: 15px; color: var(--text-dim); margin-top: 8px; line-height: 1.5;">
-          You send your research question
+          You send the question
         </div>
       </div>
       <div style="flex: 1; min-width: 150px;">
         <div style="font-family: var(--serif); font-size: 2rem; font-weight: 500; color: var(--accent); line-height: 1;">2</div>
         <div style="font-family: var(--serif); font-size: 15px; color: var(--text-dim); margin-top: 8px; line-height: 1.5;">
-          I run a landscape scan across 10 academic databases
+          I scan ten academic databases
         </div>
       </div>
       <div style="flex: 1; min-width: 150px;">
         <div style="font-family: var(--serif); font-size: 2rem; font-weight: 500; color: var(--accent); line-height: 1;">3</div>
         <div style="font-family: var(--serif); font-size: 15px; color: var(--text-dim); margin-top: 8px; line-height: 1.5;">
-          You receive a scoping document showing what the evidence looks like
+          You get a scoping document back &mdash; usually within 24 hours
         </div>
       </div>
     </div>
   </div>
 
   <div style="text-align: center; margin: 40px 0;">
-    <a class="cta" href="mailto:evidensity.research@gmail.com?subject=Free Scoping Assessment Request&body=Hi,%0A%0AI'd like a free scoping assessment for the following research question:%0A%0ARESEARCH QUESTION:%0A[Your question here]%0A%0ACONTEXT:%0A- Field/industry: %0A- Output needed (report, evidence map, data pack, content brief): %0A- Timeline: %0A- Any other details: %0A%0AThanks">Request a Free Scoping Assessment</a>
+    <a class="cta" href="mailto:evidensity.research@gmail.com?subject=Free Scoping Assessment Request&body=Hi,%0A%0AI'd like a free scoping assessment for the following research question:%0A%0ARESEARCH QUESTION:%0A[Your question here]%0A%0ACONTEXT:%0A- Field/industry: %0A- Output needed (report, evidence map, data pack, content brief): %0A- Timeline: %0A- Any other details: %0A%0AThanks">Request a free scoping assessment</a>
     <p style="margin-top: 14px; font-size: 13px; color: var(--text-dim); font-family: var(--sans);">
       or email directly: <a href="mailto:evidensity.research@gmail.com">evidensity.research@gmail.com</a>
     </p>
@@ -239,32 +249,32 @@
     </p>
     <table style="width: 100%; font-size: 0.85rem; border-collapse: collapse;">
       <tr style="border-bottom: 1px solid var(--border);">
-        <td style="padding: 8px 0; font-weight: 500;">Landscape Scan</td>
+        <td class="preset-name" style="padding: 8px 0;">Landscape Scan</td>
         <td style="padding: 8px 0; color: var(--text-dim);">What evidence exists? Paper counts, themes, method landscape, evidence quality overview, recommended next steps.</td>
         <td style="padding: 8px 0; text-align: right; white-space: nowrap;">from &pound;500</td>
       </tr>
       <tr style="border-bottom: 1px solid var(--border);">
-        <td style="padding: 8px 0; font-weight: 500;">Rapid Response</td>
+        <td class="preset-name" style="padding: 8px 0;">Rapid Response</td>
         <td style="padding: 8px 0; color: var(--text-dim);">Need an answer fast. Executive brief on top 50 papers. 24-hour turnaround.</td>
         <td style="padding: 8px 0; text-align: right; white-space: nowrap;">from &pound;1,000</td>
       </tr>
       <tr style="border-bottom: 1px solid var(--border);">
-        <td style="padding: 8px 0; font-weight: 500;">Evidence Build</td>
+        <td class="preset-name" style="padding: 8px 0;">Evidence Build</td>
         <td style="padding: 8px 0; color: var(--text-dim);">Structured evidence table with full-text extraction, CSV export, and summary report.</td>
         <td style="padding: 8px 0; text-align: right; white-space: nowrap;">from &pound;2,000</td>
       </tr>
       <tr style="border-bottom: 1px solid var(--border);">
-        <td style="padding: 8px 0; font-weight: 500;">Deep Analysis</td>
+        <td class="preset-name" style="padding: 8px 0;">Deep Analysis</td>
         <td style="padding: 8px 0; color: var(--text-dim);">Full pipeline: credibility scoring, evidence grounding, claim grouping, meta-analysis, publication-ready report.</td>
         <td style="padding: 8px 0; text-align: right; white-space: nowrap;">from &pound;3,000</td>
       </tr>
       <tr style="border-bottom: 1px solid var(--border);">
-        <td style="padding: 8px 0; font-weight: 500;">Hypothesis Test</td>
+        <td class="preset-name" style="padding: 8px 0;">Hypothesis Test</td>
         <td style="padding: 8px 0; color: var(--text-dim);">Is X actually true? Deep extraction focused on a specific claim. For due diligence and fact-checking.</td>
         <td style="padding: 8px 0; text-align: right; white-space: nowrap;">from &pound;3,000</td>
       </tr>
       <tr style="border-bottom: 1px solid var(--border);">
-        <td style="padding: 8px 0; font-weight: 500;">Conflict Analysis</td>
+        <td class="preset-name" style="padding: 8px 0;">Conflict Analysis</td>
         <td style="padding: 8px 0; color: var(--text-dim);">Why do studies disagree? Structured disagreement attribution across the corpus.</td>
         <td style="padding: 8px 0; text-align: right; white-space: nowrap;">from &pound;5,000</td>
       </tr>
@@ -278,12 +288,12 @@
     </p>
     <table style="width: 100%; font-size: 0.85rem; border-collapse: collapse;">
       <tr style="border-bottom: 1px solid var(--border);">
-        <td style="padding: 8px 0; font-weight: 500;">Requery</td>
+        <td class="preset-name" style="padding: 8px 0;">Requery</td>
         <td style="padding: 8px 0; color: var(--text-dim);">New research question on your existing corpus. Fresh meta-analysis and report in minutes.</td>
         <td style="padding: 8px 0; text-align: right; white-space: nowrap;">from &pound;200</td>
       </tr>
       <tr>
-        <td style="padding: 8px 0; font-weight: 500;">Monitoring</td>
+        <td class="preset-name" style="padding: 8px 0;">Monitoring</td>
         <td style="padding: 8px 0; color: var(--text-dim);">Quarterly corpus refresh + 2 requery questions/month. Stay current as the literature evolves.</td>
         <td style="padding: 8px 0; text-align: right; white-space: nowrap;">from &pound;1,000/mo</td>
       </tr>
