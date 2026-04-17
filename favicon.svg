@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Evidensity standalone mark — "E†" lockup.  At favicon size a lone
+  dagger reads as a cross; the serif E + oxblood dagger superscript
+  keeps the brand legible down to 16px while still showing the
+  signature footnote motif.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Evidensity mark">
+  <rect width="64" height="64" fill="#fdfcf7"/>
+  <text font-family="Spectral, 'Hoefler Text', Georgia, serif"
+        font-weight="500"
+        letter-spacing="-0.5">
+    <tspan x="10" y="50" font-size="56" fill="#0e0e0e">E</tspan>
+    <tspan dx="2" y="26" font-size="30" font-weight="600" fill="#7a1f1f">&#8224;</tspan>
+  </text>
+</svg>
