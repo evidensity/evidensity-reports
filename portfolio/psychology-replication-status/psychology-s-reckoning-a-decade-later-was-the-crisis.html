@@ -6,123 +6,225 @@
   <meta name="report-tone" content="substack">
   <title>Psychology's Reckoning: A Decade Later, Was the Crisis Actually Fixed?</title>
 <style>
+  /* Evidensity report — brand v0.1 ("Citation" direction).
+     Fonts loaded from Google Fonts CDN: renders in Spectral/Inter/JetBrains
+     Mono when online; falls back to Hoefler Text / Georgia / system stacks
+     offline.  True data-URI self-hosting is deferred (see review-queue).  */
+  @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap');
+
+  :root {
+    --bg: #fdfcf7; --bg-raised: #f8f5ec;
+    --text-strong: #0e0e0e; --text: #1a1a1a;
+    --text-dim: #6b6b6b; --text-faint: #a8a29a;
+    --border: #d8d2c4; --border-hair: #e8e2d4;
+    --accent: #7a1f1f; --accent-hover: #5e1515;
+    --accent-fill: #faf0ee;
+    --serif: 'Spectral', 'Hoefler Text', Georgia, 'Times New Roman', serif;
+    --sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --mono:  'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+  }
+
   /* === Base typography === */
   body {
-    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
-    max-width: 920px; margin: 40px auto; padding: 0 28px;
-    color: #1a1a1a; line-height: 1.75; font-size: 15px;
-    background: #fff;
+    font-family: var(--serif);
+    max-width: 720px; margin: 56px auto; padding: 0 32px;
+    color: var(--text); line-height: 1.75; font-size: 17px;
+    background: var(--bg);
   }
+
   h1 {
-    font-size: 1.65em; border-bottom: 2px solid #2c3e50;
-    padding-bottom: 0.3em; margin-top: 1.5em; color: #1a1a1a;
+    font-family: var(--serif); font-size: 2.25rem;
+    line-height: 1.15; color: var(--text-strong);
+    font-weight: 500; letter-spacing: -0.015em;
+    margin: 1.6em 0 0.6em; padding-bottom: 0.35em;
+    border-bottom: 1px solid var(--border);
   }
   h2 {
-    font-size: 1.32em; border-bottom: 1px solid #ddd;
-    padding-bottom: 0.2em; margin-top: 1.6em; color: #2c3e50;
+    font-family: var(--serif); font-size: 1.5rem;
+    line-height: 1.25; color: var(--text-strong);
+    font-weight: 500; letter-spacing: -0.01em;
+    margin: 2em 0 0.5em; padding-bottom: 0.25em;
+    border-bottom: 1px solid var(--border-hair);
   }
-  h3 { font-size: 1.08em; margin-top: 1.3em; color: #34495e; }
-  h4 { font-size: 1.0em; margin-top: 1em; color: #555; }
-  p  { margin: 0.65em 0; }
-  ul, ol { margin: 0.6em 0 0.6em 1.4em; }
-  li { margin: 0.2em 0; }
+  h3 {
+    font-family: var(--serif); font-size: 1.2rem;
+    color: var(--text-strong); font-weight: 500;
+    margin: 1.6em 0 0.4em;
+  }
+  h4 {
+    font-family: var(--serif); font-size: 1.05rem;
+    color: var(--text-strong); font-weight: 600;
+    font-style: italic;
+    margin: 1.3em 0 0.3em;
+  }
 
-  /* === Tables === */
+  p  { margin: 0.8em 0; font-family: var(--serif); }
+  ul, ol { margin: 0.7em 0 0.7em 1.4em; font-family: var(--serif); }
+  li { margin: 0.3em 0; }
+  em { font-style: italic; }
+  strong { font-weight: 600; color: var(--text-strong); }
+
+  a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 180ms cubic-bezier(0.2,0,0.2,1);
+  }
+  a:hover { border-bottom-color: var(--accent); }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--border-hair);
+    margin: 2.5em 0;
+  }
+
+  /* === Tables (editorial — thin rules, no heavy fills) === */
   table {
-    border-collapse: collapse; width: 100%; margin: 1.2em 0;
-    font-size: 0.91em;
+    border-collapse: collapse; width: 100%;
+    margin: 1.5em 0;
+    font-family: var(--serif); font-size: 0.94em;
   }
   th, td {
-    border: 1px solid #d5d8dc; padding: 7px 12px; text-align: left;
+    text-align: left; padding: 10px 14px;
+    border-bottom: 1px solid var(--border-hair);
+    vertical-align: top;
   }
-  th { background: #f2f4f6; font-weight: 600; color: #2c3e50; }
-  tr:nth-child(even) { background: #fafbfc; }
+  th {
+    font-family: var(--sans); font-size: 12px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--text-dim); font-weight: 500;
+    border-bottom: 1px solid var(--border);
+  }
+  tr:last-child td { border-bottom: 1px solid var(--border); }
 
-  /* === Blockquotes (default) === */
+  /* === Blockquotes — default (non-callout) === */
   blockquote {
-    border-left: 4px solid #bdc3c7; margin: 1.2em 0;
-    padding: 0.6em 1em; color: #555; background: #fafafa;
-    border-radius: 0 4px 4px 0;
+    border-left: 2px solid var(--border);
+    margin: 1.5em 0; padding: 0.3em 0 0.3em 1.3em;
+    color: var(--text-dim); font-style: italic;
+    font-family: var(--serif);
   }
 
-  /* === Insight callouts === */
-  blockquote.callout-insight {
-    border-left-color: #2980b9; background: #eaf2f8; color: #1a1a1a;
-  }
-  blockquote.callout-insight strong:first-child {
-    color: #2471a3;
-  }
-
-  /* === Finding callouts === */
+  /* === Callouts — single oxblood accent.  Label rendered via
+         ::before so the inline "Key Insight:" text can be stripped
+         during post-processing.  */
+  blockquote.callout-insight,
   blockquote.callout-finding {
-    border-left-color: #27ae60; background: #eafaf1; color: #1a1a1a;
+    background: var(--accent-fill);
+    border-left: 3px solid var(--accent);
+    padding: 1em 1.4em; margin: 1.6em 0;
+    color: var(--text); font-style: normal;
+    font-family: var(--serif); border-radius: 0;
   }
-  blockquote.callout-finding strong:first-child {
-    color: #1e8449;
+  blockquote.callout-insight::before,
+  blockquote.callout-finding::before {
+    display: block;
+    font-family: var(--sans); font-size: 12px; font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 8px;
   }
+  blockquote.callout-insight::before { content: "Key Insight"; }
+  blockquote.callout-finding::before { content: "Key Finding"; }
+  blockquote.callout-insight > p:first-child,
+  blockquote.callout-finding > p:first-child { margin-top: 0; }
+  blockquote.callout-insight > p:last-child,
+  blockquote.callout-finding > p:last-child { margin-bottom: 0; }
 
   /* === Report figures === */
   figure.report-figure {
-    margin: 28px auto;
-    padding: 0;
-    max-width: 720px;
+    margin: 32px auto;
+    max-width: 680px;
     text-align: center;
   }
   figure.report-figure svg {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
+    max-width: 100%; height: auto;
+    display: block; margin: 0 auto;
   }
   figure.report-figure figcaption {
-    margin-top: 8px;
-    font-size: 0.78rem;
-    color: #64748b;
-    font-style: italic;
-    line-height: 1.4;
+    margin-top: 12px;
+    font-family: var(--mono); font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.04em; line-height: 1.5;
+    text-align: center;
   }
 
-  /* === APA citation tooltips === */
+  /* === APA citation + tooltip (ink on ivory, oxblood rule) === */
   .cite {
-    color: #2c3e50; cursor: help; position: relative;
-    border-bottom: 1px dotted #7f8c8d;
+    color: var(--accent); cursor: help; position: relative;
+    font-family: var(--mono); font-size: 0.85em;
+    border-bottom: 1px dotted var(--accent);
+    padding: 0 0.15em;
   }
-  .cite:hover { color: #2980b9; border-bottom-color: #2980b9; }
+  .cite:hover { color: var(--accent-hover); background: var(--accent-fill); }
 
   .cite-tooltip {
-    display: none; position: absolute; bottom: calc(100% + 6px);
+    display: none; position: absolute;
+    bottom: calc(100% + 8px);
     left: 50%; transform: translateX(-50%);
-    background: #2c3e50; color: #ecf0f1;
-    padding: 8px 14px; border-radius: 6px;
-    font-size: 0.82em; line-height: 1.5;
+    background: #1a1a1a; color: #fdfcf7;
+    border-left: 3px solid var(--accent);
+    padding: 12px 16px;
+    font-family: var(--serif); font-size: 13px;
+    line-height: 1.55; font-style: normal;
+    letter-spacing: 0;
     white-space: normal; width: max-content; max-width: 420px;
-    z-index: 100; box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+    z-index: 100;
+    box-shadow: 0 4px 16px rgba(14,14,14,0.15);
     pointer-events: none;
+    text-transform: none;
   }
   .cite-tooltip::after {
     content: ''; position: absolute; top: 100%; left: 50%;
     transform: translateX(-50%);
-    border: 6px solid transparent; border-top-color: #2c3e50;
+    border: 6px solid transparent; border-top-color: #1a1a1a;
   }
   .cite:hover .cite-tooltip { display: block; }
 
   /* === Metadata banner === */
   .meta {
-    color: #666; font-size: 0.86em; margin-bottom: 2em;
-    padding-bottom: 1em; border-bottom: 1px solid #eee;
+    font-family: var(--mono); font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin: 0 0 2.5em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid var(--border);
+  }
+  .meta strong {
+    font-weight: 500; color: var(--text); letter-spacing: 0.06em;
   }
 
   /* === Code === */
   code {
-    background: #f4f4f4; padding: 1px 5px; border-radius: 3px;
-    font-size: 0.9em;
+    font-family: var(--mono); font-size: 0.88em;
+    background: var(--bg-raised);
+    padding: 2px 6px; border-radius: 2px;
   }
   pre {
-    background: #f4f4f4; padding: 12px; border-radius: 4px;
-    overflow-x: auto;
+    font-family: var(--mono); font-size: 14px;
+    background: var(--bg-raised);
+    padding: 16px; border-radius: 2px;
+    overflow-x: auto; line-height: 1.5;
   }
+  pre code { background: none; padding: 0; }
+
+  /* === Report footer (dagger stamp) === */
+  .report-footer {
+    margin-top: 72px; padding: 28px 0;
+    border-top: 1px solid var(--border-hair);
+    text-align: center;
+    font-family: var(--mono); font-size: 12px;
+    color: var(--text-faint);
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .report-footer .stamp {
+    font-family: var(--serif); font-weight: 600;
+    color: var(--accent); font-size: 34px;
+    margin-right: 14px; vertical-align: -7px;
+    line-height: 1;
+  }
+  .report-footer a { color: var(--text-dim); }
 </style>
-  <meta property="og:title" content="Psychology's Reckoning: A Decade Later, Was the Crisis Actually Fixed?">
+<meta property="og:title" content="Psychology's Reckoning: A Decade Later, Was the Crisis Actually Fixed?">
   <meta property="og:description" content="The replication revolution promised to clean house — but the evidence suggests we tidied some rooms and quietly locked others.">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Evidensity Research">
@@ -164,20 +266,20 @@
 <p>Power posing — the idea that holding an expansive body posture for two minutes could raise testosterone, lower cortisol, and increase risk tolerance — became perhaps the most publicly scrutinised case. Simmons and Simonsohn (2017) subjected the published evidence base to p-curve analysis and found that the distribution of p-values was indistinguishable from what you would expect if the true effect were zero. As they put it: the existing power posing evidence was "too weak to justify moderator searches or practical advocacy." Subsequent replication attempts confirmed the picture. Efrat and colleagues (2024) found no testosterone effects and no feelings-of-power effects, though they did find cortisol reductions and replicated risk-taking effects. Klaschinski and colleagues (2017) found no effects on dominance or hireability in job interview contexts. The literature fractured into small, inconsistent findings with no coherent theoretical core.</p>
 <p>Precognition — Daryl Bem's extraordinary 2011 claim that people can anticipate random future events — was always the sharpest test of the system. If the field's methods could support precognition, they could support almost anything. Muhmenthaler and colleagues (2022) mounted a large-scale replication with <strong>over 2,000 participants</strong> across three experiments and found nothing. Schlitz and colleagues (2021), in two preregistered international collaborations that included Bem himself, failed to support the primary hypothesis. The "Correcting the past" replication series found that <strong>seven of seven</strong> attempts to replicate Bem's Experiments 8 and 9 failed to detect the effect. Bem's own meta-analysis (Bem et al., 2015; 2016) claims a small but statistically reliable effect across 90 studies — but this is precisely the kind of conclusion that Kvarven and colleagues (2019) showed is systematically inflated in psychology meta-analyses, where <strong>meta-analytic effect sizes average three times larger</strong> than results from pre-registered multi-lab replications.</p>
 <blockquote class="callout-finding">
-<p><strong>Key Finding:</strong> Across the analysed literature, replication effect sizes were systematically and substantially smaller than originals — with a <strong>median 75% reduction</strong> in Cohen's <em>d</em> in the Many Labs 2 project alone, where the original median <em>d</em> of <strong>0.60</strong> shrank to <strong>0.15</strong> in replication.</p>
+<p>Across the analysed literature, replication effect sizes were systematically and substantially smaller than originals — with a <strong>median 75% reduction</strong> in Cohen's <em>d</em> in the Many Labs 2 project alone, where the original median <em>d</em> of <strong>0.60</strong> shrank to <strong>0.15</strong> in replication.</p>
 </blockquote>
 <hr />
 <p>So: crisis solved? The answer requires distinguishing between the meta-level question (has the field reformed?) and the object-level question (do the old findings hold up?). The answers are different.</p>
 <p>On reform, the picture is genuinely encouraging. Preregistration has become standard practice for high-quality work. Multi-lab collaborations now routinely produce samples an order of magnitude larger than the originals being tested. Open data policies allow post-hoc scrutiny that was simply impossible in 2010. The Registered Report format — where journals commit to publication before data collection, removing the incentive to p-hack — has spread across dozens of outlets. These are real changes with measurable effects.</p>
 <p>On the object-level, the picture is messier. Not everything failed. The body-specificity hypothesis — that right-handed people associate right-space with positive valence — replicated cross-culturally across 12 countries and <strong>2,222 participants</strong> (Yamada et al., 2024). The Ebbinghaus forgetting curve, first observed in the 1880s, was reproduced with striking fidelity (Murre &amp; Dros, 2015). Cognitive effects like the Stroop task, the Simon effect, and attentional priming for basic perceptual features replicated robustly online (Crump et al., 2013). The status quo bias replicated in <strong>3 of 4 decision scenarios</strong> (Xiao et al., 2021). The ambivalence-certainty interaction on political opinion stability held in a registered voter sample (Luttrell et al., 2020). Social class effects, examined at scale across four countries by Batruch and colleagues (2025), replicated in roughly <strong>50%</strong> of cases — a middling but not catastrophic result.</p>
 <blockquote class="callout-insight">
-<p><strong>Key Insight:</strong> Psychology's replicability problem is not uniform. Cognitive and perceptual effects with clean operationalisations tend to replicate; subtle social priming effects and small-sample personality findings tend not to. The crisis was never equally distributed across the field, even if it was reported as though it were.</p>
+<p>Psychology's replicability problem is not uniform. Cognitive and perceptual effects with clean operationalisations tend to replicate; subtle social priming effects and small-sample personality findings tend not to. The crisis was never equally distributed across the field, even if it was reported as though it were.</p>
 </blockquote>
 <p>The interpretive war over what replication failures <em>mean</em> remains genuinely unresolved. One camp holds that a well-powered null result is a null result, and the original effect should be abandoned. Another insists that replication failures often reflect unmeasured moderators — that what looks like a null effect is actually a finding about boundary conditions. Bressan (2019a, 2019b, 2020) examined several failures from the Reproducibility Project and argued that some contained methodological artifacts — stimulus allocation biases and confounds that, when corrected, restored the original effect. Chatard and colleagues (2020) demonstrated that the Many Labs 4 failure to replicate mortality salience effects was partly driven by the inclusion of underpowered labs that violated preregistered sample size criteria; excluding those labs produced a successful replication in the expert-advice condition.</p>
 <p>These arguments are not merely special pleading. Baranski and colleagues (2020) showed that protocol matters enormously: when the Shnabel &amp; Nadler (2008) reconciliation model was tested with more relatable materials rather than the original protocol, replication succeeded. Sadeghiyeh and colleagues (2018) found that a failed exploration replication was explained by a previously unknown moderator — whether participants were <em>actively</em> or <em>passively</em> receiving information — and that switching between conditions within a session could toggle the effect on and off. These are real discoveries, not excuses.</p>
 <p>But the moderator explanation cannot be invoked infinitely. At some point, an effect that only appears under unspecified conditions, with unspecified samples, using unspecified materials, is not a robust phenomenon — it is a fragile local observation. Zeevi and colleagues (2020) offered a more structural critique: analysing 88 Reproducibility Project papers, they found that each reported an average of <strong>77.7 results</strong> without correcting for multiple comparisons. A statistical adjustment for this multiple-testing problem rendered <strong>21 of 88 focal results</strong> non-significant — and those 21 constituted over a third of all findings that failed to replicate. The crisis, in this reading, was partly a mathematics problem hiding in plain sight.</p>
 <blockquote class="callout-finding">
-<p><strong>Key Finding:</strong> Zeevi and colleagues' (2020) reanalysis found that over a third of non-replicable RPP findings could be explained by uncorrected multiple comparisons alone — a systematic statistical error that preregistration, if properly enforced, would largely eliminate.</p>
+<p>Zeevi and colleagues' (2020) reanalysis found that over a third of non-replicable RPP findings could be explained by uncorrected multiple comparisons alone — a systematic statistical error that preregistration, if properly enforced, would largely eliminate.</p>
 </blockquote>
 <hr />
 <p>What does this mean, practically? The most important implication is that the distinction between a <em>finding</em> and a <em>phenomenon</em> needs to become central to how psychology trains its researchers and communicates its results. A statistically significant result in a single small study is a finding. A phenomenon is something that survives methodological variation, larger samples, and adversarial testing. The crisis revealed that psychology had been treating findings as phenomena — citing a single study as established fact, building theories on results that were never robust enough to bear that weight.</p>
@@ -215,7 +317,10 @@
 <p><span class="cite" data-info="The future failed: No evidence for precognition in a large scale replication attempt of Bem (2011). | Michèle C. Muhmenthaler; Mirela Dubravac; Beat H. Meier | 2022 | Psychology of Consciousness Theory Research and Practice | DOI: 10.1037/cns0000342">Muhmenthaler et al. (2022)</span>. "The future failed: No evidence for precognition in a large scale replication attempt of Bem (2011)." <em>Psychology of Consciousness: Theory, Research, and Practice</em>. https://doi.org/10.1037/cns0000342</p>
 </li>
 </ul>
-<div style="margin-top: 48px; padding-top: 16px; border-top: 1px solid #e2e8f0; text-align: center; font-size: 0.75rem; color: #94a3b8;">Generated by <strong>Evidensity Research</strong> &mdash; source-verified evidence synthesis</div>
+<div class="report-footer">
+  <span class="stamp">&#8224;</span>
+  Evidensity Research &middot; Every claim, cited
+</div>
 <script>
   // Create tooltip elements for citations on hover
   document.addEventListener('DOMContentLoaded', function() {

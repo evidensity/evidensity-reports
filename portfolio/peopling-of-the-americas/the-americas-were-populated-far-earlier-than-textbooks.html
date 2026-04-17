@@ -6,123 +6,225 @@
   <meta name="report-tone" content="substack">
   <title>The Americas Were Populated Far Earlier Than Textbooks Claim — And the Story Keeps Getting Stranger</title>
 <style>
+  /* Evidensity report — brand v0.1 ("Citation" direction).
+     Fonts loaded from Google Fonts CDN: renders in Spectral/Inter/JetBrains
+     Mono when online; falls back to Hoefler Text / Georgia / system stacks
+     offline.  True data-URI self-hosting is deferred (see review-queue).  */
+  @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap');
+
+  :root {
+    --bg: #fdfcf7; --bg-raised: #f8f5ec;
+    --text-strong: #0e0e0e; --text: #1a1a1a;
+    --text-dim: #6b6b6b; --text-faint: #a8a29a;
+    --border: #d8d2c4; --border-hair: #e8e2d4;
+    --accent: #7a1f1f; --accent-hover: #5e1515;
+    --accent-fill: #faf0ee;
+    --serif: 'Spectral', 'Hoefler Text', Georgia, 'Times New Roman', serif;
+    --sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --mono:  'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+  }
+
   /* === Base typography === */
   body {
-    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
-    max-width: 920px; margin: 40px auto; padding: 0 28px;
-    color: #1a1a1a; line-height: 1.75; font-size: 15px;
-    background: #fff;
+    font-family: var(--serif);
+    max-width: 720px; margin: 56px auto; padding: 0 32px;
+    color: var(--text); line-height: 1.75; font-size: 17px;
+    background: var(--bg);
   }
+
   h1 {
-    font-size: 1.65em; border-bottom: 2px solid #2c3e50;
-    padding-bottom: 0.3em; margin-top: 1.5em; color: #1a1a1a;
+    font-family: var(--serif); font-size: 2.25rem;
+    line-height: 1.15; color: var(--text-strong);
+    font-weight: 500; letter-spacing: -0.015em;
+    margin: 1.6em 0 0.6em; padding-bottom: 0.35em;
+    border-bottom: 1px solid var(--border);
   }
   h2 {
-    font-size: 1.32em; border-bottom: 1px solid #ddd;
-    padding-bottom: 0.2em; margin-top: 1.6em; color: #2c3e50;
+    font-family: var(--serif); font-size: 1.5rem;
+    line-height: 1.25; color: var(--text-strong);
+    font-weight: 500; letter-spacing: -0.01em;
+    margin: 2em 0 0.5em; padding-bottom: 0.25em;
+    border-bottom: 1px solid var(--border-hair);
   }
-  h3 { font-size: 1.08em; margin-top: 1.3em; color: #34495e; }
-  h4 { font-size: 1.0em; margin-top: 1em; color: #555; }
-  p  { margin: 0.65em 0; }
-  ul, ol { margin: 0.6em 0 0.6em 1.4em; }
-  li { margin: 0.2em 0; }
+  h3 {
+    font-family: var(--serif); font-size: 1.2rem;
+    color: var(--text-strong); font-weight: 500;
+    margin: 1.6em 0 0.4em;
+  }
+  h4 {
+    font-family: var(--serif); font-size: 1.05rem;
+    color: var(--text-strong); font-weight: 600;
+    font-style: italic;
+    margin: 1.3em 0 0.3em;
+  }
 
-  /* === Tables === */
+  p  { margin: 0.8em 0; font-family: var(--serif); }
+  ul, ol { margin: 0.7em 0 0.7em 1.4em; font-family: var(--serif); }
+  li { margin: 0.3em 0; }
+  em { font-style: italic; }
+  strong { font-weight: 600; color: var(--text-strong); }
+
+  a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 180ms cubic-bezier(0.2,0,0.2,1);
+  }
+  a:hover { border-bottom-color: var(--accent); }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--border-hair);
+    margin: 2.5em 0;
+  }
+
+  /* === Tables (editorial — thin rules, no heavy fills) === */
   table {
-    border-collapse: collapse; width: 100%; margin: 1.2em 0;
-    font-size: 0.91em;
+    border-collapse: collapse; width: 100%;
+    margin: 1.5em 0;
+    font-family: var(--serif); font-size: 0.94em;
   }
   th, td {
-    border: 1px solid #d5d8dc; padding: 7px 12px; text-align: left;
+    text-align: left; padding: 10px 14px;
+    border-bottom: 1px solid var(--border-hair);
+    vertical-align: top;
   }
-  th { background: #f2f4f6; font-weight: 600; color: #2c3e50; }
-  tr:nth-child(even) { background: #fafbfc; }
+  th {
+    font-family: var(--sans); font-size: 12px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--text-dim); font-weight: 500;
+    border-bottom: 1px solid var(--border);
+  }
+  tr:last-child td { border-bottom: 1px solid var(--border); }
 
-  /* === Blockquotes (default) === */
+  /* === Blockquotes — default (non-callout) === */
   blockquote {
-    border-left: 4px solid #bdc3c7; margin: 1.2em 0;
-    padding: 0.6em 1em; color: #555; background: #fafafa;
-    border-radius: 0 4px 4px 0;
+    border-left: 2px solid var(--border);
+    margin: 1.5em 0; padding: 0.3em 0 0.3em 1.3em;
+    color: var(--text-dim); font-style: italic;
+    font-family: var(--serif);
   }
 
-  /* === Insight callouts === */
-  blockquote.callout-insight {
-    border-left-color: #2980b9; background: #eaf2f8; color: #1a1a1a;
-  }
-  blockquote.callout-insight strong:first-child {
-    color: #2471a3;
-  }
-
-  /* === Finding callouts === */
+  /* === Callouts — single oxblood accent.  Label rendered via
+         ::before so the inline "Key Insight:" text can be stripped
+         during post-processing.  */
+  blockquote.callout-insight,
   blockquote.callout-finding {
-    border-left-color: #27ae60; background: #eafaf1; color: #1a1a1a;
+    background: var(--accent-fill);
+    border-left: 3px solid var(--accent);
+    padding: 1em 1.4em; margin: 1.6em 0;
+    color: var(--text); font-style: normal;
+    font-family: var(--serif); border-radius: 0;
   }
-  blockquote.callout-finding strong:first-child {
-    color: #1e8449;
+  blockquote.callout-insight::before,
+  blockquote.callout-finding::before {
+    display: block;
+    font-family: var(--sans); font-size: 12px; font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 8px;
   }
+  blockquote.callout-insight::before { content: "Key Insight"; }
+  blockquote.callout-finding::before { content: "Key Finding"; }
+  blockquote.callout-insight > p:first-child,
+  blockquote.callout-finding > p:first-child { margin-top: 0; }
+  blockquote.callout-insight > p:last-child,
+  blockquote.callout-finding > p:last-child { margin-bottom: 0; }
 
   /* === Report figures === */
   figure.report-figure {
-    margin: 28px auto;
-    padding: 0;
-    max-width: 720px;
+    margin: 32px auto;
+    max-width: 680px;
     text-align: center;
   }
   figure.report-figure svg {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
+    max-width: 100%; height: auto;
+    display: block; margin: 0 auto;
   }
   figure.report-figure figcaption {
-    margin-top: 8px;
-    font-size: 0.78rem;
-    color: #64748b;
-    font-style: italic;
-    line-height: 1.4;
+    margin-top: 12px;
+    font-family: var(--mono); font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.04em; line-height: 1.5;
+    text-align: center;
   }
 
-  /* === APA citation tooltips === */
+  /* === APA citation + tooltip (ink on ivory, oxblood rule) === */
   .cite {
-    color: #2c3e50; cursor: help; position: relative;
-    border-bottom: 1px dotted #7f8c8d;
+    color: var(--accent); cursor: help; position: relative;
+    font-family: var(--mono); font-size: 0.85em;
+    border-bottom: 1px dotted var(--accent);
+    padding: 0 0.15em;
   }
-  .cite:hover { color: #2980b9; border-bottom-color: #2980b9; }
+  .cite:hover { color: var(--accent-hover); background: var(--accent-fill); }
 
   .cite-tooltip {
-    display: none; position: absolute; bottom: calc(100% + 6px);
+    display: none; position: absolute;
+    bottom: calc(100% + 8px);
     left: 50%; transform: translateX(-50%);
-    background: #2c3e50; color: #ecf0f1;
-    padding: 8px 14px; border-radius: 6px;
-    font-size: 0.82em; line-height: 1.5;
+    background: #1a1a1a; color: #fdfcf7;
+    border-left: 3px solid var(--accent);
+    padding: 12px 16px;
+    font-family: var(--serif); font-size: 13px;
+    line-height: 1.55; font-style: normal;
+    letter-spacing: 0;
     white-space: normal; width: max-content; max-width: 420px;
-    z-index: 100; box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+    z-index: 100;
+    box-shadow: 0 4px 16px rgba(14,14,14,0.15);
     pointer-events: none;
+    text-transform: none;
   }
   .cite-tooltip::after {
     content: ''; position: absolute; top: 100%; left: 50%;
     transform: translateX(-50%);
-    border: 6px solid transparent; border-top-color: #2c3e50;
+    border: 6px solid transparent; border-top-color: #1a1a1a;
   }
   .cite:hover .cite-tooltip { display: block; }
 
   /* === Metadata banner === */
   .meta {
-    color: #666; font-size: 0.86em; margin-bottom: 2em;
-    padding-bottom: 1em; border-bottom: 1px solid #eee;
+    font-family: var(--mono); font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin: 0 0 2.5em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid var(--border);
+  }
+  .meta strong {
+    font-weight: 500; color: var(--text); letter-spacing: 0.06em;
   }
 
   /* === Code === */
   code {
-    background: #f4f4f4; padding: 1px 5px; border-radius: 3px;
-    font-size: 0.9em;
+    font-family: var(--mono); font-size: 0.88em;
+    background: var(--bg-raised);
+    padding: 2px 6px; border-radius: 2px;
   }
   pre {
-    background: #f4f4f4; padding: 12px; border-radius: 4px;
-    overflow-x: auto;
+    font-family: var(--mono); font-size: 14px;
+    background: var(--bg-raised);
+    padding: 16px; border-radius: 2px;
+    overflow-x: auto; line-height: 1.5;
   }
+  pre code { background: none; padding: 0; }
+
+  /* === Report footer (dagger stamp) === */
+  .report-footer {
+    margin-top: 72px; padding: 28px 0;
+    border-top: 1px solid var(--border-hair);
+    text-align: center;
+    font-family: var(--mono); font-size: 12px;
+    color: var(--text-faint);
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .report-footer .stamp {
+    font-family: var(--serif); font-weight: 600;
+    color: var(--accent); font-size: 34px;
+    margin-right: 14px; vertical-align: -7px;
+    line-height: 1;
+  }
+  .report-footer a { color: var(--text-dim); }
 </style>
-  <meta property="og:title" content="The Americas Were Populated Far Earlier Than Textbooks Claim — And the Story Keeps Getting Stranger">
+<meta property="og:title" content="The Americas Were Populated Far Earlier Than Textbooks Claim — And the Story Keeps Getting Stranger">
   <meta property="og:description" content="The &quot;Clovis First&quot; model dominated for decades, but a cascade of new evidence has replaced it with something far more complicated, and far more interesting.">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Evidensity Research">
@@ -162,7 +264,7 @@
 <h2>The Route Question: Why the Corridor Didn't Work</h2>
 <p>Here is where paleoecology delivers one of the most important contributions to the debate. The ice-free corridor hypothesis — the idea that early migrants walked south between the retreating Laurentide and Cordilleran ice sheets — has been systematically dismantled by geochronological data. Heintzman and colleagues (PD et al., 2016) used bison radiocarbon dates and ancient DNA to show that the corridor was <strong>closed from ~23,000 until 13,400 cal yr BP</strong>. The corridor did not open until well after people were already deep in the Americas. This finding is reinforced by cosmogenic nuclide exposure dating: Clark and colleagues (J et al., 2022a) confirmed that the Ice-Free Corridor "opened well after pre-Clovis occupation of the Americas" and was simply not available as a primary migration route. <span class="cite" data-info="Radiocarbon Dates from the Ice-Free Corridor | Thomas G. Arnold | 2002 | Radiocarbon | DOI: 10.1017/s0033822200031829">Arnold (2002)</span> had reached a similar conclusion two decades earlier using radiocarbon data alone.</p>
 <blockquote class="callout-insight">
-<p><strong>Key Insight:</strong> If the ice-free corridor was closed during the period when the Americas were first populated, then the primary migration route must have been coastal — which means the first Americans were maritime people, not inland pedestrians.</p>
+<p>If the ice-free corridor was closed during the period when the Americas were first populated, then the primary migration route must have been coastal — which means the first Americans were maritime people, not inland pedestrians.</p>
 </blockquote>
 <p>The coastal alternative — sometimes called the "kelp highway" hypothesis — now has substantial physical support. Lesnek and colleagues (AJ et al., 2018) showed that the coastal pathway through southeastern Alaska was <strong>open and ecologically viable after 17 ka ago</strong>, using cosmogenic ¹⁰Be and ¹⁴C dating of the Cordilleran Ice Sheet margin. <span class="cite" data-info="Terminal Pleistocene epoch human footprints from the Pacific coast of Canada | Duncan McLaren; Daryl Fedje; Angela Dyck | 2018 | PLoS ONE | DOI: 10.1371/journal.pone.0193522">McLaren et al. (2018)</span> found human footprints in a <strong>13,000-year-old paleosol</strong> on Calvert Island, British Columbia — direct physical evidence of people on the Pacific coast at exactly the moment the models predict. Meanwhile, <span class="cite" data-info="Retreat of the Western Cordilleran Ice Sheet Margin During the Last Deglaciation | Christopher M. Darvill; Brian Menounos; Brent M. Goehring | 2018 | Geophysical Research Letters | DOI: 10.1029/2018gl079419">Darvill et al. (2018)</span> confirmed that the Western Cordilleran Ice Sheet margin was already retreating by <strong>18.1 ± 0.2 ka</strong>, consistent with a coastal route becoming passable in time for pre-Clovis occupation further south.</p>
 <h2>What the Genes Say — And Where They Disagree</h2>
@@ -170,14 +272,14 @@
 <p>The mitochondrial picture is particularly well-resolved. Beginning with the foundational work of Schurr and colleagues (TG et al., 1990), researchers identified four primary maternal lineages — haplogroups A, B, C, and D — present throughout the Americas as founding lineages. <span class="cite" data-info="The Phylogeny of the Four Pan-American MtDNA Haplogroups: Implications for Evolutionary and Disease Studies | Alessandro Achilli; Ugo A. Perego; Cláudio M. Bravi | 2008 | PLoS ONE | DOI: 10.1371/journal.pone.0001764">Achilli et al. (2008)</span> subsequently showed that the pan-American haplogroups A2, B2, C1, and D1 "trace back to only six successful founder haplotypes from ancestral Beringian population(s)," with coalescence times averaging approximately <strong>19,000 years BP</strong>. <span class="cite" data-info="Ancient mitochondrial DNA provides high-resolution time scale of the peopling of the Americas | Bastien Llamas; Lars Fehren‐Schmitz; Guido Valverde | 2016 | Science Advances | DOI: 10.1126/sciadv.1501385">Llamas et al. (2016)</span> used 92 ancient mitochondrial genomes to estimate that a small founding population entered the Americas via a coastal route around <strong>16.0 ka</strong>, after a Beringian isolation period of <strong>~2.4 to 9 thousand years</strong>.</p>
 <p>The Y-chromosome evidence, meanwhile, has established that three to four independent male founding lineages entered the Americas. As <span class="cite" data-info="Y Chromosome Sequences Reveal a Short Beringian Standstill, Rapid Expansion, and early Population structure of Native American Founders | Thomaz Pinotti; Anders Bergström; M. Geppert | 2018 | Current Biology | DOI: 10.1016/j.cub.2018.11.029">Pinotti et al. (2018)</span> found: the founding lineages include Q-M3 and Q-CTS1780 distributed throughout the Americas, C3-MPB373 in South America, and possibly C3-P39/Z30536 in North America — all entering south of the ice sheet after <strong>19.5 kya</strong>, following a Beringian standstill of estimated duration <strong>2.7 to 4.6 thousand years</strong>.</p>
 <blockquote class="callout-finding">
-<p><strong>Key Finding:</strong> A single primary founding population, isolated in Beringia for several thousand years, appears to account for the overwhelming majority of Native American ancestry — but the genetic diversity within that founding group, and the precise timing of entry, remain genuinely contested.</p>
+<p>A single primary founding population, isolated in Beringia for several thousand years, appears to account for the overwhelming majority of Native American ancestry — but the genetic diversity within that founding group, and the precise timing of entry, remain genuinely contested.</p>
 </blockquote>
 <p>What disrupts this tidy picture are three complicating signals. First, Skoglund and Reich (2016) found evidence for "at least four distinct streams of Eurasian migration" contributing to present-day and prehistoric Native American populations, suggesting the founding event was not as simple as one wave at one moment. Second, <span class="cite" data-info="Reconstructing Native American Population History | A Kitchen; AL Price; Alejandra V. Contreras | 2012 | &#x27;Springer Science and Business Media LLC&#x27; | DOI: 10.1038/nature11258">Kitchen et al. (2012)</span> concluded that "Native Americans descend from at least three streams of Asian gene flow into the Americas," though most ancestry derives from a single "First American" population. Third — and most controversially — a small number of studies have detected what appears to be Australasian genetic ancestry in some Amazonian and Pacific coast populations. <span class="cite" data-info="Deep genetic affinity between coastal Pacific and Amazonian natives evidenced by Australasian ancestry. | Marcos Araújo Castro E Silva; Tiago Ferraz; Maria Cátira Bortolini | 2021 | Proceedings of the National Academy of Sciences of the United States of America | DOI: 10.1073/pnas.2025739118">Silva et al. (2021)</span> reported that "Australasian genetic signal is present in Pacific coast region of South America," introduced via the coastal route. This claim remains actively contested: <span class="cite" data-info="Early human dispersals within the Americas. | J Víctor Moreno-Mayar; Lasse Vinner; Peter de Barros Damgaard | 2018 | Science (New York, N.Y.) | DOI: 10.1126/science.aav2621">Moreno-Mayar et al. (2018)</span>, in a study of <strong>15 ancient human genomes</strong> spanning Alaska to Patagonia, found that all ancient individuals were most closely related to Native Americans, with no clear Australasian signal in their ancient DNA data.</p>
 <h2>The Speed of the Spread</h2>
 <p>Once people breached whatever barrier existed at the glacial margin, the colonisation of South America happened with remarkable speed. <span class="cite" data-info="Rapid radiation of humans in South America after the last glacial maximum: A radiocarbon-based study | Luciano Prates; Gustavo G. Politis; S. Iván Pérez | 2020 | PLoS ONE | DOI: 10.1371/journal.pone.0236023">Prates et al. (2020)</span>, using a screened radiocarbon database of more than <strong>1,600 early dates from South America</strong>, estimated that the earliest human arrival on that continent occurred between <strong>16,600 and 15,100 cal BP</strong>, with a mean of roughly <strong>15,500 cal BP</strong>. <span class="cite" data-info="The Paleo-Indian Entry into South America According to Mitogenomes | Stefania Brandini; Paola Bergamaschi; Marco Cerna | 2017 | Molecular Biology and Evolution | DOI: 10.1093/molbev/msx267">Brandini et al. (2017)</span> estimated, from 217 novel mitogenomes from Ecuador and Peru, that early Paleo-Indians moved from North America to the Pacific coast of South America within <strong>~1.5 thousand years</strong>, between 16.0 and 14.6 ka. By approximately <strong>14,000 cal years BP</strong>, humans were already in the Southern Cone: <span class="cite" data-info="The Arrival of Homo sapiens into the Southern Cone at 14,000 Years Ago | Gustavo G. Politis; María A. Gutiérrez; Daniel J. Rafuse | 2016 | PLoS ONE | DOI: 10.1371/journal.pone.0162870">Politis et al. (2016)</span> dated Arroyo Seco 2 in Argentina to between 14,064 and 13,068 cal years BP.</p>
 <p>The site at Bluefish Caves in the Yukon adds the most provocative upper bound to the timeline. <span class="cite" data-info="Earliest Human Presence in North America Dated to the Last Glacial Maximum: New Radiocarbon Dates from Bluefish Caves, Canada | Lauriane Bourgeon; Ariane Burke; Thomas Higham | 2017 | PLoS ONE | DOI: 10.1371/journal.pone.0169486">Bourgeon et al. (2017)</span> obtained an AMS radiocarbon date of <strong>24,000 cal BP</strong> from a cut-marked horse bone — making it the oldest known archaeological site in North America, and one that pushes human presence in the region deep into the Last Glacial Maximum. If confirmed, this means ancestors of the first Americans were already in eastern Beringia some <strong>8,000 years before</strong> they began moving south in earnest.</p>
 <blockquote class="callout-insight">
-<p><strong>Key Insight:</strong> The data increasingly point not to a single "arrival moment" but to a prolonged staging process — populations spending millennia in Beringia, adapting to subarctic conditions, with the southward expansion triggered by environmental change and coastal deglaciation sometime after 17,000 years ago.</p>
+<p>The data increasingly point not to a single "arrival moment" but to a prolonged staging process — populations spending millennia in Beringia, adapting to subarctic conditions, with the southward expansion triggered by environmental change and coastal deglaciation sometime after 17,000 years ago.</p>
 </blockquote>
 <p>Niedbalski and Long (SD &amp; JC, 2022) quantified the genetic signature of this period, finding that Native Americans harbour <strong>20,424 unique high-frequency alleles</strong> originating in Beringia — a genetic legacy of isolation comparable in scale only to the Out-of-Africa bottleneck. The Beringian standstill was not merely a pause; it was a crucible.</p>
 <h2>The Morphological Wild Card</h2>
@@ -210,7 +312,10 @@
 <p><span class="cite" data-info="New Archaeological Evidence for an Early Human Presence at Monte Verde, Chile | Tom D. Dillehay; Carlos Ocampo; José Saavedra | 2015 | PLoS ONE | DOI: 10.1371/journal.pone.0141923">Dillehay et al. (2015)</span>. "New Archaeological Evidence for an Early Human Presence at Monte Verde, Chile." <em>PLoS ONE</em>. https://doi.org/10.1371/journal.pone.0141923</p>
 </li>
 </ul>
-<div style="margin-top: 48px; padding-top: 16px; border-top: 1px solid #e2e8f0; text-align: center; font-size: 0.75rem; color: #94a3b8;">Generated by <strong>Evidensity Research</strong> &mdash; source-verified evidence synthesis</div>
+<div class="report-footer">
+  <span class="stamp">&#8224;</span>
+  Evidensity Research &middot; Every claim, cited
+</div>
 <script>
   // Create tooltip elements for citations on hover
   document.addEventListener('DOMContentLoaded', function() {

@@ -6,123 +6,225 @@
   <meta name="report-tone" content="hybrid">
   <title>When and How Did the First People Reach the Americas? A Meta-Analysis of Archaeological, Genetic, and Linguistic Evidence</title>
 <style>
+  /* Evidensity report — brand v0.1 ("Citation" direction).
+     Fonts loaded from Google Fonts CDN: renders in Spectral/Inter/JetBrains
+     Mono when online; falls back to Hoefler Text / Georgia / system stacks
+     offline.  True data-URI self-hosting is deferred (see review-queue).  */
+  @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap');
+
+  :root {
+    --bg: #fdfcf7; --bg-raised: #f8f5ec;
+    --text-strong: #0e0e0e; --text: #1a1a1a;
+    --text-dim: #6b6b6b; --text-faint: #a8a29a;
+    --border: #d8d2c4; --border-hair: #e8e2d4;
+    --accent: #7a1f1f; --accent-hover: #5e1515;
+    --accent-fill: #faf0ee;
+    --serif: 'Spectral', 'Hoefler Text', Georgia, 'Times New Roman', serif;
+    --sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --mono:  'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+  }
+
   /* === Base typography === */
   body {
-    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
-    max-width: 920px; margin: 40px auto; padding: 0 28px;
-    color: #1a1a1a; line-height: 1.75; font-size: 15px;
-    background: #fff;
+    font-family: var(--serif);
+    max-width: 720px; margin: 56px auto; padding: 0 32px;
+    color: var(--text); line-height: 1.75; font-size: 17px;
+    background: var(--bg);
   }
+
   h1 {
-    font-size: 1.65em; border-bottom: 2px solid #2c3e50;
-    padding-bottom: 0.3em; margin-top: 1.5em; color: #1a1a1a;
+    font-family: var(--serif); font-size: 2.25rem;
+    line-height: 1.15; color: var(--text-strong);
+    font-weight: 500; letter-spacing: -0.015em;
+    margin: 1.6em 0 0.6em; padding-bottom: 0.35em;
+    border-bottom: 1px solid var(--border);
   }
   h2 {
-    font-size: 1.32em; border-bottom: 1px solid #ddd;
-    padding-bottom: 0.2em; margin-top: 1.6em; color: #2c3e50;
+    font-family: var(--serif); font-size: 1.5rem;
+    line-height: 1.25; color: var(--text-strong);
+    font-weight: 500; letter-spacing: -0.01em;
+    margin: 2em 0 0.5em; padding-bottom: 0.25em;
+    border-bottom: 1px solid var(--border-hair);
   }
-  h3 { font-size: 1.08em; margin-top: 1.3em; color: #34495e; }
-  h4 { font-size: 1.0em; margin-top: 1em; color: #555; }
-  p  { margin: 0.65em 0; }
-  ul, ol { margin: 0.6em 0 0.6em 1.4em; }
-  li { margin: 0.2em 0; }
+  h3 {
+    font-family: var(--serif); font-size: 1.2rem;
+    color: var(--text-strong); font-weight: 500;
+    margin: 1.6em 0 0.4em;
+  }
+  h4 {
+    font-family: var(--serif); font-size: 1.05rem;
+    color: var(--text-strong); font-weight: 600;
+    font-style: italic;
+    margin: 1.3em 0 0.3em;
+  }
 
-  /* === Tables === */
+  p  { margin: 0.8em 0; font-family: var(--serif); }
+  ul, ol { margin: 0.7em 0 0.7em 1.4em; font-family: var(--serif); }
+  li { margin: 0.3em 0; }
+  em { font-style: italic; }
+  strong { font-weight: 600; color: var(--text-strong); }
+
+  a {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 180ms cubic-bezier(0.2,0,0.2,1);
+  }
+  a:hover { border-bottom-color: var(--accent); }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--border-hair);
+    margin: 2.5em 0;
+  }
+
+  /* === Tables (editorial — thin rules, no heavy fills) === */
   table {
-    border-collapse: collapse; width: 100%; margin: 1.2em 0;
-    font-size: 0.91em;
+    border-collapse: collapse; width: 100%;
+    margin: 1.5em 0;
+    font-family: var(--serif); font-size: 0.94em;
   }
   th, td {
-    border: 1px solid #d5d8dc; padding: 7px 12px; text-align: left;
+    text-align: left; padding: 10px 14px;
+    border-bottom: 1px solid var(--border-hair);
+    vertical-align: top;
   }
-  th { background: #f2f4f6; font-weight: 600; color: #2c3e50; }
-  tr:nth-child(even) { background: #fafbfc; }
+  th {
+    font-family: var(--sans); font-size: 12px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--text-dim); font-weight: 500;
+    border-bottom: 1px solid var(--border);
+  }
+  tr:last-child td { border-bottom: 1px solid var(--border); }
 
-  /* === Blockquotes (default) === */
+  /* === Blockquotes — default (non-callout) === */
   blockquote {
-    border-left: 4px solid #bdc3c7; margin: 1.2em 0;
-    padding: 0.6em 1em; color: #555; background: #fafafa;
-    border-radius: 0 4px 4px 0;
+    border-left: 2px solid var(--border);
+    margin: 1.5em 0; padding: 0.3em 0 0.3em 1.3em;
+    color: var(--text-dim); font-style: italic;
+    font-family: var(--serif);
   }
 
-  /* === Insight callouts === */
-  blockquote.callout-insight {
-    border-left-color: #2980b9; background: #eaf2f8; color: #1a1a1a;
-  }
-  blockquote.callout-insight strong:first-child {
-    color: #2471a3;
-  }
-
-  /* === Finding callouts === */
+  /* === Callouts — single oxblood accent.  Label rendered via
+         ::before so the inline "Key Insight:" text can be stripped
+         during post-processing.  */
+  blockquote.callout-insight,
   blockquote.callout-finding {
-    border-left-color: #27ae60; background: #eafaf1; color: #1a1a1a;
+    background: var(--accent-fill);
+    border-left: 3px solid var(--accent);
+    padding: 1em 1.4em; margin: 1.6em 0;
+    color: var(--text); font-style: normal;
+    font-family: var(--serif); border-radius: 0;
   }
-  blockquote.callout-finding strong:first-child {
-    color: #1e8449;
+  blockquote.callout-insight::before,
+  blockquote.callout-finding::before {
+    display: block;
+    font-family: var(--sans); font-size: 12px; font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 8px;
   }
+  blockquote.callout-insight::before { content: "Key Insight"; }
+  blockquote.callout-finding::before { content: "Key Finding"; }
+  blockquote.callout-insight > p:first-child,
+  blockquote.callout-finding > p:first-child { margin-top: 0; }
+  blockquote.callout-insight > p:last-child,
+  blockquote.callout-finding > p:last-child { margin-bottom: 0; }
 
   /* === Report figures === */
   figure.report-figure {
-    margin: 28px auto;
-    padding: 0;
-    max-width: 720px;
+    margin: 32px auto;
+    max-width: 680px;
     text-align: center;
   }
   figure.report-figure svg {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
+    max-width: 100%; height: auto;
+    display: block; margin: 0 auto;
   }
   figure.report-figure figcaption {
-    margin-top: 8px;
-    font-size: 0.78rem;
-    color: #64748b;
-    font-style: italic;
-    line-height: 1.4;
+    margin-top: 12px;
+    font-family: var(--mono); font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.04em; line-height: 1.5;
+    text-align: center;
   }
 
-  /* === APA citation tooltips === */
+  /* === APA citation + tooltip (ink on ivory, oxblood rule) === */
   .cite {
-    color: #2c3e50; cursor: help; position: relative;
-    border-bottom: 1px dotted #7f8c8d;
+    color: var(--accent); cursor: help; position: relative;
+    font-family: var(--mono); font-size: 0.85em;
+    border-bottom: 1px dotted var(--accent);
+    padding: 0 0.15em;
   }
-  .cite:hover { color: #2980b9; border-bottom-color: #2980b9; }
+  .cite:hover { color: var(--accent-hover); background: var(--accent-fill); }
 
   .cite-tooltip {
-    display: none; position: absolute; bottom: calc(100% + 6px);
+    display: none; position: absolute;
+    bottom: calc(100% + 8px);
     left: 50%; transform: translateX(-50%);
-    background: #2c3e50; color: #ecf0f1;
-    padding: 8px 14px; border-radius: 6px;
-    font-size: 0.82em; line-height: 1.5;
+    background: #1a1a1a; color: #fdfcf7;
+    border-left: 3px solid var(--accent);
+    padding: 12px 16px;
+    font-family: var(--serif); font-size: 13px;
+    line-height: 1.55; font-style: normal;
+    letter-spacing: 0;
     white-space: normal; width: max-content; max-width: 420px;
-    z-index: 100; box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+    z-index: 100;
+    box-shadow: 0 4px 16px rgba(14,14,14,0.15);
     pointer-events: none;
+    text-transform: none;
   }
   .cite-tooltip::after {
     content: ''; position: absolute; top: 100%; left: 50%;
     transform: translateX(-50%);
-    border: 6px solid transparent; border-top-color: #2c3e50;
+    border: 6px solid transparent; border-top-color: #1a1a1a;
   }
   .cite:hover .cite-tooltip { display: block; }
 
   /* === Metadata banner === */
   .meta {
-    color: #666; font-size: 0.86em; margin-bottom: 2em;
-    padding-bottom: 1em; border-bottom: 1px solid #eee;
+    font-family: var(--mono); font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin: 0 0 2.5em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid var(--border);
+  }
+  .meta strong {
+    font-weight: 500; color: var(--text); letter-spacing: 0.06em;
   }
 
   /* === Code === */
   code {
-    background: #f4f4f4; padding: 1px 5px; border-radius: 3px;
-    font-size: 0.9em;
+    font-family: var(--mono); font-size: 0.88em;
+    background: var(--bg-raised);
+    padding: 2px 6px; border-radius: 2px;
   }
   pre {
-    background: #f4f4f4; padding: 12px; border-radius: 4px;
-    overflow-x: auto;
+    font-family: var(--mono); font-size: 14px;
+    background: var(--bg-raised);
+    padding: 16px; border-radius: 2px;
+    overflow-x: auto; line-height: 1.5;
   }
+  pre code { background: none; padding: 0; }
+
+  /* === Report footer (dagger stamp) === */
+  .report-footer {
+    margin-top: 72px; padding: 28px 0;
+    border-top: 1px solid var(--border-hair);
+    text-align: center;
+    font-family: var(--mono); font-size: 12px;
+    color: var(--text-faint);
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .report-footer .stamp {
+    font-family: var(--serif); font-weight: 600;
+    color: var(--accent); font-size: 34px;
+    margin-right: 14px; vertical-align: -7px;
+    line-height: 1;
+  }
+  .report-footer a { color: var(--text-dim); }
 </style>
-  <meta property="og:title" content="When and How Did the First People Reach the Americas? A Meta-Analysis of Archaeological, Genetic, and Linguistic Evidence">
+<meta property="og:title" content="When and How Did the First People Reach the Americas? A Meta-Analysis of Archaeological, Genetic, and Linguistic Evidence">
   <meta property="og:description" content="The current evidence — drawn from 212 analysed papers spanning archaeology, ancient and modern genomics, palaeoclimatology, and historical linguistics — converges on a broad consensus that the first A...">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Evidensity Research">
@@ -170,7 +272,7 @@
 - Genetic diversity in Native Americans <strong>decreases with geographic distance from the Bering Strait</strong>, consistent with a Beringian origin and southward spread (Wang et al., 2007).</p>
 <p><strong>Interpretation:</strong> The Beringian origin is the most robustly supported finding in this literature. Debate has shifted from <em>whether</em> Beringia was the entry point to <em>how many waves</em> passed through and <em>by what route</em> they subsequently dispersed southward.</p>
 <blockquote class="callout-finding">
-<p><strong>Key Finding:</strong> Founding lineages include Q-M3 and Q-CTS1780 throughout the Americas, C3-MPB373 in South America, and possibly C3-P39/Z30536 in North America (Ayub et al., 2018).</p>
+<p>Founding lineages include Q-M3 and Q-CTS1780 throughout the Americas, C3-MPB373 in South America, and possibly C3-P39/Z30536 in North America (Ayub et al., 2018).</p>
 </blockquote>
 <hr />
 <h3>2. The Beringian Standstill: Isolation Before Dispersal</h3>
@@ -250,7 +352,7 @@
 <li>North American pre-13,500 cal BP sites share a lithic tradition combining core-and-blade and biface technologies similar to the <strong>Northeast Asian Late Upper Paleolithic</strong>, with parallels in northern Japan at ~20,000 cal BP (DB et al., 2025).</li>
 </ul>
 <blockquote class="callout-finding">
-<p><strong>Key Finding:</strong> Pre-Clovis human presence in North America is supported by alluvial sediment OSL dating at Gault Site, and human fecal biomarkers at Paisley Caves unequivocally identify human coprolites dating to pre-Clovis contexts (Shillito et al., 2020; TJ et al., 2018).</p>
+<p>Pre-Clovis human presence in North America is supported by alluvial sediment OSL dating at Gault Site, and human fecal biomarkers at Paisley Caves unequivocally identify human coprolites dating to pre-Clovis contexts (Shillito et al., 2020; TJ et al., 2018).</p>
 </blockquote>
 <p><strong>Interpretation:</strong> The convergence of diverse evidence types (lithics, biomarkers, faunal associations, chronometric dating) at geographically dispersed pre-Clovis sites makes the pre-Clovis occupation robust. However, the most extreme claims (&gt;20,000 BP sites) remain methodologically contested.</p>
 <hr />
@@ -293,7 +395,7 @@
 - Linguistic evidence supports <strong>two population strata from coastal entries ~24,000 and ~15,000 years ago</strong>, with an inland entry beginning ~14,000 years ago (J, 2025).<br />
 - At least four distinct streams of Eurasian migration are identified in present-day and prehistoric Native American populations (Skoglund &amp; Reich, 2016).</p>
 <blockquote class="callout-insight">
-<p><strong>Key Insight:</strong> The apparent conflict between "single wave" and "multiple wave" models may partly reflect different questions being asked — most Native American <em>ancestry</em> derives from a single first migration, but subsequent distinct migration events (Paleo-Eskimo, Na-Dene ancestors) are also well-documented and are not mutually exclusive with a primary founding event.</p>
+<p>The apparent conflict between "single wave" and "multiple wave" models may partly reflect different questions being asked — most Native American <em>ancestry</em> derives from a single first migration, but subsequent distinct migration events (Paleo-Eskimo, Na-Dene ancestors) are also well-documented and are not mutually exclusive with a primary founding event.</p>
 </blockquote>
 <hr />
 <h3>8. Australasian Genetic Signal: A Persistent Enigma</h3>
@@ -4082,7 +4184,10 @@ z
 <p>Pacheco, C., Stronen, A. V., Jędrzejewska, B., et al. (2022). Demography and evolutionary history of grey wolf populations around the Bering Strait. <em>Molecular Ecology</em>. https://doi.org/10.1111/mec.16613</p>
 <p>Pansani, T. R., Pobiner, B., &amp; Gueriau, P. (2023). Evidence of artefacts made of giant sloth bones in central Brazil around the last glacial maximum. <em>Proceedings of the Royal Society B</em>. https://doi.org/10.1098/rspb.2023.0316</p>
 <p>Patiño, D. U., Collins, A., &amp; Romero García, O. J. (2023). High mitochondrial haplotype diversity found in three pre-Hispanic groups from Colombia. <em>Genes</em>. https</p>
-<div style="margin-top: 48px; padding-top: 16px; border-top: 1px solid #e2e8f0; text-align: center; font-size: 0.75rem; color: #94a3b8;">Generated by <strong>Evidensity Research</strong> &mdash; source-verified evidence synthesis</div>
+<div class="report-footer">
+  <span class="stamp">&#8224;</span>
+  Evidensity Research &middot; Every claim, cited
+</div>
 <script>
   // Create tooltip elements for citations on hover
   document.addEventListener('DOMContentLoaded', function() {
