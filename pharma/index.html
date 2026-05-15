@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evidensity — Systematic Evidence, Automated</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ev-ivory:        #fdfcf7;
+  --ev-ivory-raised: #f8f5ec;
+  --ev-ivory-sunk:   #f2ede0;
+  --ev-ink-strong:   #0e0e0e;
+  --ev-ink:          #1a1a1a;
+  --ev-ink-muted:    #6b6b6b;
+  --ev-ink-faint:    #a8a29a;
+  --ev-rule-hair:    #e8e2d4;
+  --ev-rule:         #d8d2c4;
+  --ev-rule-strong:  #b8b0a0;
+  --ev-accent:       #7a1f1f;
+  --ev-accent-hover: #5e1515;
+  --ev-accent-fill:  #faf0ee;
+  --ev-accent-rule:  #e8c8c5;
+  --ev-font-serif: 'Spectral', 'Hoefler Text', Georgia, serif;
+  --ev-font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ev-font-mono:  'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--ev-ivory);
+  color: var(--ev-ink);
+  font-family: var(--ev-font-serif);
+  font-size: 17px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ---- SECTION SPACING ---- */
+section {
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--ev-rule-hair);
+}
+section:last-child { border-bottom: none; }
+
+/* ---- HERO ---- */
+.hero {
+  padding: 6rem 0 4rem;
+  text-align: center;
+}
+.hero .wordmark {
+  display: block;
+  margin: 0 auto 3rem;
+  width: 320px;
+  height: auto;
+}
+.hero h1 {
+  font-family: var(--ev-font-serif);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--ev-ink);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.hero .tagline {
+  font-family: var(--ev-font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ev-accent);
+  margin-top: 1.5rem;
+}
+.hero .tagline .dagger {
+  color: var(--ev-accent);
+  font-family: var(--ev-font-serif);
+  font-weight: 600;
+}
+
+/* ---- HEADINGS ---- */
+h2 {
+  font-family: var(--ev-font-serif);
+  font-size: 1.875rem;
+  font-weight: 500;
+  color: var(--ev-ink-strong);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+h3 {
+  font-family: var(--ev-font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ev-ink-strong);
+  margin: 2rem 0 0.75rem;
+  line-height: 1.35;
+}
+h4 {
+  font-family: var(--ev-font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ev-accent);
+  margin-bottom: 1.5rem;
+}
+
+/* ---- BODY ---- */
+p { margin-bottom: 1.25rem; }
+
+ul.evidence-gap {
+  list-style: none;
+  padding: 0;
+}
+ul.evidence-gap li {
+  padding: 1.25rem 0 1.25rem 1.5rem;
+  border-left: 3px solid var(--ev-accent);
+  margin-bottom: 1rem;
+  background: var(--ev-accent-fill);
+  padding-right: 1.5rem;
+}
+
+/* ---- BRIDGE ---- */
+.bridge {
+  text-align: center;
+  padding: 3rem 0;
+  border-bottom: none;
+}
+.bridge p {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--ev-ink);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* ---- STATS BAR ---- */
+.stats-bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 2rem 0;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--ev-rule);
+  border-bottom: 1px solid var(--ev-rule);
+}
+.stat {
+  text-align: center;
+  flex: 1;
+}
+.stat .number {
+  font-family: var(--ev-font-mono);
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--ev-accent);
+  display: block;
+}
+.stat .label {
+  font-family: var(--ev-font-sans);
+  font-size: 0.75rem;
+  color: var(--ev-ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* ---- RESEARCH QUESTION BLOCK ---- */
+.question-block {
+  background: var(--ev-ivory-raised);
+  border: 1px solid var(--ev-rule);
+  padding: 1.5rem 2rem;
+  margin: 1.5rem 0 2rem;
+  border-radius: 4px;
+}
+.question-block .qlabel {
+  font-family: var(--ev-font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ev-ink-muted);
+  margin-bottom: 0.5rem;
+}
+.question-block .qtext {
+  font-style: italic;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--ev-ink);
+}
+
+/* ---- FINDINGS ---- */
+.finding {
+  background: var(--ev-ivory-raised);
+  border-left: 3px solid var(--ev-accent);
+  padding: 1.5rem 2rem;
+  margin: 1.5rem 0;
+}
+.finding-label {
+  font-family: var(--ev-font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ev-accent);
+  margin-bottom: 0.5rem;
+}
+.finding p { margin-bottom: 0.75rem; }
+.finding p:last-child { margin-bottom: 0; }
+
+/* ---- FOREST PLOT ---- */
+.forest-plot-wrap {
+  margin: 2rem 0;
+  text-align: center;
+}
+.forest-plot-wrap svg {
+  max-width: 100%;
+  height: auto;
+}
+.forest-caption {
+  font-family: var(--ev-font-sans);
+  font-size: 0.8rem;
+  color: var(--ev-ink-muted);
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+/* ---- FULL REPORT LINK ---- */
+.report-link {
+  display: inline-block;
+  margin: 1.5rem 0;
+  font-family: var(--ev-font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ev-ivory);
+  background: var(--ev-accent);
+  text-decoration: none;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+  transition: background 180ms ease;
+}
+.report-link:hover { background: var(--ev-accent-hover); color: var(--ev-ivory); }
+
+/* ---- CITATIONS ---- */
+.cite {
+  color: var(--ev-accent);
+  font-family: var(--ev-font-mono);
+  font-size: 0.85em;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--ev-accent);
+  cursor: help;
+  position: relative;
+  white-space: nowrap;
+}
+.cite:hover { color: var(--ev-accent-hover); }
+
+.cite-tooltip {
+  display: none;
+  position: fixed;
+  background: var(--ev-ink-strong);
+  color: #f0ede6;
+  font-family: var(--ev-font-sans);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  max-width: 420px;
+  z-index: 1000;
+  pointer-events: none;
+  box-shadow: 0 8px 24px rgba(14,14,14,0.18);
+}
+.cite-tooltip .tt-ref {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: #d8d0c4;
+}
+.cite-tooltip .tt-quote {
+  display: block;
+  font-style: italic;
+  color: #e8e2d6;
+  border-left: 2px solid var(--ev-accent);
+  padding-left: 0.6rem;
+  margin-top: 0.4rem;
+}
+
+/* ---- PIPELINE DIAGRAM ---- */
+.pipeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+.pipeline-step {
+  background: var(--ev-ivory-raised);
+  border: 1px solid var(--ev-rule);
+  padding: 0.6rem 1rem;
+  font-family: var(--ev-font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--ev-ink);
+  text-align: center;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.pipeline-arrow {
+  font-size: 1.2rem;
+  color: var(--ev-accent);
+  padding: 0 0.3rem;
+}
+
+/* ---- DIFFERENTIATORS ---- */
+.diff-list {
+  list-style: none;
+  padding: 0;
+}
+.diff-list li {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--ev-rule-hair);
+}
+.diff-list li:last-child { border-bottom: none; }
+.diff-list strong {
+  color: var(--ev-ink-strong);
+}
+
+/* ---- TABLES ---- */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-family: var(--ev-font-sans);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+.comparison-table th {
+  background: var(--ev-ivory-sunk);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid var(--ev-rule-strong);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ev-ink-muted);
+}
+.comparison-table th:last-child {
+  color: var(--ev-accent);
+}
+.comparison-table td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--ev-rule-hair);
+  vertical-align: top;
+}
+.comparison-table tr:nth-child(even) td {
+  background: var(--ev-ivory-raised);
+}
+.comparison-table td:first-child {
+  font-weight: 600;
+  color: var(--ev-ink-strong);
+  white-space: nowrap;
+}
+.comparison-table td:last-child {
+  color: var(--ev-ink-strong);
+}
+
+/* ---- USE CASES ---- */
+.use-case {
+  margin-bottom: 1.5rem;
+}
+.use-case h3 {
+  margin-bottom: 0.25rem;
+  font-size: 1.125rem;
+}
+.use-case p {
+  color: var(--ev-ink-muted);
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}
+
+.positioning-line {
+  font-style: italic;
+  color: var(--ev-ink);
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--ev-rule);
+}
+
+/* ---- CLOSE ---- */
+.close {
+  text-align: center;
+  padding: 4rem 0 6rem;
+}
+.close .name {
+  font-family: var(--ev-font-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--ev-ink-strong);
+}
+.close .role {
+  font-family: var(--ev-font-sans);
+  font-size: 0.85rem;
+  color: var(--ev-ink-muted);
+  margin-top: 0.25rem;
+}
+.close .ask {
+  font-style: italic;
+  max-width: 520px;
+  margin: 2rem auto;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--ev-ink);
+}
+.close .contact {
+  font-family: var(--ev-font-mono);
+  font-size: 0.8rem;
+  color: var(--ev-ink-muted);
+  margin-top: 1.5rem;
+}
+.close .contact a {
+  color: var(--ev-accent);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--ev-accent);
+}
+.close .contact a:hover { color: var(--ev-accent-hover); }
+
+/* ---- FOOTER STAMP ---- */
+.ev-footer {
+  text-align: center;
+  padding: 2rem 0;
+  font-family: var(--ev-font-sans);
+  font-size: 0.7rem;
+  color: var(--ev-ink-faint);
+  letter-spacing: 0.02em;
+}
+.ev-footer .dagger {
+  color: var(--ev-accent);
+  font-family: var(--ev-font-serif);
+  font-weight: 600;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 640px) {
+  .stats-bar { flex-wrap: wrap; }
+  .stat { flex-basis: 45%; margin-bottom: 1rem; }
+  .hero h1 { font-size: 1.4rem; }
+  .pipeline { gap: 0.25rem; }
+  .pipeline-step { font-size: 0.7rem; padding: 0.4rem 0.6rem; }
+  .comparison-table { font-size: 0.75rem; }
+  .comparison-table td, .comparison-table th { padding: 0.4rem 0.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SECTION 1: HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="container">
+    <svg class="wordmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 140" role="img" aria-label="Evidensity">
+      <text font-family="Spectral, 'Hoefler Text', Georgia, serif" font-weight="500" letter-spacing="-1.5">
+        <tspan x="0" y="100" font-size="104" fill="#0e0e0e">Evidensity</tspan>
+        <tspan dx="4" y="44" font-size="62" fill="#7a1f1f" font-weight="600">&#8224;</tspan>
+      </text>
+    </svg>
+    <h1>For every systematic review you commission, ten evidence questions go unanswered.</h1>
+    <div class="tagline">Every claim, cited<span class="dagger">&#8224;</span></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 2: THE EVIDENCE GAP
+     ============================================================ -->
+<section>
+  <div class="container">
+    <h4>The Problem</h4>
+    <h2>The reality of evidence generation in pharma</h2>
+    <p>A single systematic literature review takes an average of <strong>1.72&nbsp;years</strong> and costs approximately <strong>$141,000</strong> (<span class="cite" data-info="Borah, R., Brown, A. W., Capers, P. L., &amp; Kaiser, K. A. (2017). Analysis of the time and workers needed to conduct systematic reviews of medical interventions using data from the PROSPERO registry. BMJ Open, 7(2), e012545. https://doi.org/10.1136/bmjopen-2016-012545" data-quote="The cost of each SLR was $141,194.80, and the ten largest pharmaceutical companies published an average of 118.71 SLRs per year." data-section="results" data-url="https://doi.org/10.1136/bmjopen-2016-012545">Borah et al., 2017</span>). The ten largest pharma companies each publish around 119 per year. But for every SLR you commission, there are dozens of internal evidence questions &mdash; portfolio decisions, BD&amp;L due diligence, medical affairs queries &mdash; that never justify the spend. The evidence base decays the day after completion, and every month spent waiting for evidence is a month patients wait for access decisions.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 3: BRIDGE
+     ============================================================ -->
+<section class="bridge">
+  <div class="container">
+    <p>What if you could run a full systematic review overnight, at a fraction of the cost &mdash; and get evidence to decision-makers while it still matters?</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 4: LIVE DEMO
+     ============================================================ -->
+<section>
+  <div class="container">
+    <h4>Live Example</h4>
+    <h2>IL-23 Inhibitors in Plaque Psoriasis</h2>
+    <p>The following analysis was generated overnight from a single research question.</p>
+
+    <div class="question-block">
+      <div class="qlabel">Research Question</div>
+      <div class="qtext">What is the comparative efficacy and safety of IL-23 inhibitors (guselkumab, risankizumab, tildrakizumab) versus other biologics in moderate-to-severe plaque psoriasis?</div>
+    </div>
+
+    <p style="margin-top: 1.5rem;"><a class="report-link" href="report_il23_inhibitors_psoriasis_biologics_20260515_064532.html" target="_blank">Read the full report &rarr;</a></p>
+
+    <div class="stats-bar">
+      <div class="stat">
+        <span class="number">1,059</span>
+        <span class="label">Papers Discovered</span>
+      </div>
+      <div class="stat">
+        <span class="number">10+</span>
+        <span class="label">Databases Searched</span>
+      </div>
+      <div class="stat">
+        <span class="number">279</span>
+        <span class="label">Screened Through</span>
+      </div>
+      <div class="stat">
+        <span class="number">193</span>
+        <span class="label">Analysed</span>
+      </div>
+      <div class="stat">
+        <span class="number">13</span>
+        <span class="label">Meta-Analyses</span>
+      </div>
+    </div>
+
+    <!-- FINDING 1: Guselkumab -->
+    <div class="finding">
+      <div class="finding-label">Key Finding</div>
+      <h3>Guselkumab Demonstrates Sustained Superiority Over Adalimumab and Ustekinumab</h3>
+      <p>Guselkumab consistently outperforms adalimumab (TNF-&alpha;) and ustekinumab (IL-12/23) across induction and maintenance phases, with durable responses through 5&nbsp;years.</p>
+      <p>Patients receiving guselkumab had significantly higher PASI&nbsp;90 rates than ustekinumab at week&nbsp;16 (<strong>70.4% vs. 46.0%</strong>, OR 2.79) and week&nbsp;40 (<strong>74.2% vs. 54.5%</strong>, OR 2.40) (<span class="cite" data-info="Diels, J., Thilakarathne, P., Cameron, C., McElligott, S., Schubert, A., &amp; Puig, L. (2019). Adjusted treatment COMPArisons between guSelkumab and uStekinumab for treatment of moderate-to-severe plaque psoriasis: the COMPASS analysis. British Journal of Dermatology. https://doi.org/10.1111/bjd.18634" data-url="https://doi.org/10.1111/bjd.18634" data-quote="Patients receiving guselkumab had significantly higher probabilities of achieving a PASI 90 response than patients receiving ustekinumab, at both week 16 [70.4% vs. 46.0%, OR 2.79, 95% CI 2.22-3.45] and week 40 (74.2% vs. 54.5%, OR 2.40, 95% CI 1.89-3.13]." data-section="results">Diels et al., 2019</span>). Five-year maintenance data confirmed high efficacy levels through week&nbsp;252, with PASI&nbsp;90 rates of 76.8&ndash;80.6% (<span class="cite" data-info="Reich, K., Griffiths, C. E. M., Gordon, K. B., Papp, K. A., Song, M., Randazzo, B., Li, S., Shen, Y.-K., Han, C., Blauvelt, A. (2020). Maintenance of clinical response and consistent safety profile with up to 3 years of continuous treatment with guselkumab. Journal of the American Academy of Dermatology, 82(4), 936-947. https://doi.org/10.1016/j.jaad.2019.10.049" data-url="https://doi.org/10.1016/j.jaad.2019.10.049" data-quote="Five-year maintenance data from VOYAGE 1 and 2 confirmed high efficacy levels through week 252, with PASI 90 rates of 76.8-80.6%." data-section="results">Reich et al., 2020</span>).</p>
+    </div>
+
+    <!-- FOREST PLOT: PASI 90 -->
+    <div class="forest-plot-wrap">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 928" width="720" height="928" style="font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px;">
+      <text x="360.0" y="24" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1a1a">PASI 90 — Random-Effects Meta-Analysis</text>
+      <text x="8" y="58" font-weight="600" fill="#6b6b6b" font-size="10">Study</text>
+      <text x="490" y="58" font-weight="600" fill="#6b6b6b" font-size="10">Estimate [95% CI]</text>
+      <text x="650" y="58" font-weight="600" fill="#6b6b6b" font-size="10">Weight</text>
+      <line x1="4" y1="64" x2="716" y2="64" stroke="#e8e2d4" stroke-width="1" />
+      <line x1="154.2" y1="64" x2="154.2" y2="880" stroke="#b8b0a0" stroke-width="1" stroke-dasharray="4 3" />
+      <rect x="0" y="64" width="720" height="24" fill="#f8f5ec" />
+      <text x="8" y="80.0" fill="#1a1a1a" font-size="11">Berry (2021)</text>
+      <line x1="351.1" y1="76.0" x2="410.5" y2="76.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="381.3" y="72.6" width="6.7" height="6.7" fill="#2d4a2d" />
+      <text x="490" y="80.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.75 [+0.64, +0.84]</text>
+      <text x="650" y="80.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.0%</text>
+      <text x="8" y="104.0" fill="#1a1a1a" font-size="11">Narcisi et al. (2023)</text>
+      <line x1="361.0" y1="100.0" x2="395.3" y2="100.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="375.9" y="96.6" width="6.7" height="6.7" fill="#2d4a2d" />
+      <text x="490" y="104.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.74 [+0.68, +0.79]</text>
+      <text x="650" y="104.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.1%</text>
+      <rect x="0" y="112" width="720" height="24" fill="#f8f5ec" />
+      <text x="8" y="128.0" fill="#1a1a1a" font-size="11">Ruggiero et al. (2023)</text>
+      <line x1="341.0" y1="124.0" x2="419.3" y2="124.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="383.7" y="120.7" width="6.7" height="6.7" fill="#2d4a2d" />
+      <text x="490" y="128.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.76 [+0.61, +0.87]</text>
+      <text x="650" y="128.0" fill="#6b6b6b" font-size="10" font-family="monospace">2.8%</text>
+      <text x="8" y="152.0" fill="#1a1a1a" font-size="11">Blauvelt et al. (2020)</text>
+      <line x1="354.3" y1="148.0" x2="385.8" y2="148.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="367.5" y="144.6" width="6.8" height="6.8" fill="#2d4a2d" />
+      <text x="490" y="152.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.71 [+0.65, +0.76]</text>
+      <text x="650" y="152.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.2%</text>
+      <rect x="0" y="160" width="720" height="24" fill="#f8f5ec" />
+      <text x="8" y="176.0" fill="#1a1a1a" font-size="11">Alexis et al. (2025)</text>
+      <line x1="299.2" y1="172.0" x2="357.1" y2="172.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="325.6" y="168.6" width="6.7" height="6.7" fill="#2d4a2d" />
+      <text x="490" y="176.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.57 [+0.47, +0.66]</text>
+      <text x="650" y="176.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.1%</text>
+      <text x="8" y="200.0" fill="#1a1a1a" font-size="11">Kim et al. (2023)</text>
+      <line x1="382.2" y1="196.0" x2="415.9" y2="196.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="397.5" y="192.6" width="6.7" height="6.7" fill="#2d4a2d" />
+      <text x="490" y="200.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.81 [+0.75, +0.86]</text>
+      <text x="650" y="200.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.1%</text>
+      <rect x="0" y="208" width="720" height="24" fill="#f8f5ec" />
+      <text x="8" y="224.0" fill="#1a1a1a" font-size="11">Campoli et al. (2024)</text>
+      <line x1="318.7" y1="220.0" x2="363.3" y2="220.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="338.4" y="216.6" width="6.7" height="6.7" fill="#2d4a2d" />
+      <text x="490" y="224.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.61 [+0.54, +0.68]</text>
+      <text x="650" y="224.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.1%</text>
+      <text x="8" y="248.0" fill="#1a1a1a" font-size="11">Thaçi et al. (2025)</text>
+      <line x1="365.8" y1="244.0" x2="376.4" y2="244.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="367.8" y="240.6" width="6.8" height="6.8" fill="#2d4a2d" />
+      <text x="490" y="248.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.71 [+0.69, +0.73]</text>
+      <text x="650" y="248.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.2%</text>
+      <rect x="0" y="256" width="720" height="24" fill="#f8f5ec" />
+      <text x="8" y="272.0" fill="#1a1a1a" font-size="11">Trovato et al. (2026)</text>
+      <line x1="414.9" y1="268.0" x2="438.2" y2="268.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="425.0" y="264.6" width="6.7" height="6.7" fill="#2d4a2d" />
+      <text x="490" y="272.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.90 [+0.85, +0.93]</text>
+      <text x="650" y="272.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.1%</text>
+      <text x="8" y="296.0" fill="#1a1a1a" font-size="11">Papp et al. (2025)</text>
+      <line x1="408.6" y1="292.0" x2="424.9" y2="292.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="414.0" y="288.6" width="6.8" height="6.8" fill="#2d4a2d" />
+      <text x="490" y="296.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.86 [+0.83, +0.88]</text>
+      <text x="650" y="296.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.2%</text>
+      <rect x="0" y="304" width="720" height="24" fill="#f8f5ec" />
+      <text x="8" y="320.0" fill="#1a1a1a" font-size="11">Amin et al. (2023)</text>
+      <line x1="405.4" y1="316.0" x2="422.6" y2="316.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="411.2" y="312.6" width="6.8" height="6.8" fill="#2d4a2d" />
+      <text x="490" y="320.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.85 [+0.82, +0.88]</text>
+      <text x="650" y="320.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.2%</text>
+      <text x="8" y="344.0" fill="#1a1a1a" font-size="11">Real-world effectivenes…</text>
+      <line x1="314.1" y1="340.0" x2="407.8" y2="340.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="364.2" y="336.7" width="6.6" height="6.6" fill="#2d4a2d" />
+      <text x="490" y="344.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.70 [+0.52, +0.83]</text>
+      <text x="650" y="344.0" fill="#6b6b6b" font-size="10" font-family="monospace">2.7%</text>
+      <rect x="0" y="352" width="720" height="24" fill="#f8f5ec" />
+      <text x="8" y="368.0" fill="#1a1a1a" font-size="11">Gordon et al. (2019)</text>
+      <line x1="405.5" y1="364.0" x2="427.1" y2="364.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="414.0" y="360.6" width="6.7" height="6.7" fill="#2d4a2d" />
+      <text x="490" y="368.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.86 [+0.82, +0.89]</text>
+      <text x="650" y="368.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.1%</text>
+      <text x="8" y="392.0" fill="#1a1a1a" font-size="11">Papp et al. (2017)</text>
+      <line x1="358.5" y1="388.0" x2="413.7" y2="388.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="386.5" y="384.6" width="6.7" height="6.7" fill="#2d4a2d" />
+      <text x="490" y="392.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.77 [+0.67, +0.85]</text>
+      <text x="650" y="392.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.0%</text>
+      <rect x="0" y="400" width="720" height="24" fill="#f8f5ec" />
+      <text x="8" y="416.0" fill="#1a1a1a" font-size="11">Gordon et al. (2022)</text>
+      <line x1="255.7" y1="412.0" x2="279.0" y2="412.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="263.7" y="408.6" width="6.8" height="6.8" fill="#2d4a2d" />
+      <text x="490" y="416.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.37 [+0.33, +0.41]</text>
+      <text x="650" y="416.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.2%</text>
+      <text x="8" y="440.0" fill="#1a1a1a" font-size="11">Youn et al. (2022)</text>
+      <line x1="342.2" y1="436.0" x2="397.9" y2="436.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="369.3" y="432.6" width="6.7" height="6.7" fill="#2d4a2d" />
+      <text x="490" y="440.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.71 [+0.61, +0.80]</text>
+      <text x="650" y="440.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.0%</text>
+      <rect x="0" y="448" width="720" height="24" fill="#f8f5ec" />
+      <text x="8" y="464.0" fill="#1a1a1a" font-size="11">Belcastro et al. (2023)</text>
+      <line x1="384.2" y1="460.0" x2="425.3" y2="460.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="404.5" y="456.6" width="6.7" height="6.7" fill="#2d4a2d" />
+      <text x="490" y="464.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.83 [+0.75, +0.89]</text>
+      <text x="650" y="464.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.0%</text>
+      <text x="8" y="488.0" fill="#1a1a1a" font-size="11">Caldarola et al. (2026)</text>
+      <line x1="218.5" y1="484.0" x2="268.5" y2="484.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="238.0" y="480.6" width="6.7" height="6.7" fill="#2d4a2d" />
+      <text x="490" y="488.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.28 [+0.21, +0.37]</text>
+      <text x="650" y="488.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.1%</text>
+      <rect x="0" y="496" width="720" height="24" fill="#f8f5ec" />
+      <text x="8" y="512.0" fill="#1a1a1a" font-size="11">Shin et al. (2025)</text>
+      <line x1="371.3" y1="508.0" x2="391.0" y2="508.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="378.2" y="504.6" width="6.8" height="6.8" fill="#2d4a2d" />
+      <text x="490" y="512.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.74 [+0.71, +0.77]</text>
+      <text x="650" y="512.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.2%</text>
+      <text x="8" y="536.0" fill="#1a1a1a" font-size="11">Al‐Janabi et al. (2019)</text>
+      <line x1="372.5" y1="532.0" x2="395.5" y2="532.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="381.2" y="528.6" width="6.8" height="6.8" fill="#2d4a2d" />
+      <text x="490" y="536.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.75 [+0.71, +0.79]</text>
+      <text x="650" y="536.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.2%</text>
+      <rect x="0" y="544" width="720" height="24" fill="#f8f5ec" />
+      <text x="8" y="560.0" fill="#1a1a1a" font-size="11">Warren et al. (2020)</text>
+      <line x1="400.5" y1="556.0" x2="432.7" y2="556.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="415.9" y="552.6" width="6.7" height="6.7" fill="#2d4a2d" />
+      <text x="490" y="560.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.87 [+0.80, +0.91]</text>
+      <text x="650" y="560.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.0%</text>
+      <text x="8" y="584.0" fill="#1a1a1a" font-size="11">Ruggiero et al. (2021)</text>
+      <line x1="205.0" y1="580.0" x2="296.6" y2="580.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="240.8" y="576.7" width="6.6" height="6.6" fill="#2d4a2d" />
+      <text x="490" y="584.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.29 [+0.17, +0.47]</text>
+      <text x="650" y="584.0" fill="#6b6b6b" font-size="10" font-family="monospace">2.7%</text>
+      <rect x="0" y="592" width="720" height="24" fill="#f8f5ec" />
+      <text x="8" y="608.0" fill="#1a1a1a" font-size="11">Mastorino et al. (2023)</text>
+      <line x1="273.7" y1="604.0" x2="291.9" y2="604.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="279.3" y="600.6" width="6.8" height="6.8" fill="#2d4a2d" />
+      <text x="490" y="608.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.42 [+0.39, +0.45]</text>
+      <text x="650" y="608.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.2%</text>
+      <text x="8" y="632.0" fill="#1a1a1a" font-size="11">Carrascosa et al. (2021)</text>
+      <line x1="317.0" y1="628.0" x2="354.1" y2="628.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="332.6" y="624.6" width="6.8" height="6.8" fill="#2d4a2d" />
+      <text x="490" y="632.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.59 [+0.53, +0.65]</text>
+      <text x="650" y="632.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.2%</text>
+      <rect x="0" y="640" width="720" height="24" fill="#f8f5ec" />
+      <text x="8" y="656.0" fill="#1a1a1a" font-size="11">Bernardini et al. (2022)</text>
+      <line x1="311.8" y1="652.0" x2="385.2" y2="652.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="347.9" y="648.7" width="6.7" height="6.7" fill="#2d4a2d" />
+      <text x="490" y="656.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.64 [+0.52, +0.76]</text>
+      <text x="650" y="656.0" fill="#6b6b6b" font-size="10" font-family="monospace">2.9%</text>
+      <text x="8" y="680.0" fill="#1a1a1a" font-size="11">Angileri R. et al. (202…</text>
+      <line x1="354.0" y1="676.0" x2="389.4" y2="676.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="369.4" y="672.6" width="6.7" height="6.7" fill="#2d4a2d" />
+      <text x="490" y="680.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.71 [+0.65, +0.77]</text>
+      <text x="650" y="680.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.1%</text>
+      <rect x="0" y="688" width="720" height="24" fill="#f8f5ec" />
+      <text x="8" y="704.0" fill="#1a1a1a" font-size="11">Asadullah et al. (2025)</text>
+      <line x1="335.2" y1="700.0" x2="368.1" y2="700.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="348.8" y="696.6" width="6.8" height="6.8" fill="#2d4a2d" />
+      <text x="490" y="704.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.65 [+0.59, +0.70]</text>
+      <text x="650" y="704.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.2%</text>
+      <text x="8" y="728.0" fill="#1a1a1a" font-size="11">Abu-Hilal et al. (2025)</text>
+      <line x1="332.7" y1="724.0" x2="395.7" y2="724.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="363.8" y="720.6" width="6.7" height="6.7" fill="#2d4a2d" />
+      <text x="490" y="728.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.70 [+0.58, +0.79]</text>
+      <text x="650" y="728.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.0%</text>
+      <rect x="0" y="736" width="720" height="24" fill="#f8f5ec" />
+      <text x="8" y="752.0" fill="#1a1a1a" font-size="11">Mortato et al. (2025)</text>
+      <line x1="392.8" y1="748.0" x2="407.6" y2="748.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="397.2" y="744.6" width="6.8" height="6.8" fill="#2d4a2d" />
+      <text x="490" y="752.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.81 [+0.78, +0.83]</text>
+      <text x="650" y="752.0" fill="#6b6b6b" font-size="10" font-family="monospace">3.2%</text>
+      <text x="8" y="776.0" fill="#1a1a1a" font-size="11">Real-World Experience o…</text>
+      <line x1="377.6" y1="772.0" x2="432.5" y2="772.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="407.6" y="768.7" width="6.7" height="6.7" fill="#2d4a2d" />
+      <text x="490" y="776.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.84 [+0.73, +0.91]</text>
+      <text x="650" y="776.0" fill="#6b6b6b" font-size="10" font-family="monospace">2.8%</text>
+      <rect x="0" y="784" width="720" height="24" fill="#f8f5ec" />
+      <text x="8" y="800.0" fill="#1a1a1a" font-size="11">Griffiths et al. (2018)</text>
+      <line x1="445.3" y1="796.0" x2="455.0" y2="796.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="448.0" y="792.7" width="6.7" height="6.7" fill="#2d4a2d" />
+      <text x="490" y="800.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.97 [+0.95, +0.98]</text>
+      <text x="650" y="800.0" fill="#6b6b6b" font-size="10" font-family="monospace">2.9%</text>
+      <text x="8" y="824.0" fill="#1a1a1a" font-size="11">Dubois (2024)</text>
+      <line x1="419.0" y1="820.0" x2="449.5" y2="820.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="435.5" y="816.7" width="6.6" height="6.6" fill="#2d4a2d" />
+      <text x="490" y="824.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.93 [+0.87, +0.96]</text>
+      <text x="650" y="824.0" fill="#6b6b6b" font-size="10" font-family="monospace">2.7%</text>
+      <rect x="0" y="832" width="720" height="24" fill="#f8f5ec" />
+      <text x="8" y="848.0" fill="#1a1a1a" font-size="11">Licata et al. (2025)</text>
+      <line x1="368.2" y1="844.0" x2="441.6" y2="844.0" stroke="#2d4a2d" stroke-width="2" />
+      <rect x="413.2" y="840.7" width="6.6" height="6.6" fill="#2d4a2d" />
+      <text x="490" y="848.0" fill="#1a1a1a" font-size="10" font-family="monospace">+0.86 [+0.70, +0.94]</text>
+      <text x="650" y="848.0" fill="#6b6b6b" font-size="10" font-family="monospace">2.5%</text>
+      <line x1="4" y1="856" x2="716" y2="856" stroke="#e8e2d4" stroke-width="1" />
+      <text x="8" y="872.0" font-weight="700" fill="#7a1f1f" font-size="11">Pooled (RE)</text>
+      <polygon points="361.6,868.0 380.8,858.0 397.5,868.0 380.8,878.0" fill="#7a1f1f" opacity="0.85" />
+      <text x="490" y="872.0" fill="#7a1f1f" font-size="10" font-weight="700" font-family="monospace">+0.74 [+0.68, +0.80]</text>
+      <line x1="252.3" y1="868.0" x2="443.5" y2="868.0" stroke="#7a1f1f" stroke-width="1" stroke-dasharray="4 3" opacity="0.5" />
+      <line x1="252.3" y1="864.0" x2="252.3" y2="872.0" stroke="#7a1f1f" stroke-width="1" opacity="0.5" />
+      <line x1="443.5" y1="864.0" x2="443.5" y2="872.0" stroke="#7a1f1f" stroke-width="1" opacity="0.5" />
+      <text x="180" y="896" fill="#6b6b6b" font-size="10">I² = 97.3%   τ² = 0.7543   Q = 1205.00 (df=32, p=0.000)</text>
+      <text x="180" y="912" fill="#7a1f1f" font-size="10" font-weight="600">High heterogeneity</text>
+      <text x="490" y="912" fill="#6b6b6b" font-size="9">PI: +0.74 [+0.32, +0.95]</text>
+      <text x="180" y="928" fill="#6b6b6b" font-size="9">← Favours treatment</text>
+      <text x="480" y="928" text-anchor="end" fill="#6b6b6b" font-size="9">Favours control →</text>
+      </svg>
+      <div class="forest-caption">Forest plot: PASI 90 response rates across 33 studies. REML random-effects pooling. Automatically generated from extracted quantitative outcomes.</div>
+    </div>
+
+    <!-- FINDING 2: Crossover Effect -->
+    <div class="finding">
+      <div class="finding-label">Key Insight</div>
+      <h3>The Crossover Effect: IL-23 Inhibitors Surpass IL-17 at Maintenance</h3>
+      <p>IL-17 inhibitors (ixekizumab, bimekizumab) achieve the fastest onset of PASI&nbsp;90 response at approximately 6&ndash;8&nbsp;weeks (<span class="cite" data-info="Papp, K.A., Vender, R., Purdy, K., Lovegrove, F., Oroz, I., &amp; Grewal, P. (2025). Time to Onset of Action for Biologics and Targeted Treatments in Psoriasis: Systematic Targeted Literature Review and Network Meta-Analysis. Dermatology and Therapy. https://doi.org/10.1007/s13555-025-01463-6" data-url="https://doi.org/10.1007/s13555-025-01463-6" data-quote="The IL-17 inhibitors bimekizumab, ixekizumab, brodalumab, and secukinumab 300 mg were estimated to provide the earliest onset of PASI 90 response at approximately 6 to 8 weeks." data-section="results">Papp et al., 2025</span>). But by week&nbsp;48&ndash;52, IL-23 inhibitors close and then reverse the gap: risankizumab PASI&nbsp;90 rises to <strong>86.6%</strong> while secukinumab declines to <strong>57.1%</strong> (<span class="cite" data-info="Warren, R. B., Blauvelt, A., Brnabic, A., Gallo, G., Zhang, Y., &amp; Papp, K. A. (2020). Risankizumab versus Secukinumab in Patients with Moderate-to-Severe Plaque Psoriasis. New England Journal of Medicine. https://doi.org/10.1056/NEJMoa1907613" data-url="https://doi.org/10.1056/NEJMoa1907613" data-quote="Risankizumab was non-inferior to secukinumab at week 16 (73.8% vs. 65.6% PASI 90) and superior at week 52 (86.6% vs. 57.1%; P < 0.001)." data-section="results">Warren et al., 2020</span>).</p>
+      <p>At 5&nbsp;years, <strong>80% of IL-23 patients</strong> maintain PASI&nbsp;90 compared to 65% for IL-17 and 38% for TNF inhibitors. This pattern &mdash; IL-17 for rapid control, IL-23 for long-term maintenance &mdash; has direct implications for treatment sequencing strategies.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 5: HOW IT WORKS
+     ============================================================ -->
+<section>
+  <div class="container">
+    <h4>How It Works</h4>
+    <h2>Not a chatbot. A systematic process.</h2>
+
+    <div class="pipeline">
+      <div class="pipeline-step">Research<br>Question</div>
+      <span class="pipeline-arrow">&rarr;</span>
+      <div class="pipeline-step">Systematic<br>Search</div>
+      <span class="pipeline-arrow">&rarr;</span>
+      <div class="pipeline-step">Relevance<br>Screening</div>
+      <span class="pipeline-arrow">&rarr;</span>
+      <div class="pipeline-step">Full-Text<br>Extraction</div>
+      <span class="pipeline-arrow">&rarr;</span>
+      <div class="pipeline-step">Quantitative<br>Pooling</div>
+      <span class="pipeline-arrow">&rarr;</span>
+      <div class="pipeline-step">SLR<br>Report</div>
+    </div>
+
+    <p style="text-align: center; color: var(--ev-ink-muted); font-family: var(--ev-font-sans); font-size: 0.85rem; margin-top: 0.5rem;">20 specialised agents &middot; 10+ academic databases &middot; PRISMA-aligned methodology</p>
+
+    <h3 style="margin-top: 3rem;">What separates this from deep research tools</h3>
+
+    <ul class="diff-list">
+      <li><strong>Every claim grounded to a verbatim quote.</strong> Not just a citation &mdash; the actual text from the source paper, with section location. Sentences are indexed by number so the model references them by position, not by echoing &mdash; it cannot fabricate quotes. If a claim isn't traceable to source text, it doesn't make it into the report.</li>
+      <li><strong>Structured data extraction, not summarisation.</strong> Effect sizes, confidence intervals, sample sizes, response rates &mdash; extracted into structured schemas, not prose. This is what enables real quantitative pooling rather than a model guessing at a synthesis.</li>
+      <li><strong>Real statistical meta-analysis.</strong> REML random-effects pooling, heterogeneity diagnostics (I&sup2;/&tau;&sup2;), forest plots, funnel plots, prediction intervals. The same methods a biostatistician would use. The model interprets the results &mdash; it doesn't compute them.</li>
+      <li><strong>20 independent agents, each with one job.</strong> Discovery doesn't interpret. Extraction doesn't evaluate. Credibility assessment doesn't know what the claims say. This separation prevents the reasoning shortcuts that monolithic approaches make &mdash; where a model that's summarising is also quietly deciding what matters.</li>
+      <li><strong>Multi-dimensional credibility scoring.</strong> Every paper scored on randomisation quality, outcome reporting completeness, heterogeneity handling, and funding/conflict of interest &mdash; with explicit penalty rules. Not a single &ldquo;quality: high/medium/low&rdquo; label.</li>
+    </ul>
+
+    <h3 style="margin-top: 3rem;">One corpus, unlimited angles</h3>
+    <p>Once the evidence base is built, follow-up questions come back almost instantly. Need the same corpus reframed for a payer committee? A different therapeutic comparison? A sub-population breakdown? Same evidence, new analysis &mdash; overnight.</p>
+    <p>Output is tailored to audience: Cochrane-style with GRADE certainty ratings for HTA dossiers, executive briefs for leadership, or data-forward insight reports for internal teams.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 6: WHERE IT FITS
+     ============================================================ -->
+<section>
+  <div class="container">
+    <h4>Use Cases</h4>
+    <h2>Three use cases, one principle</h2>
+
+    <div class="use-case">
+      <h3>Pre-screening before CRO spend or payer submission</h3>
+      <p>Scope the evidence landscape overnight before committing a six-figure engagement or entering a reimbursement negotiation. Know whether the evidence base supports your position before you walk into the room.</p>
+    </div>
+
+    <div class="use-case">
+      <h3>Internal evidence scans</h3>
+      <p>Portfolio decisions, BD&amp;L due diligence, medical affairs queries, competitive intelligence. The questions that matter but never justify a formal SLR.</p>
+    </div>
+
+    <div class="use-case">
+      <h3>Living updates</h3>
+      <p>Re-run the same search criteria quarterly. Flag new papers that would change conclusions. Keep your evidence base current between formal reviews.</p>
+    </div>
+
+    <p class="positioning-line">This doesn't replace regulatory-submission SLRs. It handles everything else.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 7: THE NUMBERS
+     ============================================================ -->
+<section>
+  <div class="container">
+    <h4>Comparison</h4>
+    <h2>The landscape</h2>
+
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>General AI Research</th>
+          <th>Academic AI Tools</th>
+          <th>Traditional SLR</th>
+          <th>Evidensity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Search</td>
+          <td>Unstructured web</td>
+          <td>Academic databases</td>
+          <td>Systematic, manual</td>
+          <td>10+ academic databases, systematic criteria</td>
+        </tr>
+        <tr>
+          <td>Extraction</td>
+          <td>Prose summary</td>
+          <td>Abstract-level</td>
+          <td>Full-text, manual</td>
+          <td>Full-text structured schemas</td>
+        </tr>
+        <tr>
+          <td>Grounding</td>
+          <td>Often hallucinated</td>
+          <td>Citation-level</td>
+          <td>Gold standard</td>
+          <td>Verbatim quote + section</td>
+        </tr>
+        <tr>
+          <td>Quantitative Pooling</td>
+          <td>None</td>
+          <td>None</td>
+          <td>Separate biostatistician</td>
+          <td>REML random-effects, forest plots</td>
+        </tr>
+        <tr>
+          <td>Credibility</td>
+          <td>None</td>
+          <td>None</td>
+          <td>Manual (RoB-2, GRADE)</td>
+          <td>Multi-dimensional per paper</td>
+        </tr>
+        <tr>
+          <td>Timeline</td>
+          <td>Minutes</td>
+          <td>Minutes</td>
+          <td>1.72 years avg</td>
+          <td>Hours</td>
+        </tr>
+        <tr>
+          <td>Cost</td>
+          <td>Low</td>
+          <td>Low</td>
+          <td>~$141,000 per review</td>
+          <td>From &pound;500</td>
+        </tr>
+        <tr>
+          <td>Output</td>
+          <td>Chat response</td>
+          <td>Paper list</td>
+          <td>Publication-ready report</td>
+          <td>Publication-ready SLR report</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 8: CLOSE
+     ============================================================ -->
+<section class="close">
+  <div class="container">
+    <div class="name">Jack Flynn</div>
+    <div class="role">Founder, Evidensity</div>
+    <p class="ask">If faster evidence would have changed any access timeline on your watch, I'd welcome the chance to show this to the people still fighting that fight.</p>
+    <div class="contact">
+      <a href="mailto:evidensity.research@gmail.com">evidensity.research@gmail.com</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://evidensity.github.io/evidensity-reports/" target="_blank">evidensity.github.io/evidensity-reports</a>
+    </div>
+  </div>
+</section>
+
+<div class="ev-footer">
+  <span class="dagger">&#8224;</span>&ensp;Every claim, cited.
+</div>
+
+<!-- ============================================================
+     CITATION TOOLTIP JS
+     ============================================================ -->
+<script>
+(function() {
+  const tooltip = document.createElement('div');
+  tooltip.className = 'cite-tooltip';
+  document.body.appendChild(tooltip);
+
+  document.addEventListener('mouseover', function(e) {
+    const cite = e.target.closest('.cite');
+    if (!cite) return;
+    const info = cite.getAttribute('data-info') || '';
+    const quote = cite.getAttribute('data-quote') || '';
+    let html = '';
+    if (info) html += '<span class="tt-ref">' + info + '</span>';
+    if (quote) html += '<span class="tt-quote">"' + quote + '"</span>';
+    if (!html) return;
+    tooltip.innerHTML = html;
+    tooltip.style.display = 'block';
+    const rect = cite.getBoundingClientRect();
+    let left = rect.left;
+    let top = rect.bottom + 8;
+    if (left + 420 > window.innerWidth) left = window.innerWidth - 430;
+    if (left < 10) left = 10;
+    if (top + 200 > window.innerHeight) top = rect.top - tooltip.offsetHeight - 8;
+    tooltip.style.left = left + 'px';
+    tooltip.style.top = top + 'px';
+  });
+
+  document.addEventListener('mouseout', function(e) {
+    const cite = e.target.closest('.cite');
+    if (!cite) return;
+    tooltip.style.display = 'none';
+  });
+})();
+</script>
+
+</body>
+</html>
