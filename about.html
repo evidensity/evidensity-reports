@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Evidensity Research</title>
+  <meta property="og:title" content="About — Evidensity Research">
+  <meta property="og:description" content="Evidensity is a one-person research consultancy. A short note on who's behind it and how the work gets done.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Evidensity Research">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About — Evidensity Research">
+  <meta name="twitter:description" content="Evidensity is a one-person research consultancy. A short note on who's behind it and how the work gets done.">
+  <meta name="description" content="Evidensity is a one-person research consultancy. A short note on who's behind it and how the work gets done.">
+  <meta property="og:image" content="https://evidensity.github.io/evidensity-reports/og-default.png">
+  <meta name="twitter:image" content="https://evidensity.github.io/evidensity-reports/og-default.png">
+  <link rel="icon" type="image/svg+xml" href="/evidensity-reports/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/evidensity-reports/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/evidensity-reports/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>  :root {
+    /* Surfaces — warm ivory */
+    --bg: #fdfcf7; --bg-alt: #f8f5ec; --bg-sunk: #f2ede0;
+    /* Ink */
+    --text-strong: #0e0e0e; --text: #1a1a1a;
+    --text-dim: #6b6b6b; --text-faint: #a8a29a;
+    /* Rules */
+    --border: #d8d2c4; --border-hair: #e8e2d4;
+    /* Accent — oxblood */
+    --accent: #7a1f1f; --accent-hover: #5e1515;
+    --accent-fill: #faf0ee; --accent-light: #7a1f1f;
+    --green: #2d4a2d;
+    /* Typography */
+    --serif: 'Spectral', 'Hoefler Text', Georgia, 'Times New Roman', serif;
+    --sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --mono:  'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--serif);
+    max-width: 960px; margin: 0 auto; padding: 0 28px;
+    color: var(--text); line-height: 1.7; font-size: 17px;
+    background: var(--bg);
+  }
+  a { color: var(--accent); text-decoration: none;
+      transition: color 180ms cubic-bezier(0.2,0,0.2,1); }
+  a:hover { color: var(--accent-hover); }
+
+  /* Nav */
+  nav {
+    display: flex; gap: 28px; align-items: center;
+    padding: 22px 0 20px;
+    border-bottom: 1px solid var(--border-hair);
+    margin-bottom: 48px;
+  }
+  nav .wordmark { margin-right: auto; display: inline-flex; align-items: center; }
+  nav .wordmark svg { height: 40px; width: auto; display: block; }
+  nav a {
+    font-family: var(--sans);
+    font-size: 14px; color: var(--text-dim);
+  }
+  nav a:hover { color: var(--text-strong); }
+
+  /* Headings */
+  h1, h2, h3, h4 {
+    font-family: var(--serif); color: var(--text-strong);
+    font-weight: 500; line-height: 1.25; letter-spacing: -0.01em;
+  }
+
+  /* Hero */
+  .hero { padding: 32px 0 40px; max-width: 740px; }
+  .hero .kicker {
+    font-family: var(--mono); font-size: 12px;
+    color: var(--accent); text-transform: uppercase;
+    letter-spacing: 0.12em; margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 4.2vw, 3rem);
+    line-height: 1.1; letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    color: var(--text-strong);
+  }
+  .hero h1 em { font-style: italic; font-weight: 500; }
+  .hero p.sub {
+    font-family: var(--serif); font-size: 19px;
+    color: var(--text-dim); line-height: 1.5;
+    max-width: 620px;
+  }
+
+  /* Call to action */
+  .cta {
+    display: inline-block; padding: 14px 28px;
+    background: var(--accent); color: var(--bg);
+    font-family: var(--sans); font-size: 15px; font-weight: 500;
+    border-radius: 2px;
+    transition: background 180ms cubic-bezier(0.2,0,0.2,1);
+  }
+  .cta:hover { background: var(--accent-hover); color: var(--bg); }
+
+  /* Section */
+  .section { margin: 48px 0; max-width: 740px; }
+  .section h2 {
+    font-family: var(--serif); font-size: 1.5rem;
+    color: var(--text-strong); margin-bottom: 18px;
+    padding-bottom: 10px; border-bottom: 1px solid var(--border);
+    font-weight: 500;
+  }
+  .section p { margin: 0.85em 0; }
+  .section .label {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--accent); text-transform: uppercase;
+    letter-spacing: 0.12em; margin-bottom: 10px;
+  }
+
+  /* Operating principles list */
+  .principles { list-style: none; margin: 16px 0 0; padding: 0; }
+  .principles li {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border-hair);
+    display: grid;
+    grid-template-columns: 26px 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+  .principles li:last-child { border-bottom: none; }
+  .principles .stamp {
+    font-family: var(--serif); font-weight: 600;
+    color: var(--accent); font-size: 22px; line-height: 1;
+    padding-top: 2px;
+  }
+  .principles .body {
+    font-family: var(--serif); font-size: 16px;
+    color: var(--text); line-height: 1.55;
+  }
+  .principles .body strong {
+    color: var(--text-strong); font-weight: 600;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 80px; padding: 28px 0;
+    border-top: 1px solid var(--border-hair);
+    text-align: center; font-family: var(--mono);
+    font-size: 12px; color: var(--text-faint);
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .footer .stamp {
+    font-family: var(--serif); font-weight: 600;
+    color: var(--accent); font-size: 34px; margin-right: 14px;
+    vertical-align: -7px; line-height: 1;
+  }
+  .footer a { color: var(--text-dim); }
+  .footer a:hover { color: var(--text-strong); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="/evidensity-reports/" class="wordmark" aria-label="Evidensity Research home">
+    <svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Evidensity"><text font-family="Spectral, 'Hoefler Text', Georgia, serif" font-weight="500" letter-spacing="-1.5"><tspan x="0" y="100" font-size="104" fill="#0e0e0e">Evidensity</tspan><tspan dx="4" y="44" font-size="62" font-weight="600" fill="#7a1f1f">&#8224;</tspan></text></svg>
+  </a>
+  <a href="/evidensity-reports/portfolio/">Reports</a>
+  <a href="/evidensity-reports/services/">Services</a>
+  <a href="/evidensity-reports/about.html">About</a>
+  <a href="/evidensity-reports/contact.html">Contact</a>
+</nav>
+
+<div class="hero">
+  <div class="kicker">About Evidensity</div>
+  <h1>One person. One project at a time.</h1>
+  <p class="sub">
+    Evidensity is a one-person research consultancy run by Jack Flynn.
+    A short note on the background behind the work, and the principles
+    that shape how it gets delivered.
+  </p>
+</div>
+
+<div class="section">
+  <div class="label">Background</div>
+  <h2>From loss models to evidence synthesis</h2>
+  <p>
+    Data science degree, then ten years as a commercial pricing actuary at
+    a top insurer &mdash; building loss-model frameworks deployed globally
+    across many lines of business, including cyber and life sciences
+    liability. The work was an extended education in how decision-makers
+    actually use evidence under deadline pressure: what they read, what
+    they discount, and what makes a number worth acting on.
+  </p>
+  <p>
+    Evidensity grew out of that, and out of a stubborn appetite for
+    learning new domains. The pipeline behind every brief reflects the
+    actuary's instinct: structured extraction, explicit uncertainty,
+    audit trails, and a refusal to let any quantity travel without its
+    source.
+  </p>
+</div>
+
+<div class="section">
+  <div class="label">How the work gets done</div>
+  <h2>Operating principles</h2>
+  <ul class="principles">
+    <li>
+      <span class="stamp">&#8224;</span>
+      <span class="body"><strong>One engagement at a time.</strong>
+      No team, no handoffs. The person who scopes your brief is the
+      person who delivers it.</span>
+    </li>
+    <li>
+      <span class="stamp">&#8224;</span>
+      <span class="body"><strong>Free scoping, returned in 24 hours.</strong>
+      Send the question. Get back the evidence landscape &mdash; how many
+      papers exist, the major themes, what a full analysis would reveal.
+      No commitment.</span>
+    </li>
+    <li>
+      <span class="stamp">&#8224;</span>
+      <span class="body"><strong>Every claim, cited.</strong>
+      Every quantity, finding, and assertion in every report is traced
+      back to a verified source quote. Hover any citation and read the
+      paper's own words.</span>
+    </li>
+    <li>
+      <span class="stamp">&#8224;</span>
+      <span class="body"><strong>Self-contained, archive-stable deliverables.</strong>
+      Reports are single HTML files with embedded citations and tooltips.
+      Readable by your team without dependencies, indexable in your own
+      systems, and unchanged five years from now.</span>
+    </li>
+    <li>
+      <span class="stamp">&#8224;</span>
+      <span class="body"><strong>Methodology, not summarisation.</strong>
+      PRISMA-aligned screening, structured extraction, credibility
+      scoring, and where the data permits, real quantitative
+      meta-analysis &mdash; REML random-effects pooling with forest
+      plots and prediction intervals.</span>
+    </li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="label">Bridge to life sciences</div>
+  <h2>Where the actuarial work meets clinical evidence</h2>
+  <p>
+    Pricing cyber and life sciences liability cover meant sustained
+    exposure to how clinical and safety evidence is weighted under
+    regulatory and financial scrutiny &mdash; what an underwriter
+    accepts, what a regulator wants, where signal stops being signal.
+    That perspective travels into the medical affairs, HEOR, and
+    payer-facing work Evidensity is built for today.
+  </p>
+  <p>
+    A vertical landing for pharma evidence work, with a worked example
+    on IL-23 inhibitors in plaque psoriasis, is here:
+    <a href="pharma/">Pharmaceutical SLR &mdash; live demo</a>.
+  </p>
+</div>
+
+<div class="section" style="text-align: center; padding: 32px 0;">
+  <h2 style="border-bottom: none; padding-bottom: 0;">Start with a question</h2>
+  <p style="font-size: 17px; color: var(--text-dim); margin-bottom: 20px; max-width: 540px; margin-left: auto; margin-right: auto;">
+    Free scoping assessment, returned within 24 hours. No commitment.
+  </p>
+  <p><a class="cta" href="contact.html">Commission a brief</a></p>
+  <p style="margin-top: 14px; font-size: 13px; color: var(--text-dim); font-family: var(--sans);">
+    or email directly: <a href="mailto:evidensity.research@gmail.com">evidensity.research@gmail.com</a>
+  </p>
+</div>
+
+<div class="footer">
+  <span class="stamp">&#8224;</span>
+  Evidensity Research &middot; Every claim, cited &middot;
+  <a href="mailto:evidensity.research@gmail.com">evidensity.research@gmail.com</a>
+</div>
+</body>
+</html>
