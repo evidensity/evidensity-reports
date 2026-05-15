@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Systematic Literature Review Service for PhD Students | Evidensity</title>
+  <meta name="description" content="Systematic literature review and meta-analysis service for PhD students. PRISMA-aligned, every claim cited to source. Structured evidence extraction for your thesis. Fast turnaround from &pound;200.">
+  <link rel="canonical" href="https://evidensity.github.io/evidensity-reports/services/phd-literature-review.html">
+  <meta property="og:title" content="Systematic Literature Review Service for PhD Students | Evidensity">
+  <meta property="og:description" content="Systematic literature review and meta-analysis service for PhD students. PRISMA-aligned, every claim cited to source. Structured evidence extraction for your thesis. Fast turnaround from &pound;200.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Evidensity Research">
+  <meta property="og:image" content="https://evidensity.github.io/evidensity-reports/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Systematic Literature Review Service for PhD Students | Evidensity">
+  <meta name="twitter:description" content="Systematic literature review and meta-analysis service for PhD students. PRISMA-aligned, every claim cited to source. Structured evidence extraction for your thesis. Fast turnaround from &pound;200.">
+  <meta name="twitter:image" content="https://evidensity.github.io/evidensity-reports/og-default.png">
+  <link rel="icon" type="image/svg+xml" href="/evidensity-reports/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/evidensity-reports/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/evidensity-reports/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>  :root {
+    /* Surfaces */
+    --bg: #fdfcf7; --bg-alt: #f8f5ec; --bg-sunk: #f2ede0;
+    /* Ink */
+    --text-strong: #0e0e0e; --text: #1a1a1a;
+    --text-dim: #6b6b6b; --text-faint: #a8a29a;
+    /* Rules */
+    --border: #d8d2c4; --border-hair: #e8e2d4;
+    /* Accent */
+    --accent: #7a1f1f; --accent-hover: #5e1515;
+    --accent-fill: #faf0ee; --accent-light: #7a1f1f;
+    --green: #2d4a2d;
+    /* Typography */
+    --serif: 'Spectral', 'Hoefler Text', Georgia, 'Times New Roman', serif;
+    --sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --mono:  'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--serif);
+    max-width: 960px; margin: 0 auto; padding: 0 28px;
+    color: var(--text); line-height: 1.7; font-size: 17px;
+    background: var(--bg);
+  }
+  a { color: var(--accent); text-decoration: none;
+      transition: color 180ms cubic-bezier(0.2,0,0.2,1); }
+  a:hover { color: var(--accent-hover); }
+
+  /* Nav */
+  nav {
+    display: flex; gap: 28px; align-items: center;
+    padding: 22px 0 20px;
+    border-bottom: 1px solid var(--border-hair);
+    margin-bottom: 48px;
+  }
+  nav .wordmark { margin-right: auto; display: inline-flex; align-items: center; }
+  nav .wordmark svg { height: 40px; width: auto; display: block; }
+  nav a {
+    font-family: var(--sans);
+    font-size: 14px; color: var(--text-dim);
+  }
+  nav a:hover { color: var(--text-strong); }
+
+  /* Headings */
+  h1, h2, h3, h4 {
+    font-family: var(--serif); color: var(--text-strong);
+    font-weight: 500; line-height: 1.25; letter-spacing: -0.01em;
+  }
+
+  /* Hero */
+  .hero { padding: 64px 0 48px; }
+  .hero .kicker {
+    font-family: var(--mono); font-size: 12px;
+    color: var(--accent); text-transform: uppercase;
+    letter-spacing: 0.12em; margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.05; letter-spacing: -0.025em;
+    margin-bottom: 24px; max-width: 860px;
+    color: var(--text-strong);
+  }
+  .hero h1 em { font-style: italic; font-weight: 500; }
+  .hero p.sub {
+    font-family: var(--serif); font-size: 19px;
+    color: var(--text-dim); line-height: 1.5;
+    max-width: 620px; margin-bottom: 36px;
+  }
+
+  /* Call to action */
+  .cta {
+    display: inline-block; padding: 14px 28px;
+    background: var(--accent); color: var(--bg);
+    font-family: var(--sans); font-size: 15px; font-weight: 500;
+    border-radius: 2px;
+    transition: background 180ms cubic-bezier(0.2,0,0.2,1);
+  }
+  .cta:hover { background: var(--accent-hover); color: var(--bg); }
+  .cta-ghost {
+    display: inline-block; margin-left: 20px; padding: 14px 0;
+    color: var(--text-strong); font-family: var(--sans);
+    font-size: 15px; font-weight: 500;
+    border-bottom: 1px solid var(--text-strong);
+  }
+  .cta-ghost:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* Section */
+  .section { margin: 56px 0; }
+  .section h2 {
+    font-family: var(--serif); font-size: 1.65rem;
+    color: var(--text-strong); margin-bottom: 20px;
+    padding-bottom: 12px; border-bottom: 1px solid var(--border);
+    font-weight: 500;
+  }
+  .section-label {
+    font-family: var(--mono); font-size: 12px;
+    color: var(--text-dim); text-transform: uppercase;
+    letter-spacing: 0.1em; margin-bottom: 10px;
+  }
+
+  /* Grid + Card */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    background: var(--bg); border: 1px solid var(--border-hair);
+    padding: 22px 24px;
+    transition: border-color 180ms cubic-bezier(0.2,0,0.2,1);
+  }
+  .card:hover { border-color: var(--border); }
+  .card h3 {
+    font-family: var(--serif); font-size: 1.15rem;
+    line-height: 1.3; margin-bottom: 10px; font-weight: 500;
+  }
+  .card h3 a { color: var(--text-strong); }
+  .card h3 a:hover { color: var(--accent); }
+  .card p {
+    font-family: var(--serif); font-size: 15px;
+    color: var(--text-dim); line-height: 1.55; margin: 0;
+  }
+
+  /* Badge */
+  .badge {
+    display: inline-block; font-family: var(--mono);
+    font-size: 11px; color: var(--text-dim);
+    text-transform: uppercase; letter-spacing: 0.06em;
+    margin-top: 10px; padding: 0;
+    background: transparent; border-radius: 0;
+  }
+
+  /* Preset-name */
+  .preset-name {
+    font-family: var(--sans) !important;
+    font-size: 12px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500 !important;
+    color: var(--text-strong) !important;
+  }
+
+  /* Tables */
+  table { border-collapse: collapse; width: 100%; }
+  th, td {
+    text-align: left; padding: 10px 0;
+    border-bottom: 1px solid var(--border-hair);
+    font-family: var(--serif); font-size: 15px;
+  }
+  th {
+    font-family: var(--sans); font-size: 12px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--text-dim); font-weight: 500;
+    border-bottom-color: var(--border);
+  }
+
+  /* FAQ */
+  details {
+    border-bottom: 1px solid var(--border-hair);
+  }
+  details summary {
+    padding: 16px 0;
+    font-family: var(--serif); font-size: 17px;
+    font-weight: 500; color: var(--text-strong);
+    cursor: pointer; list-style: none;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::after {
+    content: '+';
+    font-family: var(--sans); font-size: 18px;
+    color: var(--text-dim); font-weight: 400;
+    flex-shrink: 0; margin-left: 16px;
+    transition: transform 200ms ease;
+  }
+  details[open] summary::after {
+    content: '\2212';
+  }
+  details .answer {
+    padding: 0 0 20px;
+    font-size: 15px; color: var(--text-dim); line-height: 1.65;
+    max-width: 640px;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 80px; padding: 28px 0;
+    border-top: 1px solid var(--border-hair);
+    text-align: center; font-family: var(--mono);
+    font-size: 12px; color: var(--text-faint);
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .footer .stamp {
+    font-family: var(--serif); font-weight: 600;
+    color: var(--accent); font-size: 34px; margin-right: 14px;
+    vertical-align: -7px; line-height: 1;
+  }
+  .footer a { color: var(--text-dim); }
+  .footer a:hover { color: var(--text-strong); }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 2rem; }
+    .hero p.sub { font-size: 17px; }
+    .grid { grid-template-columns: 1fr; }
+    .steps { flex-direction: column; }
+    .steps .step-arrow { transform: rotate(90deg); }
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Systematic Literature Review Service",
+      "description": "Systematic literature review and meta-analysis service for PhD students and early-career researchers. PRISMA-aligned methodology, structured data extraction, source-verified quotes, and full audit trail. Fast turnaround.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Evidensity Research",
+        "url": "https://evidensity.github.io/evidensity-reports/"
+      },
+      "areaServed": "Worldwide",
+      "serviceType": "Systematic Literature Review",
+      "url": "https://evidensity.github.io/evidensity-reports/services/phd-literature-review.html"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is this legitimate for academic use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. This is structured evidence synthesis using the same methodology found in published systematic reviews. You receive the full audit trail and can verify every claim against its source paper."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this in my thesis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The output is a structured evidence base, not ghostwritten text. You receive extracted data, verified source quotes, and structured findings. You use these to write your own chapters, with full confidence in the underlying evidence."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is this different from using ChatGPT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ChatGPT summarises from training data and frequently hallucinates citations. This service searches real academic databases, extracts from actual papers, and traces every claim to a verbatim quote with section location. Every citation is real and verifiable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What databases do you search?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Semantic Scholar, PubMed, CrossRef, OpenAlex, arXiv, Europe PMC, CORE, DOAJ, ERIC, and more. The specific databases are configured based on your research domain."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How fast is turnaround?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Literature Review Starter: 2-3 days. Full deep analysis: 5-7 days. Turnaround depends on corpus size and analysis depth."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What format do I receive?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A self-contained HTML report with interactive citation tooltips, structured CSV data export for your own analysis, and a complete bibliography in BibTeX and RIS formats."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav>
+  <a href="/evidensity-reports/" class="wordmark" aria-label="Evidensity Research home">
+    <svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Evidensity"><text font-family="Spectral, 'Hoefler Text', Georgia, serif" font-weight="500" letter-spacing="-1.5"><tspan x="0" y="100" font-size="104" fill="#0e0e0e">Evidensity</tspan><tspan dx="4" y="44" font-size="62" font-weight="600" fill="#7a1f1f">&#8224;</tspan></text></svg>
+  </a>
+  <a href="/evidensity-reports/portfolio/">Reports</a>
+  <a href="/evidensity-reports/services/">Services</a>
+  <a href="/evidensity-reports/about.html">About</a>
+  <a href="/evidensity-reports/contact.html">Contact</a>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="kicker">For PhD Students &amp; Early-Career Researchers</div>
+  <h1>Your literature review, <em>done properly</em></h1>
+  <p class="sub">
+    PRISMA-aligned systematic review and meta-analysis. Every claim traced to a
+    verbatim source quote. Structured data you can build a thesis on &mdash;
+    delivered in days, not months.
+  </p>
+  <a class="cta" href="mailto:evidensity.research@gmail.com?subject=PhD%20Literature%20Review%20%E2%80%94%20Free%20Scoping%20Request&body=Hi%20Jack%2C%0A%0AI'm%20working%20on%20my%20PhD%20and%20would%20like%20a%20free%20scoping%20assessment%20for%20the%20following%20research%20question%3A%0A%0ARESEARCH%20QUESTION%3A%0A%5BYour%20question%20here%5D%0A%0AFIELD%3A%0A%0ATHESIS%20STAGE%3A%20%5Be.g.%20literature%20review%20chapter%2C%20background%2C%20proposal%5D%0A%0ATIMELINE%3A%0A%0AThanks">Free scoping assessment</a>
+  <a class="cta-ghost" href="#tiers">View pricing</a>
+</div>
+
+<!-- The Problem -->
+<div class="section">
+  <h2>The problem with literature reviews</h2>
+  <p style="font-size: 17px; line-height: 1.65; color: var(--text-dim); max-width: 680px;">
+    You already know the evidence needs to be synthesised properly. But between
+    teaching, fieldwork, and writing, there are never enough hours to screen
+    thousands of papers, extract data systematically, and trace every claim back
+    to its source. Supervisors expect PRISMA-level rigour. Summarisation tools
+    fabricate citations. And manual extraction takes months of work that
+    delays your entire timeline.
+  </p>
+  <div class="grid" style="margin-top: 28px;">
+    <div class="card" style="border-left: 3px solid var(--accent);">
+      <h3>The time problem</h3>
+      <p>A single systematic review takes an average of 67 weeks. Your thesis
+      timeline does not have 67 weeks to spare on one chapter.</p>
+    </div>
+    <div class="card" style="border-left: 3px solid var(--accent);">
+      <h3>The rigour problem</h3>
+      <p>Supervisors and examiners can tell the difference between a proper
+      structured review and a narrative summary. ChatGPT output will not
+      survive a viva.</p>
+    </div>
+    <div class="card" style="border-left: 3px solid var(--accent);">
+      <h3>The scale problem</h3>
+      <p>Your search returns 2,000 papers. You need to screen, extract, and
+      synthesise them systematically &mdash; with an audit trail showing how
+      you got from corpus to conclusions.</p>
+    </div>
+  </div>
+</div>
+
+<!-- What You Get -->
+<div class="section" id="tiers">
+  <h2>What you get</h2>
+  <p style="font-size: 15px; color: var(--text-dim); margin-bottom: 24px;">
+    Every tier includes structured data extraction, source-verified quotes, and a full audit trail.
+  </p>
+
+  <div class="card" style="padding: 28px; margin-bottom: 20px; border-left: 3px solid var(--accent); background: var(--bg-alt);">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px;">
+      <div>
+        <div class="preset-name" style="margin-bottom: 6px;">Literature Review Starter</div>
+        <h3 style="margin-bottom: 8px; font-size: 1.25rem;">The entry point for most PhD students</h3>
+      </div>
+      <div style="text-align: right;">
+        <div style="font-family: var(--serif); font-size: 1.6rem; font-weight: 500; color: var(--accent);">from &pound;200</div>
+        <div style="font-family: var(--mono); font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.06em;">2&ndash;3 days</div>
+      </div>
+    </div>
+    <p style="margin-top: 12px;">
+      Mini systematic review covering approximately 30 relevant papers. Structured data extraction
+      across methodology, findings, and quality. Short synthesis report with cited claims.
+      Enough to draft a thesis chapter or assess whether a full analysis is worth commissioning.
+    </p>
+    <div style="margin-top: 14px; display: flex; gap: 16px; flex-wrap: wrap; font-family: var(--sans); font-size: 12px; color: var(--text-dim);">
+      <span>Structured extraction</span>
+      <span>&middot;</span>
+      <span>Source-verified quotes</span>
+      <span>&middot;</span>
+      <span>CSV data export</span>
+      <span>&middot;</span>
+      <span>Short synthesis report</span>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card" style="border-left: 3px solid var(--green);">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;">
+        <div class="preset-name">Landscape Scan</div>
+        <div style="font-family: var(--serif); font-size: 1.1rem; font-weight: 500; color: var(--green); white-space: nowrap;">from &pound;500</div>
+      </div>
+      <p style="margin-top: 10px;">
+        Full corpus discovery across 10+ academic databases. Thematic overview of the
+        evidence base, methodology landscape, and quality distribution. Identifies gaps
+        and clusters in the literature. Ideal for scoping a thesis topic or framing a
+        grant application.
+      </p>
+      <div class="badge">3&ndash;5 days</div>
+    </div>
+    <div class="card" style="border-left: 3px solid var(--accent);">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;">
+        <div class="preset-name">Deep Analysis</div>
+        <div style="font-family: var(--serif); font-size: 1.1rem; font-weight: 500; color: var(--accent); white-space: nowrap;">from &pound;3,000</div>
+      </div>
+      <p style="margin-top: 10px;">
+        Full pipeline analysis. Credibility scoring, claim grouping, cross-validation,
+        quantitative meta-analysis with forest plots, and a publication-ready report.
+        For thesis chapters that need to demonstrate command of the field, or for
+        papers targeting peer-reviewed journals.
+      </p>
+      <div class="badge">5&ndash;7 days</div>
+    </div>
+  </div>
+</div>
+
+<!-- How It Works -->
+<div class="section">
+  <h2>How it works</h2>
+  <div class="card" style="padding: 28px; border-left: 3px solid var(--accent);">
+    <div style="display: flex; gap: 24px; flex-wrap: wrap;" class="steps">
+      <div style="flex: 1; min-width: 180px;">
+        <div style="font-family: var(--serif); font-size: 2rem; font-weight: 500; color: var(--accent); line-height: 1;">1</div>
+        <div style="font-family: var(--serif); font-size: 15px; color: var(--text-dim); margin-top: 8px; line-height: 1.5;">
+          <strong style="color: var(--text-strong);">You send the question.</strong>
+          Your research question, field, and what you need the output for (thesis chapter, grant, paper).
+        </div>
+      </div>
+      <div style="flex: 0; display: flex; align-items: center; color: var(--accent); font-size: 1.2rem;" class="step-arrow">&rsaquo;</div>
+      <div style="flex: 1; min-width: 180px;">
+        <div style="font-family: var(--serif); font-size: 2rem; font-weight: 500; color: var(--accent); line-height: 1;">2</div>
+        <div style="font-family: var(--serif); font-size: 15px; color: var(--text-dim); margin-top: 8px; line-height: 1.5;">
+          <strong style="color: var(--text-strong);">I search 10+ databases.</strong>
+          Systematic corpus discovery, screening, full-text extraction, and structured data analysis.
+        </div>
+      </div>
+      <div style="flex: 0; display: flex; align-items: center; color: var(--accent); font-size: 1.2rem;" class="step-arrow">&rsaquo;</div>
+      <div style="flex: 1; min-width: 180px;">
+        <div style="font-family: var(--serif); font-size: 2rem; font-weight: 500; color: var(--accent); line-height: 1;">3</div>
+        <div style="font-family: var(--serif); font-size: 15px; color: var(--text-dim); margin-top: 8px; line-height: 1.5;">
+          <strong style="color: var(--text-strong);">You get structured results.</strong>
+          HTML report with interactive citations, CSV data export, and full bibliography. Every claim cited.
+        </div>
+      </div>
+    </div>
+  </div>
+  <p style="margin-top: 16px; font-size: 14px; color: var(--text-dim); font-family: var(--sans);">
+    Starter reviews delivered in 2&ndash;3 days. Full deep analysis in 5&ndash;7 days.
+  </p>
+</div>
+
+<!-- What Makes This Different -->
+<div class="section">
+  <h2>Not summarisation &mdash; structured evidence synthesis</h2>
+  <p style="font-size: 15px; color: var(--text-dim); margin-bottom: 24px; max-width: 680px;">
+    Summarisation tools generate plausible-sounding text from training data.
+    This is structured evidence extraction from real papers, with a verifiable
+    audit trail at every step.
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 38%;">Dimension</th>
+        <th style="width: 30%;">ChatGPT / Perplexity</th>
+        <th style="width: 32%;">Evidensity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Source material</td>
+        <td style="color: var(--text-dim);">Training data (static, undated)</td>
+        <td><strong>Live academic databases</strong></td>
+      </tr>
+      <tr>
+        <td>Citations</td>
+        <td style="color: var(--text-dim);">Frequently fabricated</td>
+        <td><strong>Real papers, verified quotes</strong></td>
+      </tr>
+      <tr>
+        <td>Methodology</td>
+        <td style="color: var(--text-dim);">Unstructured prompt-response</td>
+        <td><strong>PRISMA-aligned pipeline</strong></td>
+      </tr>
+      <tr>
+        <td>Data extraction</td>
+        <td style="color: var(--text-dim);">Narrative summary</td>
+        <td><strong>Structured fields, CSV export</strong></td>
+      </tr>
+      <tr>
+        <td>Audit trail</td>
+        <td style="color: var(--text-dim);">None</td>
+        <td><strong>Full provenance at every stage</strong></td>
+      </tr>
+      <tr>
+        <td>Quantitative synthesis</td>
+        <td style="color: var(--text-dim);">Not possible</td>
+        <td><strong>Real meta-analysis, forest plots</strong></td>
+      </tr>
+      <tr>
+        <td>Supervisor acceptance</td>
+        <td style="color: var(--text-dim);">Unlikely</td>
+        <td><strong>Methodology your examiner will recognise</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- FAQ -->
+<div class="section">
+  <h2>Questions</h2>
+
+  <details>
+    <summary>Is this legitimate for academic use?</summary>
+    <div class="answer">
+      Yes. This is structured evidence synthesis &mdash; the same methodology used in
+      published systematic reviews. You receive the full audit trail: search strategy,
+      screening decisions, extraction data, and source-verified quotes. Every claim
+      can be checked against its original paper.
+    </div>
+  </details>
+
+  <details>
+    <summary>Can I use this in my thesis?</summary>
+    <div class="answer">
+      The output is a structured evidence base, not ghostwritten text. You receive
+      extracted data, verified source quotes, and structured findings. You use these
+      to write your own chapters &mdash; with confidence that the underlying evidence
+      is real, correctly cited, and systematically gathered.
+    </div>
+  </details>
+
+  <details>
+    <summary>How is this different from using ChatGPT?</summary>
+    <div class="answer">
+      ChatGPT summarises from training data and frequently fabricates citations.
+      This service searches real academic databases, extracts from actual papers,
+      and traces every claim to a verbatim quote with section location. The
+      methodology is auditable and PRISMA-aligned &mdash; the kind of structured
+      review process your supervisor expects.
+    </div>
+  </details>
+
+  <details>
+    <summary>What databases do you search?</summary>
+    <div class="answer">
+      Semantic Scholar, PubMed, CrossRef, OpenAlex, arXiv, Europe PMC, CORE, DOAJ,
+      ERIC, and additional sources depending on your field. The search strategy is
+      configured to your specific research question and domain.
+    </div>
+  </details>
+
+  <details>
+    <summary>How fast is turnaround?</summary>
+    <div class="answer">
+      Literature Review Starter: 2&ndash;3 days. Landscape Scan: 3&ndash;5 days.
+      Deep Analysis: 5&ndash;7 days. Turnaround depends on corpus size and the
+      depth of analysis required. Urgent requests can be accommodated &mdash; ask
+      when you get in touch.
+    </div>
+  </details>
+
+  <details>
+    <summary>What format do I receive?</summary>
+    <div class="answer">
+      A self-contained HTML report with interactive citation tooltips and verified
+      source quotes. Structured CSV data export for your own statistical analysis
+      or import into Excel / SPSS / R. Complete bibliography in BibTeX and RIS formats
+      for direct import into Zotero, Mendeley, or EndNote.
+    </div>
+  </details>
+
+  <details>
+    <summary>Can I ask follow-up questions on the same evidence base?</summary>
+    <div class="answer">
+      Yes. Once the corpus is built, you can submit new research questions and receive
+      fresh analysis in minutes. This is ideal for PhD students who need different
+      framings for different thesis chapters &mdash; the evidence base is already
+      extracted, so each follow-up question is a fraction of the cost.
+    </div>
+  </details>
+</div>
+
+<!-- CTA -->
+<div class="section" style="text-align: center; padding: 40px 0;">
+  <h2 style="border: none; padding-bottom: 0; text-align: center;">Free scoping assessment</h2>
+  <p style="margin: 16px auto; font-size: 17px; line-height: 1.65; max-width: 540px; color: var(--text-dim);">
+    Send your research question. I will map the evidence landscape &mdash; how many
+    papers exist, the major themes, and what a structured review would reveal &mdash;
+    and send it back within 24 hours. No cost, no commitment.
+  </p>
+  <div style="margin-top: 28px;">
+    <a class="cta" href="mailto:evidensity.research@gmail.com?subject=PhD%20Literature%20Review%20%E2%80%94%20Free%20Scoping%20Request&body=Hi%20Jack%2C%0A%0AI'm%20working%20on%20my%20PhD%20and%20would%20like%20a%20free%20scoping%20assessment%20for%20the%20following%20research%20question%3A%0A%0ARESEARCH%20QUESTION%3A%0A%5BYour%20question%20here%5D%0A%0AFIELD%3A%0A%0ATHESIS%20STAGE%3A%20%5Be.g.%20literature%20review%20chapter%2C%20background%2C%20proposal%5D%0A%0ATIMELINE%3A%0A%0AThanks">Send your research question</a>
+  </div>
+  <p style="margin-top: 14px; font-size: 13px; color: var(--text-dim); font-family: var(--sans);">
+    or email directly: <a href="mailto:evidensity.research@gmail.com">evidensity.research@gmail.com</a>
+  </p>
+</div>
+
+<div class="footer">
+  <span class="stamp">&#8224;</span>
+  Evidensity Research &middot; Every claim, cited &middot;
+  <a href="mailto:evidensity.research@gmail.com">evidensity.research@gmail.com</a>
+</div>
+</body>
+</html>
