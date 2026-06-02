@@ -89,8 +89,8 @@ nav a:hover { color: var(--text-strong); }
 
 /* ---- Tables ---- */
 table { border-collapse: collapse; width: 100%; }
-th, td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--border-hair); font-family: var(--serif); font-size: 15px; vertical-align: top; }
-th { font-family: var(--sans); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim); font-weight: 600; border-bottom: 2px solid var(--border); }
+th, td { text-align: left; padding: 10px 0; border-bottom: 1px solid var(--border-hair); font-family: var(--serif); font-size: 15px; }
+th { font-family: var(--sans); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); font-weight: 500; border-bottom-color: var(--border); }
 .highlight-row { background: var(--accent-bg); }
 .check { color: var(--green); font-weight: 600; }
 .cross { color: var(--text-muted); }
