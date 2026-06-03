@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Methodology | Evidensity Research</title>
+  <meta name="description" content="How Evidensity turns a research question into evidence: a systematic, PRISMA-aligned pipeline — search, screening, full-text extraction, source-quote grounding, credibility assessment, and random-effects meta-analysis — benchmarked against published meta-analyses.">
+  <link rel="canonical" href="https://evidensity.github.io/evidensity-reports/methodology.html">
+  <meta property="og:title" content="Methodology | Evidensity Research">
+  <meta property="og:description" content="How Evidensity turns a research question into evidence: a systematic, PRISMA-aligned pipeline — search, screening, full-text extraction, source-quote grounding, credibility assessment, and random-effects meta-analysis.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Evidensity Research">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Methodology | Evidensity Research">
+  <meta name="twitter:description" content="How Evidensity turns a research question into evidence — a systematic, PRISMA-aligned pipeline benchmarked against published meta-analyses.">
+  <meta property="og:image" content="https://evidensity.github.io/evidensity-reports/og-default.png">
+  <meta name="twitter:image" content="https://evidensity.github.io/evidensity-reports/og-default.png">
+  <link rel="icon" type="image/svg+xml" href="/evidensity-reports/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/evidensity-reports/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/evidensity-reports/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/evidensity-reports/assets/evidensity.css">
+  <style>
+    /* methodology: tighter hero, numbered stage blocks, traceability chain */
+    .hero { padding: 40px 0 36px; max-width: 760px; }
+    .hero h1 { font-size: clamp(2rem, 4.2vw, 3rem); line-height: 1.1; }
+    .hero p.sub { margin-bottom: 0; max-width: 660px; }
+    .stage { padding: 22px 0; border-bottom: 1px solid var(--border-hair); display: grid; grid-template-columns: 52px 1fr; gap: 20px; align-items: start; }
+    .stage:last-child { border-bottom: none; }
+    .stage .idx { font-family: var(--serif); font-size: 1.8rem; font-weight: 500; color: var(--accent); line-height: 1; letter-spacing: -0.02em; }
+    .stage h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; margin-bottom: 6px; color: var(--text-strong); }
+    .stage p { font-family: var(--serif); font-size: 15.5px; color: var(--text-dim); line-height: 1.6; margin: 0 0 12px; }
+    .chain { max-width: 620px; margin: 24px auto 8px; }
+    .chain .link-arrow { text-align: center; color: var(--accent); font-family: var(--sans); font-size: 13px; letter-spacing: 0.04em; padding: 10px 0; }
+    @media (max-width: 600px) { .stage { grid-template-columns: 1fr; gap: 6px; } }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/evidensity-reports/" class="wordmark" aria-label="Evidensity Research home">
+    <svg viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Evidensity"><text font-family="Spectral, 'Hoefler Text', Georgia, serif" font-weight="500" letter-spacing="-1.5"><tspan x="0" y="100" font-size="104" fill="#0e0e0e">Evidensity</tspan><tspan dx="4" y="44" font-size="62" font-weight="600" fill="#7a1f1f">&#8224;</tspan></text></svg>
+  </a>
+  <a href="/evidensity-reports/pharma/">Life Sciences</a>
+  <a href="/evidensity-reports/portfolio/">Reports</a>
+  <a href="/evidensity-reports/services/">Services</a>
+  <a href="/evidensity-reports/methodology.html">Methodology</a>
+  <a href="/evidensity-reports/about.html">About</a>
+  <a href="/evidensity-reports/contact.html">Contact</a>
+</nav>
+
+<div class="hero">
+  <div class="kicker">Methodology</div>
+  <h1>The method behind every brief</h1>
+  <p class="sub">
+    Evidensity runs the stages of a systematic literature review (SLR) &mdash;
+    search, screening, extraction, synthesis &mdash; as one structured,
+    reproducible pipeline. Every figure is bound to the source quote it came
+    from, and the whole method is benchmarked against published meta-analyses.
+  </p>
+</div>
+
+<div class="section">
+  <div class="flow">
+    <div class="flow-step"><div class="num">01</div><div class="title">Search</div><div class="detail">10+ databases</div></div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step"><div class="num">02</div><div class="title">Screen</div><div class="detail">Explicit criteria</div></div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step"><div class="num">03</div><div class="title">Extract</div><div class="detail">Full-text schema</div></div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step"><div class="num">04</div><div class="title">Ground</div><div class="detail">Quote + section</div></div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step"><div class="num">05</div><div class="title">Validate</div><div class="detail">Credibility</div></div>
+    <div class="flow-arrow">&rarr;</div>
+    <div class="flow-step"><div class="num">06</div><div class="title">Synthesise</div><div class="detail">Meta-analysis</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Six stages, each answerable to a standard</h2>
+
+  <div class="stage">
+    <div class="idx">1</div>
+    <div>
+      <h3>Search &amp; discovery</h3>
+      <p>A structured query runs across more than ten academic databases &mdash; including PubMed, Europe PMC, Semantic Scholar, OpenAlex, Crossref and arXiv &mdash; to assemble the candidate corpus. Recall comes first: the aim is to surface every potentially relevant study, not a convenient sample.</p>
+      <span class="tag tag-green">PRISMA &middot; Identification</span>
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="idx">2</div>
+    <div>
+      <h3>Screening &amp; eligibility</h3>
+      <p>Every record is screened against explicit, pre-stated inclusion and exclusion criteria. On-topic studies pass, off-topic ones are excluded, and ambiguous ones are flagged for review rather than silently dropped &mdash; so the resulting corpus is defensible and reproducible.</p>
+      <span class="tag tag-green">PRISMA &middot; Screening &amp; eligibility</span>
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="idx">3</div>
+    <div>
+      <h3>Full-text extraction</h3>
+      <p>For each included paper the full text &mdash; not just the abstract &mdash; is parsed into a structured schema: methods, datasets, sample sizes, outcomes, effect sizes and confidence intervals. Findings are captured as data, not prose, so they can be compared and pooled downstream.</p>
+      <span class="tag tag-green">Structured data extraction</span>
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="idx">4</div>
+    <div>
+      <h3>Source grounding</h3>
+      <p>Every extracted figure and claim is bound to the verbatim sentence and section it came from. Nothing enters the synthesis without a traceable source span &mdash; this is the mechanism behind <em>&ldquo;every claim, cited.&rdquo;</em></p>
+      <span class="tag tag-accent">Traceability &middot; audit trail</span>
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="idx">5</div>
+    <div>
+      <h3>Validation &amp; credibility</h3>
+      <p>Extractions are cross-checked across stages to catch inconsistencies, and each study receives a multi-dimensional credibility assessment &mdash; methodological soundness, reporting completeness, directness. Weaker evidence is down-weighted and labelled, not silently mixed in.</p>
+      <span class="tag tag-green">Risk-of-bias &middot; GRADE-style certainty</span>
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="idx">6</div>
+    <div>
+      <h3>Quantitative synthesis</h3>
+      <p>Where outcomes are comparable, effects are pooled with random-effects meta-analysis (restricted maximum likelihood, REML), reporting heterogeneity (I&sup2;, &tau;&sup2;, Q), prediction intervals and forest plots. Where pooling isn&rsquo;t appropriate, the synthesis stays narrative &mdash; and says so.</p>
+      <span class="tag tag-green">Random-effects meta-analysis</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="label">The signature step</div>
+  <h2>&ldquo;Every claim, cited&rdquo; &mdash; what that actually means</h2>
+  <p>
+    A general-purpose model will summarise a literature and sound confident; it
+    won&rsquo;t show you where each number came from. Evidensity inverts that. Every
+    figure in a report resolves to the exact words it was extracted from &mdash;
+    here is the shape of a single citation (illustrative):
+  </p>
+
+  <div class="chain">
+    <div class="card">
+      <div class="section-label" style="margin-bottom:6px;">Claim in the report</div>
+      <p style="font-family:var(--serif); font-size:16px; color:var(--text); margin:0;">Direct oral anticoagulants reduced stroke or systemic embolism versus warfarin (risk ratio 0.86).</p>
+    </div>
+    <div class="link-arrow">&darr;&nbsp;&nbsp;bound to its source span</div>
+    <div class="quote" style="margin-top:0;">
+      &ldquo;&hellip;the rate of stroke or systemic embolism was significantly lower with the direct oral anticoagulant than with warfarin&hellip;&rdquo;
+      <div style="font-family:var(--sans); font-size:12px; color:var(--text-dim); margin-top:10px; letter-spacing:0.02em;">&mdash; source paper &middot; Results section</div>
+    </div>
+  </div>
+
+  <p style="margin-top:18px;">
+    See it live: hover any citation in the
+    <a href="pharma/glp1-cardiovascular-outcomes-evidence-bundle.html" target="_blank">GLP-1</a> or
+    <a href="pharma/doac-vs-warfarin-af-evidence-bundle.html" target="_blank">DOAC</a>
+    evidence bundle and the source&rsquo;s own sentence appears.
+  </p>
+</div>
+
+<div class="section">
+  <div class="label">Proof</div>
+  <h2>Validated by reproduction</h2>
+  <p>
+    The strongest test of a method is whether it reproduces results an
+    independent team has already published. Run from a single plain-text
+    question, the pipeline reproduces the headline findings of landmark
+    meta-analyses:
+  </p>
+  <ul class="principles" style="margin-top:18px;">
+    <li>
+      <span class="stamp">&#8224;</span>
+      <span class="body"><strong>GLP-1 receptor agonists &amp; cardiovascular outcomes.</strong>
+      Pooled 3-point major adverse cardiovascular events (MACE) of 0.86 across
+      the cardiovascular outcome trials, with near-zero heterogeneity &mdash;
+      matching Sattar et al. (2021).</span>
+    </li>
+    <li>
+      <span class="stamp">&#8224;</span>
+      <span class="body"><strong>Direct oral anticoagulants vs warfarin in atrial fibrillation.</strong>
+      Pooled stroke or systemic embolism of 0.86 across the pivotal randomised
+      trials &mdash; reproducing the primary-efficacy finding of Ruff et al. (2014).</span>
+    </li>
+  </ul>
+  <p style="margin-top:18px;">
+    Both are on the <a href="pharma/">Life Sciences</a> page, with forest plots
+    and the full concordance.
+  </p>
+</div>
+
+<div class="section">
+  <div class="label">What you receive</div>
+  <h2>One self-contained, auditable deliverable</h2>
+  <p>
+    Every engagement arrives as a single interactive evidence bundle: browse the
+    whole corpus, trace each claim to its source quote, and inspect the
+    credibility scorecard, forest plots and the full reference list. It is one
+    HTML file &mdash; readable by your team without dependencies, indexable in
+    your own systems, and stable years from now.
+  </p>
+</div>
+
+<div class="section" style="text-align: center; padding: 32px 0;">
+  <h2 style="border-bottom: none; padding-bottom: 0;">Start with a question</h2>
+  <p style="font-size: 17px; color: var(--text-dim); margin-bottom: 20px; max-width: 540px; margin-left: auto; margin-right: auto;">
+    Free scoping assessment, returned within 24 hours. No commitment.
+  </p>
+  <p><a class="cta" href="contact.html">Commission a brief</a></p>
+  <p style="margin-top: 14px; font-size: 13px; color: var(--text-dim); font-family: var(--sans);">
+    or email directly: <a href="mailto:evidensity.research@gmail.com">evidensity.research@gmail.com</a>
+  </p>
+</div>
+
+<div class="footer">
+  <span class="stamp">&#8224;</span>
+  Evidensity Research &middot; Every claim, cited &middot;
+  <a href="mailto:evidensity.research@gmail.com">evidensity.research@gmail.com</a>
+</div>
+</body>
+</html>
