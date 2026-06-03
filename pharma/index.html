@@ -364,9 +364,12 @@ ul.evidence-gap li {
   border-bottom: 1px solid var(--ev-rule-hair);
   vertical-align: top;
 }
-.comparison-table tr:nth-child(even) td {
-  background: var(--ev-ivory-raised);
-}
+/* Landscape heatmap — honest per-cell capability rating */
+.comparison-table td.hm-good { background: rgba(45, 74, 45, 0.15); }
+.comparison-table td.hm-mid  { background: rgba(138, 106, 31, 0.16); }
+.comparison-table td.hm-poor { background: rgba(168, 60, 44, 0.14); }
+.comparison-table th:last-child,
+.comparison-table td:last-child { border-left: 2px solid var(--ev-accent-rule); }
 .comparison-table td:first-child {
   font-weight: 600;
   color: var(--ev-ink-strong);
@@ -823,62 +826,67 @@ ul.evidence-gap li {
       <tbody>
         <tr>
           <td>Search</td>
-          <td>Unstructured web</td>
-          <td>Academic databases</td>
-          <td>Systematic, manual</td>
-          <td>10+ academic databases, systematic criteria</td>
+          <td class="hm-poor">Unstructured web</td>
+          <td class="hm-good">Academic databases</td>
+          <td class="hm-good">Systematic, manual</td>
+          <td class="hm-good">10+ academic databases, systematic criteria</td>
         </tr>
         <tr>
           <td>Extraction</td>
-          <td>Prose summary</td>
-          <td>Abstract-level</td>
-          <td>Full-text, manual</td>
-          <td>Full-text structured schemas</td>
+          <td class="hm-poor">Prose summary</td>
+          <td class="hm-mid">Abstract-level</td>
+          <td class="hm-good">Full-text, manual</td>
+          <td class="hm-good">Full-text structured schemas</td>
         </tr>
         <tr>
           <td>Grounding</td>
-          <td>Often hallucinated</td>
-          <td>Citation-level</td>
-          <td>Gold standard</td>
-          <td>Verbatim quote + section</td>
+          <td class="hm-poor">Often hallucinated</td>
+          <td class="hm-mid">Citation-level</td>
+          <td class="hm-good">Gold standard</td>
+          <td class="hm-good">Verbatim quote + section</td>
         </tr>
         <tr>
           <td>Quantitative Pooling</td>
-          <td>None</td>
-          <td>None</td>
-          <td>Separate biostatistician</td>
-          <td>REML random-effects, forest plots</td>
+          <td class="hm-poor">None</td>
+          <td class="hm-poor">None</td>
+          <td class="hm-good">Separate biostatistician</td>
+          <td class="hm-good">REML random-effects, forest plots</td>
         </tr>
         <tr>
           <td>Credibility</td>
-          <td>None</td>
-          <td>None</td>
-          <td>Manual (RoB-2, GRADE)</td>
-          <td>Multi-dimensional per paper</td>
+          <td class="hm-poor">None</td>
+          <td class="hm-poor">None</td>
+          <td class="hm-good">Manual (RoB-2, GRADE)</td>
+          <td class="hm-good">Multi-dimensional per paper</td>
         </tr>
         <tr>
           <td>Timeline</td>
-          <td>Minutes</td>
-          <td>Minutes</td>
-          <td>1.72 years avg</td>
-          <td>Hours</td>
+          <td class="hm-good">Minutes</td>
+          <td class="hm-good">Minutes</td>
+          <td class="hm-poor">1.72 years avg</td>
+          <td class="hm-good">Hours</td>
         </tr>
         <tr>
           <td>Cost</td>
-          <td>Low</td>
-          <td>Low</td>
-          <td>~$141,000 per review</td>
-          <td>Enquire</td>
+          <td class="hm-good">Low</td>
+          <td class="hm-good">Low</td>
+          <td class="hm-poor">~$141,000 per review</td>
+          <td class="hm-good">Enquire</td>
         </tr>
         <tr>
           <td>Output</td>
-          <td>Chat response</td>
-          <td>Paper list</td>
-          <td>Publication-ready report</td>
-          <td>Publication-ready SLR report</td>
+          <td class="hm-mid">Chat response</td>
+          <td class="hm-mid">Paper list</td>
+          <td class="hm-good">Publication-ready report</td>
+          <td class="hm-good">Publication-ready SLR report</td>
         </tr>
       </tbody>
     </table>
+    <p style="font-family: var(--ev-font-sans); font-size: 0.78rem; color: var(--ev-ink-muted); margin-top: 0.85rem; text-align: center;">
+      <span style="display:inline-block; width:11px; height:11px; background:rgba(45,74,45,0.5); border-radius:2px; vertical-align:middle;"></span> Strong&nbsp;&nbsp;
+      <span style="display:inline-block; width:11px; height:11px; background:rgba(138,106,31,0.5); border-radius:2px; vertical-align:middle;"></span> Partial&nbsp;&nbsp;
+      <span style="display:inline-block; width:11px; height:11px; background:rgba(168,60,44,0.45); border-radius:2px; vertical-align:middle;"></span> Limited / none&nbsp;&nbsp;&mdash;&nbsp;&nbsp;coloured per cell, honestly assessed
+    </p>
   </div>
 </section>
 
